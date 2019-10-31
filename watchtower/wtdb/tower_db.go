@@ -4,10 +4,10 @@ import (
 	"bytes"
 	"errors"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/coreos/bbolt"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/watchtower/blob"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/watchtower/blob"
 )
 
 const (

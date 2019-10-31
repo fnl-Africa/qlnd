@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/btcsuite/btcwallet/chain"
-	"github.com/lightningnetwork/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/chainntnfs"
 )
 
 // UnsafeStart starts the notifier with a specified best height and optional

@@ -12,26 +12,26 @@ import (
 	"sync"
 	"time"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/rpcclient"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/btcsuite/btcwallet/chain"
 	"github.com/btcsuite/btcwallet/wallet"
 	"github.com/btcsuite/btcwallet/walletdb"
 	"github.com/lightninglabs/neutrino"
 	"github.com/lightninglabs/neutrino/headerfs"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/chainntnfs/bitcoindnotify"
-	"github.com/lightningnetwork/lnd/chainntnfs/btcdnotify"
-	"github.com/lightningnetwork/lnd/chainntnfs/neutrinonotify"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/htlcswitch"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwallet/btcwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing/chainview"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/chainntnfs/bitcoindnotify"
+	"github.com/qtumproject/lnd/chainntnfs/btcdnotify"
+	"github.com/qtumproject/lnd/chainntnfs/neutrinonotify"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/htlcswitch"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwallet/btcwallet"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/routing/chainview"
 )
 
 const (
@@ -51,7 +51,7 @@ const (
 	defaultLitecoinBaseFeeMSat   = lnwire.MilliSatoshi(1000)
 	defaultLitecoinFeeRate       = lnwire.MilliSatoshi(1)
 	defaultLitecoinTimeLockDelta = 576
-	defaultLitecoinDustLimit     = btcutil.Amount(54600)
+	defaultLitecoinDustLimit     = qtumsuite.Amount(54600)
 
 	// defaultBitcoinStaticFeePerKW is the fee rate of 50 sat/vbyte
 	// expressed in sat/kw.

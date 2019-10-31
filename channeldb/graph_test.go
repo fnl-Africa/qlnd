@@ -15,11 +15,11 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/coreos/bbolt"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/qtumproject/lnd/lnwire"
 )
 
 var (

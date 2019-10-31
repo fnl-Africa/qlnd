@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"io"
 
-	bitcoinCfg "github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/wire"
+	bitcoinCfg "github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/coreos/bbolt"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/zpay32"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/zpay32"
 	litecoinCfg "github.com/ltcsuite/ltcd/chaincfg"
 )
 

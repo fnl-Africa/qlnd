@@ -15,12 +15,12 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/btcsuite/btcd/btcjson"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/integration/rpctest"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/btcsuite/btcwallet/chain"
 	"github.com/btcsuite/btcwallet/walletdb"
 	"github.com/lightninglabs/neutrino"
@@ -45,8 +45,8 @@ func randPubKeyHashScript() ([]byte, *btcec.PrivateKey, error) {
 		return nil, nil, err
 	}
 
-	pubKeyHash := btcutil.Hash160(privKey.PubKey().SerializeCompressed())
-	addrScript, err := btcutil.NewAddressPubKeyHash(pubKeyHash, NetParams)
+	pubKeyHash := qtumsuite.Hash160(privKey.PubKey().SerializeCompressed())
+	addrScript, err := qtumsuite.NewAddressPubKeyHash(pubKeyHash, NetParams)
 	if err != nil {
 		return nil, nil, err
 	}

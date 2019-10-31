@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/lnwallet"
 )
 
 // TestDetermineFeePerKw tests that given a fee preference, the
@@ -167,7 +167,7 @@ var sweepScript = []byte{
 	0xe, 0x6e, 0xf8, 0xef,
 }
 
-var deliveryAddr = func() btcutil.Address {
+var deliveryAddr = func() qtumsuite.Address {
 	_, addrs, _, err := txscript.ExtractPkScriptAddrs(
 		sweepScript, &chaincfg.TestNet3Params,
 	)

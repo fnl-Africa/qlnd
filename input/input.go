@@ -1,8 +1,8 @@
 package input
 
 import (
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
 )
 
 // Input represents an abstract UTXO which is to be spent using a sweeping

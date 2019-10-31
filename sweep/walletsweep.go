@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/lnwallet"
 )
 
 const (
@@ -153,7 +153,7 @@ type WalletSweepPackage struct {
 // target fee rate, and will use the utxoSource and outpointLocker as sources
 // for wallet funds.
 func CraftSweepAllTx(feeRate lnwallet.SatPerKWeight, blockHeight uint32,
-	deliveryAddr btcutil.Address, coinSelectLocker CoinSelectionLocker,
+	deliveryAddr qtumsuite.Address, coinSelectLocker CoinSelectionLocker,
 	utxoSource UtxoSource, outpointLocker OutpointLocker,
 	feeEstimator lnwallet.FeeEstimator,
 	signer input.Signer) (*WalletSweepPackage, error) {

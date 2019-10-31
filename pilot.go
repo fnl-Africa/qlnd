@@ -6,11 +6,11 @@ import (
 	"net"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/autopilot"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/tor"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/autopilot"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/tor"
 )
 
 // validateAtplConfig is a helper method that makes sure the passed
@@ -80,7 +80,7 @@ type chanController struct {
 // specified amount. This function should un-block immediately after the
 // funding transaction that marks the channel open has been broadcast.
 func (c *chanController) OpenChannel(target *btcec.PublicKey,
-	amt btcutil.Amount) error {
+	amt qtumsuite.Amount) error {
 
 	// With the connection established, we'll now establish our connection
 	// to the target peer, waiting for the first update before we exit.
@@ -124,11 +124,11 @@ func (c *chanController) CloseChannel(chanPoint *wire.OutPoint) error {
 	return nil
 }
 func (c *chanController) SpliceIn(chanPoint *wire.OutPoint,
-	amt btcutil.Amount) (*autopilot.Channel, error) {
+	amt qtumsuite.Amount) (*autopilot.Channel, error) {
 	return nil, nil
 }
 func (c *chanController) SpliceOut(chanPoint *wire.OutPoint,
-	amt btcutil.Amount) (*autopilot.Channel, error) {
+	amt qtumsuite.Amount) (*autopilot.Channel, error) {
 	return nil, nil
 }
 
@@ -148,8 +148,8 @@ func initAutoPilot(svr *server, cfg *autoPilotConfig) (*autopilot.ManagerCfg, er
 
 	// Set up the constraints the autopilot heuristics must adhere to.
 	atplConstraints := autopilot.NewConstraints(
-		btcutil.Amount(cfg.MinChannelSize),
-		btcutil.Amount(cfg.MaxChannelSize),
+		qtumsuite.Amount(cfg.MinChannelSize),
+		qtumsuite.Amount(cfg.MaxChannelSize),
 		uint16(cfg.MaxChannels),
 		10,
 		cfg.Allocation,
@@ -178,7 +178,7 @@ func initAutoPilot(svr *server, cfg *autoPilotConfig) (*autopilot.ManagerCfg, er
 			minConfs:   cfg.MinConfs,
 			confTarget: cfg.ConfTarget,
 		},
-		WalletBalance: func() (btcutil.Amount, error) {
+		WalletBalance: func() (qtumsuite.Amount, error) {
 			return svr.cc.wallet.ConfirmedBalance(cfg.MinConfs)
 		},
 		Graph:       autopilot.ChannelGraphFromDatabase(svr.chanDB.ChannelGraph()),

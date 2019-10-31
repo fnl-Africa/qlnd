@@ -14,12 +14,12 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/coreos/bbolt"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/qtumproject/lnd/lnwire"
 )
 
 var (
@@ -2424,7 +2424,7 @@ type ChannelEdgeInfo struct {
 
 	// Capacity is the total capacity of the channel, this is determined by
 	// the value output in the outpoint that created this channel.
-	Capacity btcutil.Amount
+	Capacity qtumsuite.Amount
 
 	// ExtraOpaqueData is the set of data that was appended to this
 	// message, some of which we may not actually know how to iterate or

@@ -3,10 +3,10 @@ package wtwire_test
 import (
 	"testing"
 
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/watchtower/wtwire"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/watchtower/wtwire"
 )
 
 var (

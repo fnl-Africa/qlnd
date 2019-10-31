@@ -9,26 +9,26 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/coreos/bbolt"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/go-errors/errors"
 
 	sphinx "github.com/lightningnetwork/lightning-onion"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/htlcswitch"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lntypes"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwallet/chanvalidate"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/multimutex"
-	"github.com/lightningnetwork/lnd/routing/chainview"
-	"github.com/lightningnetwork/lnd/routing/route"
-	"github.com/lightningnetwork/lnd/ticker"
-	"github.com/lightningnetwork/lnd/tlv"
-	"github.com/lightningnetwork/lnd/zpay32"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/htlcswitch"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwallet/chanvalidate"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/multimutex"
+	"github.com/qtumproject/lnd/routing/chainview"
+	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/lnd/ticker"
+	"github.com/qtumproject/lnd/tlv"
+	"github.com/qtumproject/lnd/zpay32"
 )
 
 const (
@@ -1229,7 +1229,7 @@ func (r *ChannelRouter) processUpdate(msg interface{}) error {
 
 		// TODO(roasbeef): this is a hack, needs to be removed
 		// after commitment fees are dynamic.
-		msg.Capacity = btcutil.Amount(chanUtxo.Value)
+		msg.Capacity = qtumsuite.Amount(chanUtxo.Value)
 		msg.ChannelPoint = *fundingPoint
 		if err := r.cfg.Graph.AddChannelEdge(msg); err != nil {
 			return errors.Errorf("unable to add edge: %v", err)

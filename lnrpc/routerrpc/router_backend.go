@@ -10,14 +10,14 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing"
-	"github.com/lightningnetwork/lnd/routing/route"
-	"github.com/lightningnetwork/lnd/tlv"
-	"github.com/lightningnetwork/lnd/zpay32"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/routing"
+	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/lnd/tlv"
+	"github.com/qtumproject/lnd/zpay32"
 )
 
 // RouterBackend contains the backend implementation of the router rpc sub
@@ -31,7 +31,7 @@ type RouterBackend struct {
 
 	// FetchChannelCapacity is a closure that we'll use the fetch the total
 	// capacity of a channel to populate in responses.
-	FetchChannelCapacity func(chanID uint64) (btcutil.Amount, error)
+	FetchChannelCapacity func(chanID uint64) (qtumsuite.Amount, error)
 
 	// FetchChannelEndpoints returns the pubkeys of both endpoints of the
 	// given channel id.
@@ -121,7 +121,7 @@ func (r *RouterBackend) QueryRoutes(ctx context.Context,
 	// Currently, within the bootstrap phase of the network, we limit the
 	// largest payment size allotted to (2^32) - 1 mSAT or 4.29 million
 	// satoshis.
-	amt := btcutil.Amount(in.Amt)
+	amt := qtumsuite.Amount(in.Amt)
 	amtMSat := lnwire.NewMSatFromSatoshis(amt)
 	if amtMSat > r.MaxPaymentMSat {
 		return nil, fmt.Errorf("payment of %v is too large, max payment "+
@@ -310,7 +310,7 @@ func calculateFeeLimit(feeLimit *lnrpc.FeeLimit,
 	switch feeLimit.GetLimit().(type) {
 	case *lnrpc.FeeLimit_Fixed:
 		return lnwire.NewMSatFromSatoshis(
-			btcutil.Amount(feeLimit.GetFixed()),
+			qtumsuite.Amount(feeLimit.GetFixed()),
 		)
 	case *lnrpc.FeeLimit_Percent:
 		return amount * lnwire.MilliSatoshi(feeLimit.GetPercent()) / 100
@@ -496,7 +496,7 @@ func (r *RouterBackend) extractIntentFromSendRequest(
 
 	// Take fee limit from request.
 	payIntent.FeeLimit = lnwire.NewMSatFromSatoshis(
-		btcutil.Amount(rpcPayReq.FeeLimitSat),
+		qtumsuite.Amount(rpcPayReq.FeeLimitSat),
 	)
 
 	// Set payment attempt timeout.
@@ -569,7 +569,7 @@ func (r *RouterBackend) extractIntentFromSendRequest(
 			}
 
 			payIntent.Amount = lnwire.NewMSatFromSatoshis(
-				btcutil.Amount(rpcPayReq.Amt),
+				qtumsuite.Amount(rpcPayReq.Amt),
 			)
 		} else {
 			if rpcPayReq.Amt != 0 {
@@ -615,7 +615,7 @@ func (r *RouterBackend) extractIntentFromSendRequest(
 		}
 
 		payIntent.Amount = lnwire.NewMSatFromSatoshis(
-			btcutil.Amount(rpcPayReq.Amt),
+			qtumsuite.Amount(rpcPayReq.Amt),
 		)
 
 		// Payment hash.

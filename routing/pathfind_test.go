@@ -18,13 +18,13 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing/route"
-	"github.com/lightningnetwork/lnd/zpay32"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/lnd/zpay32"
 )
 
 const (
@@ -272,7 +272,7 @@ func parseTestGraph(path string) (*testGraphInstance, error) {
 			ChannelID:    edge.ChannelID,
 			AuthProof:    &testAuthProof,
 			ChannelPoint: fundingPoint,
-			Capacity:     btcutil.Amount(edge.Capacity),
+			Capacity:     qtumsuite.Amount(edge.Capacity),
 		}
 
 		copy(edgeInfo.NodeKey1Bytes[:], node1Bytes)
@@ -325,7 +325,7 @@ type testChannelEnd struct {
 	*testChannelPolicy
 }
 
-func symmetricTestChannel(alias1 string, alias2 string, capacity btcutil.Amount,
+func symmetricTestChannel(alias1 string, alias2 string, capacity qtumsuite.Amount,
 	policy *testChannelPolicy, chanID ...uint64) *testChannel {
 
 	// Leaving id zero will result in auto-generation of a channel id during
@@ -355,7 +355,7 @@ func symmetricTestChannel(alias1 string, alias2 string, capacity btcutil.Amount,
 type testChannel struct {
 	Node1     *testChannelEnd
 	Node2     *testChannelEnd
-	Capacity  btcutil.Amount
+	Capacity  qtumsuite.Amount
 	ChannelID uint64
 }
 
@@ -691,7 +691,7 @@ type expectedHop struct {
 
 type basicGraphPathFindingTestCase struct {
 	target                string
-	paymentAmt            btcutil.Amount
+	paymentAmt            qtumsuite.Amount
 	feeLimit              lnwire.MilliSatoshi
 	expectedTotalAmt      lnwire.MilliSatoshi
 	expectedTotalTimeLock uint32
@@ -1317,7 +1317,7 @@ func TestPathInsufficientCapacity(t *testing.T) {
 	// though we have a 2-hop link.
 	target := graph.aliasMap["sophon"]
 
-	payAmt := lnwire.NewMSatFromSatoshis(btcutil.SatoshiPerBitcoin)
+	payAmt := lnwire.NewMSatFromSatoshis(qtumsuite.SatoshiPerBitcoin)
 	_, err = findPath(
 		&graphParams{
 			graph: graph.graph,

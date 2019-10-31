@@ -7,13 +7,13 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnrpc/walletrpc"
-	"github.com/lightningnetwork/lnd/lntest"
-	"github.com/lightningnetwork/lnd/lntest/wait"
-	"github.com/lightningnetwork/lnd/sweep"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/lnd/lnrpc/walletrpc"
+	"github.com/qtumproject/lnd/lntest"
+	"github.com/qtumproject/lnd/lntest/wait"
+	"github.com/qtumproject/lnd/sweep"
 )
 
 // testCPFP ensures that the daemon can bump an unconfirmed  transaction's fee
@@ -31,7 +31,7 @@ func testCPFP(net *lntest.NetworkHarness, t *harnessTest) {
 	// send to Bob.
 	ctxb := context.Background()
 	ctxt, _ := context.WithTimeout(ctxb, defaultTimeout)
-	err := net.SendCoins(ctxt, btcutil.SatoshiPerBitcoin, net.Alice)
+	err := net.SendCoins(ctxt, qtumsuite.SatoshiPerBitcoin, net.Alice)
 	if err != nil {
 		t.Fatalf("unable to send coins to alice: %v", err)
 	}
@@ -50,7 +50,7 @@ func testCPFP(net *lntest.NetworkHarness, t *harnessTest) {
 	// be broadcast and seen in the mempool.
 	sendReq := &lnrpc.SendCoinsRequest{
 		Addr:   resp.Address,
-		Amount: btcutil.SatoshiPerBitcoin,
+		Amount: qtumsuite.SatoshiPerBitcoin,
 	}
 	ctxt, _ = context.WithTimeout(ctxb, defaultTimeout)
 	if _, err = net.Alice.SendCoins(ctxt, sendReq); err != nil {

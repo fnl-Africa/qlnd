@@ -6,10 +6,10 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 	sphinx "github.com/lightningnetwork/lightning-onion"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/htlcswitch"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing/route"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/htlcswitch"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/routing/route"
 )
 
 // errNoRoute is returned when all routes from the payment session have been

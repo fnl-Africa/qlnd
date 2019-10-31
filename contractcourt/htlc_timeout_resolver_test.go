@@ -7,11 +7,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/btcsuite/btcd/wire"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lntypes"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/lnd/lnwallet"
 )
 
 type mockSigner struct {

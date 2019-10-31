@@ -6,10 +6,10 @@ import (
 	"sync/atomic"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/lntypes"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/queue"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/queue"
 )
 
 var (

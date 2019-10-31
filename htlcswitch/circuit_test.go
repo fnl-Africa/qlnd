@@ -7,13 +7,13 @@ import (
 	"testing"
 
 	"github.com/btcsuite/btcd/btcec"
-	bitcoinCfg "github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcutil"
+	bitcoinCfg "github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite"
 	sphinx "github.com/lightningnetwork/lightning-onion"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/htlcswitch"
-	"github.com/lightningnetwork/lnd/htlcswitch/hop"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/htlcswitch"
+	"github.com/qtumproject/lnd/htlcswitch/hop"
+	"github.com/qtumproject/lnd/lnwire"
 )
 
 var (
@@ -125,8 +125,8 @@ func TestCircuitMapInit(t *testing.T) {
 
 var halfCircuitTests = []struct {
 	hash      [32]byte
-	inValue   btcutil.Amount
-	outValue  btcutil.Amount
+	inValue   qtumsuite.Amount
+	outValue  qtumsuite.Amount
 	chanID    lnwire.ShortChannelID
 	htlcID    uint64
 	encrypter hop.ErrorEncrypter

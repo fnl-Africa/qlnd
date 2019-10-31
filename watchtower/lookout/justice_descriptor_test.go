@@ -9,19 +9,19 @@ import (
 
 	"github.com/btcsuite/btcd/blockchain"
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcutil/txsort"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/qtumsuite/txsort"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/watchtower/blob"
-	"github.com/lightningnetwork/lnd/watchtower/lookout"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
-	"github.com/lightningnetwork/lnd/watchtower/wtmock"
-	"github.com/lightningnetwork/lnd/watchtower/wtpolicy"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/watchtower/blob"
+	"github.com/qtumproject/lnd/watchtower/lookout"
+	"github.com/qtumproject/lnd/watchtower/wtdb"
+	"github.com/qtumproject/lnd/watchtower/wtmock"
+	"github.com/qtumproject/lnd/watchtower/wtpolicy"
 )
 
 const csvDelay uint32 = 144
@@ -81,8 +81,8 @@ func TestJusticeDescriptor(t *testing.T) {
 
 func testJusticeDescriptor(t *testing.T, blobType blob.Type) {
 	const (
-		localAmount  = btcutil.Amount(100000)
-		remoteAmount = btcutil.Amount(200000)
+		localAmount  = qtumsuite.Amount(100000)
+		remoteAmount = qtumsuite.Amount(200000)
 		totalAmount  = localAmount + remoteAmount
 	)
 
@@ -239,7 +239,7 @@ func testJusticeDescriptor(t *testing.T, blobType blob.Type) {
 	}
 
 	// Verify that our test justice transaction is sane.
-	btx := btcutil.NewTx(justiceTxn)
+	btx := qtumsuite.NewTx(justiceTxn)
 	if err := blockchain.CheckTransactionSanity(btx); err != nil {
 		t.Fatalf("justice txn is not sane: %v", err)
 	}

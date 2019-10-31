@@ -9,8 +9,8 @@ import (
 	"strings"
 
 	"github.com/lightningnetwork/lnd"
-	"github.com/lightningnetwork/lnd/lnrpc/routerrpc"
-	"github.com/lightningnetwork/lnd/routing/route"
+	"github.com/qtumproject/lnd/lnrpc/routerrpc"
+	"github.com/qtumproject/lnd/routing/route"
 	"github.com/urfave/cli"
 )
 

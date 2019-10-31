@@ -7,12 +7,12 @@ import (
 	"net"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/shachain"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/shachain"
 )
 
 // writeOutpoint writes an outpoint to the passed writer using the minimal
@@ -136,7 +136,7 @@ func WriteElement(w io.Writer, element interface{}) error {
 			return err
 		}
 
-	case btcutil.Amount:
+	case qtumsuite.Amount:
 		if err := binary.Write(w, byteOrder, uint64(e)); err != nil {
 			return err
 		}
@@ -308,13 +308,13 @@ func ReadElement(r io.Reader, element interface{}) error {
 			return err
 		}
 
-	case *btcutil.Amount:
+	case *qtumsuite.Amount:
 		var a uint64
 		if err := binary.Read(r, byteOrder, &a); err != nil {
 			return err
 		}
 
-		*e = btcutil.Amount(a)
+		*e = qtumsuite.Amount(a)
 
 	case *lnwire.MilliSatoshi:
 		var a uint64

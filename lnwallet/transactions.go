@@ -5,9 +5,9 @@ import (
 	"fmt"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/input"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/input"
 )
 
 const (
@@ -44,7 +44,7 @@ var (
 // In order to spend the HTLC output, the witness for the passed transaction
 // should be:
 //   * <0> <sender sig> <recvr sig> <preimage>
-func createHtlcSuccessTx(htlcOutput wire.OutPoint, htlcAmt btcutil.Amount,
+func createHtlcSuccessTx(htlcOutput wire.OutPoint, htlcAmt qtumsuite.Amount,
 	csvDelay uint32,
 	revocationKey, delayKey *btcec.PublicKey) (*wire.MsgTx, error) {
 
@@ -97,7 +97,7 @@ func createHtlcSuccessTx(htlcOutput wire.OutPoint, htlcAmt btcutil.Amount,
 // NOTE: The passed amount for the HTLC should take into account the required
 // fee rate at the time the HTLC was created. The fee should be able to
 // entirely pay for this (tiny: 1-in 1-out) transaction.
-func createHtlcTimeoutTx(htlcOutput wire.OutPoint, htlcAmt btcutil.Amount,
+func createHtlcTimeoutTx(htlcOutput wire.OutPoint, htlcAmt qtumsuite.Amount,
 	cltvExpiry, csvDelay uint32,
 	revocationKey, delayKey *btcec.PublicKey) (*wire.MsgTx, error) {
 

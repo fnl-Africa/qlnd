@@ -5,13 +5,13 @@ import (
 	"net"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/lightningnetwork/lnd/chanbackup"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/contractcourt"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/shachain"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/lnd/chanbackup"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/contractcourt"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/shachain"
 )
 
 // chanDBRestorer is an implementation of the chanbackup.ChannelRestorer

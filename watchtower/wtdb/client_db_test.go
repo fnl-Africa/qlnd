@@ -11,12 +11,12 @@ import (
 	"testing"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/watchtower/blob"
-	"github.com/lightningnetwork/lnd/watchtower/wtclient"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
-	"github.com/lightningnetwork/lnd/watchtower/wtmock"
-	"github.com/lightningnetwork/lnd/watchtower/wtpolicy"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/watchtower/blob"
+	"github.com/qtumproject/lnd/watchtower/wtclient"
+	"github.com/qtumproject/lnd/watchtower/wtdb"
+	"github.com/qtumproject/lnd/watchtower/wtmock"
+	"github.com/qtumproject/lnd/watchtower/wtpolicy"
 )
 
 // clientDBInit is a closure used to initialize a wtclient.DB instance its

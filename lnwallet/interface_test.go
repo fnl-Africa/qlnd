@@ -19,28 +19,28 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/btcsuite/btcd/btcjson"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/integration/rpctest"
 	"github.com/btcsuite/btcd/mempool"
 	"github.com/btcsuite/btcd/rpcclient"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/btcsuite/btcwallet/chain"
 	"github.com/btcsuite/btcwallet/walletdb"
 	_ "github.com/btcsuite/btcwallet/walletdb/bdb"
 	"github.com/coreos/bbolt"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/lightninglabs/neutrino"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/chainntnfs/btcdnotify"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwallet/btcwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/chainntnfs/btcdnotify"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwallet/btcwallet"
+	"github.com/qtumproject/lnd/lnwire"
 )
 
 var (
@@ -239,7 +239,7 @@ func loadTestCredits(miner *rpctest.Harness, w *lnwallet.LightningWallet,
 	}
 	// Using the mining node, spend from a coinbase output numOutputs to
 	// give us btcPerOutput with each output.
-	satoshiPerOutput, err := btcutil.NewAmount(btcPerOutput)
+	satoshiPerOutput, err := qtumsuite.NewAmount(btcPerOutput)
 	if err != nil {
 		return fmt.Errorf("unable to create amt: %v", err)
 	}
@@ -247,8 +247,8 @@ func loadTestCredits(miner *rpctest.Harness, w *lnwallet.LightningWallet,
 	if err != nil {
 		return err
 	}
-	expectedBalance += btcutil.Amount(int64(satoshiPerOutput) * int64(numOutputs))
-	addrs := make([]btcutil.Address, 0, numOutputs)
+	expectedBalance += qtumsuite.Amount(int64(satoshiPerOutput) * int64(numOutputs))
+	addrs := make([]qtumsuite.Address, 0, numOutputs)
 	for i := 0; i < numOutputs; i++ {
 		// Grab a fresh address from the wallet to house this output.
 		walletAddr, err := w.NewAddress(lnwallet.WitnessPubKey, false)
@@ -333,7 +333,7 @@ func createTestWallet(tempTestDir string, miningNode *rpctest.Harness,
 		FeeEstimator:     lnwallet.NewStaticFeeEstimator(2500, 0),
 		DefaultConstraints: channeldb.ChannelConstraints{
 			DustLimit:        500,
-			MaxPendingAmount: lnwire.NewMSatFromSatoshis(btcutil.SatoshiPerBitcoin) * 100,
+			MaxPendingAmount: lnwire.NewMSatFromSatoshis(qtumsuite.SatoshiPerBitcoin) * 100,
 			ChanReserve:      100,
 			MinHTLC:          400,
 			MaxAcceptedHtlcs: 900,
@@ -361,7 +361,7 @@ func createTestWallet(tempTestDir string, miningNode *rpctest.Harness,
 func testDualFundingReservationWorkflow(miner *rpctest.Harness,
 	alice, bob *lnwallet.LightningWallet, t *testing.T) {
 
-	fundingAmount, err := btcutil.NewAmount(5)
+	fundingAmount, err := qtumsuite.NewAmount(5)
 	if err != nil {
 		t.Fatalf("unable to create amt: %v", err)
 	}
@@ -570,7 +570,7 @@ func testFundingTransactionLockedOutputs(miner *rpctest.Harness,
 	alice, _ *lnwallet.LightningWallet, t *testing.T) {
 
 	// Create a single channel asking for 16 BTC total.
-	fundingAmount, err := btcutil.NewAmount(8)
+	fundingAmount, err := qtumsuite.NewAmount(8)
 	if err != nil {
 		t.Fatalf("unable to create amt: %v", err)
 	}
@@ -596,7 +596,7 @@ func testFundingTransactionLockedOutputs(miner *rpctest.Harness,
 	// Now attempt to reserve funds for another channel, this time
 	// requesting 900 BTC. We only have around 64BTC worth of outpoints
 	// that aren't locked, so this should fail.
-	amt, err := btcutil.NewAmount(900)
+	amt, err := qtumsuite.NewAmount(900)
 	if err != nil {
 		t.Fatalf("unable to create amt: %v", err)
 	}
@@ -632,7 +632,7 @@ func testFundingCancellationNotEnoughFunds(miner *rpctest.Harness,
 	}
 
 	// Create a reservation for 44 BTC.
-	fundingAmount, err := btcutil.NewAmount(44)
+	fundingAmount, err := qtumsuite.NewAmount(44)
 	if err != nil {
 		t.Fatalf("unable to create amt: %v", err)
 	}
@@ -718,13 +718,13 @@ func testReservationInitiatorBalanceBelowDustCancel(miner *rpctest.Harness,
 	// commitment fee rate. This should push our balance into the negative
 	// and result in a failure to create the reservation.
 	const numBTC = 4
-	fundingAmount, err := btcutil.NewAmount(numBTC)
+	fundingAmount, err := qtumsuite.NewAmount(numBTC)
 	if err != nil {
 		t.Fatalf("unable to create amt: %v", err)
 	}
 
 	feePerKw := lnwallet.SatPerKWeight(
-		numBTC * numBTC * btcutil.SatoshiPerBitcoin,
+		numBTC * numBTC * qtumsuite.SatoshiPerBitcoin,
 	)
 	req := &lnwallet.InitFundingReserveMsg{
 		ChainHash:        chainHash,
@@ -799,11 +799,11 @@ func testSingleFunderReservationWorkflow(miner *rpctest.Harness,
 	// First, Alice will Initialize a reservation for a channel with 4 BTC
 	// funded solely by us. We'll also initially push 1 BTC of the channel
 	// towards Bob's side.
-	fundingAmt, err := btcutil.NewAmount(4)
+	fundingAmt, err := qtumsuite.NewAmount(4)
 	if err != nil {
 		t.Fatalf("unable to create amt: %v", err)
 	}
-	pushAmt := lnwire.NewMSatFromSatoshis(btcutil.SatoshiPerBitcoin)
+	pushAmt := lnwire.NewMSatFromSatoshis(qtumsuite.SatoshiPerBitcoin)
 	feePerKw, err := alice.Cfg.FeeEstimator.EstimateFeePerKW(1)
 	if err != nil {
 		t.Fatalf("unable to query fee estimator: %v", err)
@@ -1031,7 +1031,7 @@ func testListTransactionDetails(miner *rpctest.Harness,
 
 	// Create 5 new outputs spendable by the wallet.
 	const numTxns = 5
-	const outputAmt = btcutil.SatoshiPerBitcoin
+	const outputAmt = qtumsuite.SatoshiPerBitcoin
 	txids := make(map[chainhash.Hash]struct{})
 	for i := 0; i < numTxns; i++ {
 		addr, err := alice.NewAddress(lnwallet.WitnessPubKey, false)
@@ -1118,7 +1118,7 @@ func testListTransactionDetails(miner *rpctest.Harness,
 			t.Fatalf("tx (%v) not found in block (%v)",
 				txDetail.Hash, txDetail.BlockHash)
 		} else {
-			var destinationAddresses []btcutil.Address
+			var destinationAddresses []qtumsuite.Address
 
 			for _, txOut := range txOuts {
 				_, addrs, _, err :=
@@ -1270,7 +1270,7 @@ func testTransactionSubscriptions(miner *rpctest.Harness,
 	defer txClient.Cancel()
 
 	const (
-		outputAmt = btcutil.SatoshiPerBitcoin
+		outputAmt = qtumsuite.SatoshiPerBitcoin
 		numTxns   = 3
 	)
 	errCh1 := make(chan error, 1)
@@ -1424,8 +1424,8 @@ func testTransactionSubscriptions(miner *rpctest.Harness,
 
 // scriptFromKey creates a P2WKH script from the given pubkey.
 func scriptFromKey(pubkey *btcec.PublicKey) ([]byte, error) {
-	pubkeyHash := btcutil.Hash160(pubkey.SerializeCompressed())
-	keyAddr, err := btcutil.NewAddressWitnessPubKeyHash(
+	pubkeyHash := qtumsuite.Hash160(pubkey.SerializeCompressed())
+	keyAddr, err := qtumsuite.NewAddressWitnessPubKeyHash(
 		pubkeyHash, &chaincfg.RegressionNetParams,
 	)
 	if err != nil {
@@ -1476,7 +1476,7 @@ func mineAndAssert(r *rpctest.Harness, tx *wire.MsgTx) error {
 // txFromOutput takes a tx paying to fromPubKey, and creates a new tx that
 // spends the output from this tx, to an address derived from payToPubKey.
 func txFromOutput(tx *wire.MsgTx, signer input.Signer, fromPubKey,
-	payToPubKey *btcec.PublicKey, txFee btcutil.Amount,
+	payToPubKey *btcec.PublicKey, txFee qtumsuite.Amount,
 	rbf bool) (*wire.MsgTx, error) {
 
 	// Generate the script we want to spend from.
@@ -1579,7 +1579,7 @@ func newTx(t *testing.T, r *rpctest.Harness, pubKey *btcec.PublicKey,
 	// Instruct the wallet to fund the output with a newly created
 	// transaction.
 	newOutput := &wire.TxOut{
-		Value:    btcutil.SatoshiPerBitcoin,
+		Value:    qtumsuite.SatoshiPerBitcoin,
 		PkScript: keyScript,
 	}
 	tx, err := alice.SendOutputs([]*wire.TxOut{newOutput}, 2500)
@@ -1594,7 +1594,7 @@ func newTx(t *testing.T, r *rpctest.Harness, pubKey *btcec.PublicKey,
 	}
 
 	// Create a new unconfirmed tx that spends this output.
-	txFee := btcutil.Amount(0.1 * btcutil.SatoshiPerBitcoin)
+	txFee := qtumsuite.Amount(0.1 * qtumsuite.SatoshiPerBitcoin)
 	tx1, err := txFromOutput(
 		tx, alice.Cfg.Signer, pubKey, pubKey, txFee, rbf,
 	)
@@ -1671,7 +1671,7 @@ func testPublishTransaction(r *rpctest.Harness,
 	// We'll do the next mempool check on both RBF and non-RBF enabled
 	// transactions.
 	var (
-		txFee         = btcutil.Amount(0.05 * btcutil.SatoshiPerBitcoin)
+		txFee         = qtumsuite.Amount(0.05 * qtumsuite.SatoshiPerBitcoin)
 		tx3, tx3Spend *wire.MsgTx
 	)
 
@@ -1848,8 +1848,8 @@ func testSignOutputUsingTweaks(r *rpctest.Harness,
 
 		// Using the given key for the current iteration, we'll
 		// generate a regular p2wkh from that.
-		pubkeyHash := btcutil.Hash160(tweakedKey.SerializeCompressed())
-		keyAddr, err := btcutil.NewAddressWitnessPubKeyHash(pubkeyHash,
+		pubkeyHash := qtumsuite.Hash160(tweakedKey.SerializeCompressed())
+		keyAddr, err := qtumsuite.NewAddressWitnessPubKeyHash(pubkeyHash,
 			&chaincfg.RegressionNetParams)
 		if err != nil {
 			t.Fatalf("unable to create addr: %v", err)
@@ -1862,7 +1862,7 @@ func testSignOutputUsingTweaks(r *rpctest.Harness,
 		// With the script fully assembled, instruct the wallet to fund
 		// the output with a newly created transaction.
 		newOutput := &wire.TxOut{
-			Value:    btcutil.SatoshiPerBitcoin,
+			Value:    qtumsuite.SatoshiPerBitcoin,
 			PkScript: keyScript,
 		}
 		tx, err := alice.SendOutputs([]*wire.TxOut{newOutput}, 2500)
@@ -1938,7 +1938,7 @@ func testSignOutputUsingTweaks(r *rpctest.Harness,
 		// the proper private key.
 		vm, err := txscript.NewEngine(keyScript,
 			sweepTx, 0, txscript.StandardVerifyFlags, nil,
-			nil, int64(btcutil.SatoshiPerBitcoin))
+			nil, int64(qtumsuite.SatoshiPerBitcoin))
 		if err != nil {
 			t.Fatalf("unable to create engine: %v", err)
 		}
@@ -2152,7 +2152,7 @@ func testChangeOutputSpendConfirmation(r *rpctest.Harness,
 	// TODO(wilmer): replace this once SendOutputs easily supports sending
 	// all funds in one transaction.
 	txFeeRate := lnwallet.SatPerKWeight(2500)
-	txFee := btcutil.Amount(14380)
+	txFee := qtumsuite.Amount(14380)
 	output := &wire.TxOut{
 		Value:    int64(aliceBalance - txFee),
 		PkScript: bobPkScript,
@@ -2176,7 +2176,7 @@ func testChangeOutputSpendConfirmation(r *rpctest.Harness,
 	// Now, we'll send an output back to Alice from Bob of 1 BTC.
 	alicePkScript := newPkScript(t, alice, lnwallet.WitnessPubKey)
 	output = &wire.TxOut{
-		Value:    btcutil.SatoshiPerBitcoin,
+		Value:    qtumsuite.SatoshiPerBitcoin,
 		PkScript: alicePkScript,
 	}
 	tx = sendCoins(t, r, bob, alice, output, txFeeRate)
@@ -2188,7 +2188,7 @@ func testChangeOutputSpendConfirmation(r *rpctest.Harness,
 	// output, which is what the test expects. Therefore, we'll generate one
 	// by sending Bob back some coins.
 	output = &wire.TxOut{
-		Value:    btcutil.SatoshiPerBitcent,
+		Value:    qtumsuite.SatoshiPerBitcent,
 		PkScript: bobPkScript,
 	}
 	tx = sendCoins(t, r, alice, bob, output, txFeeRate)
@@ -2599,7 +2599,7 @@ func clearWalletStates(a, b *lnwallet.LightningWallet) error {
 
 func waitForMempoolTx(r *rpctest.Harness, txid *chainhash.Hash) error {
 	var found bool
-	var tx *btcutil.Tx
+	var tx *qtumsuite.Tx
 	var err error
 	timeout := time.After(30 * time.Second)
 	for !found {

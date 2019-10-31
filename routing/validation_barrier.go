@@ -4,9 +4,9 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing/route"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/routing/route"
 )
 
 // ErrVBarrierShuttingDown signals that the barrier has been requested to

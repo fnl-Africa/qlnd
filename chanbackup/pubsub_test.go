@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/btcsuite/btcd/wire"
+	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/keychain"
+	"github.com/qtumproject/lnd/keychain"
 )
 
 type mockSwapper struct {

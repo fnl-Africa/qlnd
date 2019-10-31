@@ -12,20 +12,20 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/contractcourt"
-	"github.com/lightningnetwork/lnd/htlcswitch"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/netann"
-	"github.com/lightningnetwork/lnd/shachain"
-	"github.com/lightningnetwork/lnd/ticker"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/contractcourt"
+	"github.com/qtumproject/lnd/htlcswitch"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/netann"
+	"github.com/qtumproject/lnd/shachain"
+	"github.com/qtumproject/lnd/ticker"
 )
 
 var (
@@ -100,10 +100,10 @@ func createTestPeer(notifier chainntnfs.ChainNotifier,
 	bobKeyPriv, bobKeyPub := btcec.PrivKeyFromBytes(btcec.S256(),
 		bobsPrivKey)
 
-	channelCapacity := btcutil.Amount(10 * 1e8)
+	channelCapacity := qtumsuite.Amount(10 * 1e8)
 	channelBal := channelCapacity / 2
-	aliceDustLimit := btcutil.Amount(200)
-	bobDustLimit := btcutil.Amount(1300)
+	aliceDustLimit := qtumsuite.Amount(200)
+	bobDustLimit := qtumsuite.Amount(1300)
 	csvTimeoutAlice := uint32(5)
 	csvTimeoutBob := uint32(4)
 
@@ -117,7 +117,7 @@ func createTestPeer(notifier chainntnfs.ChainNotifier,
 		ChannelConstraints: channeldb.ChannelConstraints{
 			DustLimit:        aliceDustLimit,
 			MaxPendingAmount: lnwire.MilliSatoshi(rand.Int63()),
-			ChanReserve:      btcutil.Amount(rand.Int63()),
+			ChanReserve:      qtumsuite.Amount(rand.Int63()),
 			MinHTLC:          lnwire.MilliSatoshi(rand.Int63()),
 			MaxAcceptedHtlcs: uint16(rand.Int31()),
 			CsvDelay:         uint16(csvTimeoutAlice),
@@ -142,7 +142,7 @@ func createTestPeer(notifier chainntnfs.ChainNotifier,
 		ChannelConstraints: channeldb.ChannelConstraints{
 			DustLimit:        bobDustLimit,
 			MaxPendingAmount: lnwire.MilliSatoshi(rand.Int63()),
-			ChanReserve:      btcutil.Amount(rand.Int63()),
+			ChanReserve:      qtumsuite.Amount(rand.Int63()),
 			MinHTLC:          lnwire.MilliSatoshi(rand.Int63()),
 			MaxAcceptedHtlcs: uint16(rand.Int31()),
 			CsvDelay:         uint16(csvTimeoutBob),
@@ -225,7 +225,7 @@ func createTestPeer(notifier chainntnfs.ChainNotifier,
 		CommitHeight:  0,
 		LocalBalance:  lnwire.NewMSatFromSatoshis(channelBal),
 		RemoteBalance: lnwire.NewMSatFromSatoshis(channelBal),
-		FeePerKw:      btcutil.Amount(feePerKw),
+		FeePerKw:      qtumsuite.Amount(feePerKw),
 		CommitFee:     feePerKw.FeeForWeight(input.CommitWeight),
 		CommitTx:      aliceCommitTx,
 		CommitSig:     bytes.Repeat([]byte{1}, 71),
@@ -234,7 +234,7 @@ func createTestPeer(notifier chainntnfs.ChainNotifier,
 		CommitHeight:  0,
 		LocalBalance:  lnwire.NewMSatFromSatoshis(channelBal),
 		RemoteBalance: lnwire.NewMSatFromSatoshis(channelBal),
-		FeePerKw:      btcutil.Amount(feePerKw),
+		FeePerKw:      qtumsuite.Amount(feePerKw),
 		CommitFee:     feePerKw.FeeForWeight(input.CommitWeight),
 		CommitTx:      bobCommitTx,
 		CommitSig:     bytes.Repeat([]byte{1}, 71),

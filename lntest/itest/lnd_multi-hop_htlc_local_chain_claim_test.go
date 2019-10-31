@@ -7,14 +7,14 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/btcsuite/btcd/wire"
+	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/lightningnetwork/lnd"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnrpc/invoicesrpc"
-	"github.com/lightningnetwork/lnd/lntest"
-	"github.com/lightningnetwork/lnd/lntest/wait"
-	"github.com/lightningnetwork/lnd/lntypes"
+	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/lnd/lnrpc/invoicesrpc"
+	"github.com/qtumproject/lnd/lntest"
+	"github.com/qtumproject/lnd/lntest/wait"
+	"github.com/qtumproject/lnd/lntypes"
 )
 
 // testMultiHopHtlcLocalChainClaim tests that in a multi-hop HTLC scenario, if

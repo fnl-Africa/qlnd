@@ -5,7 +5,7 @@ import (
 	"net"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/wire"
+	"github.com/qtumproject/qtumsuite/wire"
 )
 
 // NetAddress represents information pertaining to the identity and network

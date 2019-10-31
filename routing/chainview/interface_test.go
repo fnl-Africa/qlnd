@@ -14,19 +14,19 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/btcsuite/btcd/btcjson"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/integration/rpctest"
 	"github.com/btcsuite/btcd/rpcclient"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/btcsuite/btcwallet/chain"
 	"github.com/btcsuite/btcwallet/walletdb"
 	_ "github.com/btcsuite/btcwallet/walletdb/bdb" // Required to register the boltdb walletdb implementation.
 
 	"github.com/lightninglabs/neutrino"
-	"github.com/lightningnetwork/lnd/channeldb"
+	"github.com/qtumproject/lnd/channeldb"
 )
 
 var (
@@ -40,7 +40,7 @@ var (
 	}
 
 	privKey, pubKey = btcec.PrivKeyFromBytes(btcec.S256(), testPrivKey)
-	addrPk, _       = btcutil.NewAddressPubKey(pubKey.SerializeCompressed(),
+	addrPk, _       = qtumsuite.NewAddressPubKey(pubKey.SerializeCompressed(),
 		netParams)
 	testAddr = addrPk.AddressPubKeyHash()
 
@@ -49,7 +49,7 @@ var (
 
 func waitForMempoolTx(r *rpctest.Harness, txid *chainhash.Hash) error {
 	var found bool
-	var tx *btcutil.Tx
+	var tx *qtumsuite.Tx
 	var err error
 	timeout := time.After(10 * time.Second)
 	for !found {
@@ -481,7 +481,7 @@ func testFilterSingleBlock(node *rpctest.Harness, chainView FilteredChainView,
 	if err != nil {
 		t.Fatalf("unable to create spending tx: %v", err)
 	}
-	txns := []*btcutil.Tx{btcutil.NewTx(spendingTx1), btcutil.NewTx(spendingTx2)}
+	txns := []*qtumsuite.Tx{qtumsuite.NewTx(spendingTx1), qtumsuite.NewTx(spendingTx2)}
 	block, err := node.GenerateAndSubmitBlock(txns, 11, time.Time{})
 	if err != nil {
 		t.Fatalf("unable to generate block: %v", err)

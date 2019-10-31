@@ -8,14 +8,14 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcjson"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/rpcclient"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/queue"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/queue"
 )
 
 const (
@@ -40,7 +40,7 @@ type chainUpdate struct {
 // the registered RPC client. This struct is used as an element within an
 // unbounded queue in order to avoid blocking the main rpc dispatch rule.
 type txUpdate struct {
-	tx      *btcutil.Tx
+	tx      *qtumsuite.Tx
 	details *btcjson.BlockDetails
 }
 
@@ -239,7 +239,7 @@ func (b *BtcdNotifier) onBlockConnected(hash *chainhash.Hash, height int32, t ti
 type filteredBlock struct {
 	hash   chainhash.Hash
 	height uint32
-	txns   []*btcutil.Tx
+	txns   []*qtumsuite.Tx
 
 	// connected is true if this update is a new block and false if it is a
 	// disconnected block.
@@ -262,7 +262,7 @@ func (b *BtcdNotifier) onBlockDisconnected(hash *chainhash.Hash, height int32, t
 }
 
 // onRedeemingTx implements on OnRedeemingTx callback for rpcclient.
-func (b *BtcdNotifier) onRedeemingTx(tx *btcutil.Tx, details *btcjson.BlockDetails) {
+func (b *BtcdNotifier) onRedeemingTx(tx *qtumsuite.Tx, details *btcjson.BlockDetails) {
 	// Append this new transaction update to the end of the queue of new
 	// chain updates.
 	select {
@@ -609,7 +609,7 @@ func (b *BtcdNotifier) handleBlockConnected(epoch chainntnfs.BlockEpoch) error {
 	newBlock := &filteredBlock{
 		hash:    *epoch.Hash,
 		height:  uint32(epoch.Height),
-		txns:    btcutil.NewBlock(rawBlock).Transactions(),
+		txns:    qtumsuite.NewBlock(rawBlock).Transactions(),
 		connect: true,
 	}
 

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 )
 
 // TestShaChainProducerRestore checks the ability of shachain producer to be

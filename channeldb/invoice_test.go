@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/qtumproject/lnd/lnwire"
 )
 
 func randInvoice(value lnwire.MilliSatoshi) (*Invoice, error) {

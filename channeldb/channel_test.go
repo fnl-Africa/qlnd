@@ -11,14 +11,14 @@ import (
 	"testing"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	_ "github.com/btcsuite/btcwallet/walletdb/bdb"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/shachain"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/shachain"
 )
 
 var (
@@ -115,9 +115,9 @@ func createTestChannelState(cdb *DB) (*OpenChannel, error) {
 
 	localCfg := ChannelConfig{
 		ChannelConstraints: ChannelConstraints{
-			DustLimit:        btcutil.Amount(rand.Int63()),
+			DustLimit:        qtumsuite.Amount(rand.Int63()),
 			MaxPendingAmount: lnwire.MilliSatoshi(rand.Int63()),
-			ChanReserve:      btcutil.Amount(rand.Int63()),
+			ChanReserve:      qtumsuite.Amount(rand.Int63()),
 			MinHTLC:          lnwire.MilliSatoshi(rand.Int63()),
 			MaxAcceptedHtlcs: uint16(rand.Int31()),
 			CsvDelay:         uint16(rand.Int31()),
@@ -140,9 +140,9 @@ func createTestChannelState(cdb *DB) (*OpenChannel, error) {
 	}
 	remoteCfg := ChannelConfig{
 		ChannelConstraints: ChannelConstraints{
-			DustLimit:        btcutil.Amount(rand.Int63()),
+			DustLimit:        qtumsuite.Amount(rand.Int63()),
 			MaxPendingAmount: lnwire.MilliSatoshi(rand.Int63()),
-			ChanReserve:      btcutil.Amount(rand.Int63()),
+			ChanReserve:      qtumsuite.Amount(rand.Int63()),
 			MinHTLC:          lnwire.MilliSatoshi(rand.Int63()),
 			MaxAcceptedHtlcs: uint16(rand.Int31()),
 			CsvDelay:         uint16(rand.Int31()),
@@ -194,7 +194,7 @@ func createTestChannelState(cdb *DB) (*OpenChannel, error) {
 		IsInitiator:       true,
 		IsPending:         true,
 		IdentityPub:       pubKey,
-		Capacity:          btcutil.Amount(10000),
+		Capacity:          qtumsuite.Amount(10000),
 		LocalChanCfg:      localCfg,
 		RemoteChanCfg:     remoteCfg,
 		TotalMSatSent:     8,
@@ -203,8 +203,8 @@ func createTestChannelState(cdb *DB) (*OpenChannel, error) {
 			CommitHeight:  0,
 			LocalBalance:  lnwire.MilliSatoshi(9000),
 			RemoteBalance: lnwire.MilliSatoshi(3000),
-			CommitFee:     btcutil.Amount(rand.Int63()),
-			FeePerKw:      btcutil.Amount(5000),
+			CommitFee:     qtumsuite.Amount(rand.Int63()),
+			FeePerKw:      qtumsuite.Amount(5000),
 			CommitTx:      testTx,
 			CommitSig:     bytes.Repeat([]byte{1}, 71),
 		},
@@ -212,8 +212,8 @@ func createTestChannelState(cdb *DB) (*OpenChannel, error) {
 			CommitHeight:  0,
 			LocalBalance:  lnwire.MilliSatoshi(3000),
 			RemoteBalance: lnwire.MilliSatoshi(9000),
-			CommitFee:     btcutil.Amount(rand.Int63()),
-			FeePerKw:      btcutil.Amount(5000),
+			CommitFee:     qtumsuite.Amount(rand.Int63()),
+			FeePerKw:      qtumsuite.Amount(5000),
 			CommitTx:      testTx,
 			CommitSig:     bytes.Repeat([]byte{1}, 71),
 		},
@@ -315,8 +315,8 @@ func TestOpenChannelPutGetDelete(t *testing.T) {
 	closeSummary := &ChannelCloseSummary{
 		ChanPoint:         state.FundingOutpoint,
 		RemotePub:         state.IdentityPub,
-		SettledBalance:    btcutil.Amount(500),
-		TimeLockedBalance: btcutil.Amount(10000),
+		SettledBalance:    qtumsuite.Amount(500),
+		TimeLockedBalance: qtumsuite.Amount(10000),
 		IsPending:         false,
 		CloseType:         CooperativeClose,
 	}
@@ -617,8 +617,8 @@ func TestChannelStateTransition(t *testing.T) {
 	closeSummary := &ChannelCloseSummary{
 		ChanPoint:         channel.FundingOutpoint,
 		RemotePub:         channel.IdentityPub,
-		SettledBalance:    btcutil.Amount(500),
-		TimeLockedBalance: btcutil.Amount(10000),
+		SettledBalance:    qtumsuite.Amount(500),
+		TimeLockedBalance: qtumsuite.Amount(10000),
 		IsPending:         false,
 		CloseType:         RemoteForceClose,
 	}

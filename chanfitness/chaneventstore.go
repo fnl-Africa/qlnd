@@ -16,11 +16,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/channelnotifier"
-	"github.com/lightningnetwork/lnd/peernotifier"
-	"github.com/lightningnetwork/lnd/routing/route"
-	"github.com/lightningnetwork/lnd/subscribe"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/channelnotifier"
+	"github.com/qtumproject/lnd/peernotifier"
+	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/lnd/subscribe"
 )
 
 // errShuttingDown is returned when the store cannot respond to a query because

@@ -18,21 +18,21 @@ import (
 	"strings"
 	"time"
 
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite"
 	flags "github.com/jessevdk/go-flags"
-	"github.com/lightningnetwork/lnd/autopilot"
-	"github.com/lightningnetwork/lnd/build"
-	"github.com/lightningnetwork/lnd/chanbackup"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/discovery"
-	"github.com/lightningnetwork/lnd/htlcswitch"
-	"github.com/lightningnetwork/lnd/htlcswitch/hodl"
-	"github.com/lightningnetwork/lnd/lncfg"
-	"github.com/lightningnetwork/lnd/lnrpc/routerrpc"
-	"github.com/lightningnetwork/lnd/lnrpc/signrpc"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing"
-	"github.com/lightningnetwork/lnd/tor"
+	"github.com/qtumproject/lnd/autopilot"
+	"github.com/qtumproject/lnd/build"
+	"github.com/qtumproject/lnd/chanbackup"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/discovery"
+	"github.com/qtumproject/lnd/htlcswitch"
+	"github.com/qtumproject/lnd/htlcswitch/hodl"
+	"github.com/qtumproject/lnd/lncfg"
+	"github.com/qtumproject/lnd/lnrpc/routerrpc"
+	"github.com/qtumproject/lnd/lnrpc/signrpc"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/routing"
+	"github.com/qtumproject/lnd/tor"
 )
 
 const (
@@ -129,7 +129,7 @@ const (
 )
 
 var (
-	defaultLndDir     = btcutil.AppDataDir("lnd", false)
+	defaultLndDir     = qtumsuite.AppDataDir("lnd", false)
 	defaultConfigFile = filepath.Join(defaultLndDir, defaultConfigFilename)
 	defaultDataDir    = filepath.Join(defaultLndDir, defaultDataDirname)
 	defaultLogDir     = filepath.Join(defaultLndDir, defaultLogDirname)
@@ -139,14 +139,14 @@ var (
 	defaultTLSCertPath = filepath.Join(defaultLndDir, defaultTLSCertFilename)
 	defaultTLSKeyPath  = filepath.Join(defaultLndDir, defaultTLSKeyFilename)
 
-	defaultBtcdDir         = btcutil.AppDataDir("btcd", false)
+	defaultBtcdDir         = qtumsuite.AppDataDir("btcd", false)
 	defaultBtcdRPCCertFile = filepath.Join(defaultBtcdDir, "rpc.cert")
 
-	defaultLtcdDir         = btcutil.AppDataDir("ltcd", false)
+	defaultLtcdDir         = qtumsuite.AppDataDir("ltcd", false)
 	defaultLtcdRPCCertFile = filepath.Join(defaultLtcdDir, "rpc.cert")
 
-	defaultBitcoindDir  = btcutil.AppDataDir("bitcoin", false)
-	defaultLitecoindDir = btcutil.AppDataDir("litecoin", false)
+	defaultBitcoindDir  = qtumsuite.AppDataDir("bitcoin", false)
+	defaultLitecoindDir = qtumsuite.AppDataDir("litecoin", false)
 
 	defaultTorSOCKS   = net.JoinHostPort("localhost", strconv.Itoa(defaultTorSOCKSPort))
 	defaultTorDNS     = net.JoinHostPort(defaultTorDNSHost, strconv.Itoa(defaultTorDNSPort))

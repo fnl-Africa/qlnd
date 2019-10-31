@@ -10,20 +10,20 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/watchtower/blob"
-	"github.com/lightningnetwork/lnd/watchtower/wtclient"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
-	"github.com/lightningnetwork/lnd/watchtower/wtmock"
-	"github.com/lightningnetwork/lnd/watchtower/wtpolicy"
-	"github.com/lightningnetwork/lnd/watchtower/wtserver"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/watchtower/blob"
+	"github.com/qtumproject/lnd/watchtower/wtclient"
+	"github.com/qtumproject/lnd/watchtower/wtdb"
+	"github.com/qtumproject/lnd/watchtower/wtmock"
+	"github.com/qtumproject/lnd/watchtower/wtpolicy"
+	"github.com/qtumproject/lnd/watchtower/wtserver"
 )
 
 const (
@@ -55,7 +55,7 @@ var (
 	}
 
 	// addr is the server's reward address given to watchtower clients.
-	addr, _ = btcutil.DecodeAddress(
+	addr, _ = qtumsuite.DecodeAddress(
 		"mrX9vMRYLfVy1BnZbc5gZjuyaqH3ZW2ZHz", &chaincfg.TestNet3Params,
 	)
 
@@ -416,7 +416,7 @@ func newHarness(t *testing.T, cfg harnessCfg) *testHarness {
 		ReadTimeout:  timeout,
 		WriteTimeout: timeout,
 		NodePrivKey:  privKey,
-		NewAddress: func() (btcutil.Address, error) {
+		NewAddress: func() (qtumsuite.Address, error) {
 			return addr, nil
 		},
 		NoAckCreateSession: cfg.noAckCreateSession,

@@ -6,13 +6,13 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing"
-	"github.com/lightningnetwork/lnd/routing/route"
-	"github.com/lightningnetwork/lnd/tlv"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/routing"
+	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/lnd/tlv"
 
-	"github.com/lightningnetwork/lnd/lnrpc"
+	"github.com/qtumproject/lnd/lnrpc"
 )
 
 const (
@@ -132,7 +132,7 @@ func testQueryRoutes(t *testing.T, useMissionControl bool) {
 		FindRoute:      findRoute,
 		SelfNode:       route.Vertex{1, 2, 3},
 		FetchChannelCapacity: func(chanID uint64) (
-			btcutil.Amount, error) {
+			qtumsuite.Amount, error) {
 
 			return 1, nil
 		},

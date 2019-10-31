@@ -2,7 +2,7 @@
 
 package routerrpc
 
-import "github.com/lightningnetwork/lnd/routing"
+import "github.com/qtumproject/lnd/routing"
 
 // Config is the default config struct for the package. When the build tag isn't
 // specified, then we output a blank config.

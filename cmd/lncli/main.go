@@ -14,11 +14,11 @@ import (
 
 	macaroon "gopkg.in/macaroon.v2"
 
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/build"
-	"github.com/lightningnetwork/lnd/lncfg"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/macaroons"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/build"
+	"github.com/qtumproject/lnd/lncfg"
+	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/lnd/macaroons"
 	"github.com/urfave/cli"
 
 	"google.golang.org/grpc"
@@ -35,7 +35,7 @@ const (
 )
 
 var (
-	defaultLndDir      = btcutil.AppDataDir("lnd", false)
+	defaultLndDir      = qtumsuite.AppDataDir("lnd", false)
 	defaultTLSCertPath = filepath.Join(defaultLndDir, defaultTLSCertFilename)
 
 	// maxMsgRecvSize is the largest message our client will receive. We

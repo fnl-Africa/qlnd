@@ -11,9 +11,9 @@ import (
 	"golang.org/x/crypto/chacha20poly1305"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/lnwire"
 )
 
 const (

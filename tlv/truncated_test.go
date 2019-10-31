@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/lightningnetwork/lnd/tlv"
+	"github.com/qtumproject/lnd/tlv"
 )
 
 var tuint16Tests = []struct {

@@ -7,20 +7,20 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/watchtower/blob"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
-	"github.com/lightningnetwork/lnd/watchtower/wtmock"
-	"github.com/lightningnetwork/lnd/watchtower/wtserver"
-	"github.com/lightningnetwork/lnd/watchtower/wtwire"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/watchtower/blob"
+	"github.com/qtumproject/lnd/watchtower/wtdb"
+	"github.com/qtumproject/lnd/watchtower/wtmock"
+	"github.com/qtumproject/lnd/watchtower/wtserver"
+	"github.com/qtumproject/lnd/watchtower/wtwire"
 )
 
 var (
 	// addr is the server's reward address given to watchtower clients.
-	addr, _ = btcutil.DecodeAddress(
+	addr, _ = qtumsuite.DecodeAddress(
 		"mrX9vMRYLfVy1BnZbc5gZjuyaqH3ZW2ZHz", &chaincfg.TestNet3Params,
 	)
 
@@ -58,7 +58,7 @@ func initServer(t *testing.T, db wtserver.DB,
 		DB:           db,
 		ReadTimeout:  timeout,
 		WriteTimeout: timeout,
-		NewAddress: func() (btcutil.Address, error) {
+		NewAddress: func() (qtumsuite.Address, error) {
 			return addr, nil
 		},
 		ChainHash: testnetChainHash,

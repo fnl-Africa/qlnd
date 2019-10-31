@@ -18,47 +18,47 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/connmgr"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/coreos/bbolt"
 	"github.com/go-errors/errors"
 	sphinx "github.com/lightningnetwork/lightning-onion"
-	"github.com/lightningnetwork/lnd/autopilot"
-	"github.com/lightningnetwork/lnd/brontide"
-	"github.com/lightningnetwork/lnd/chanacceptor"
-	"github.com/lightningnetwork/lnd/chanbackup"
-	"github.com/lightningnetwork/lnd/chanfitness"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/channelnotifier"
-	"github.com/lightningnetwork/lnd/contractcourt"
-	"github.com/lightningnetwork/lnd/discovery"
-	"github.com/lightningnetwork/lnd/htlcswitch"
-	"github.com/lightningnetwork/lnd/htlcswitch/hop"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/invoices"
-	"github.com/lightningnetwork/lnd/lncfg"
-	"github.com/lightningnetwork/lnd/lnpeer"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnrpc/routerrpc"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/nat"
-	"github.com/lightningnetwork/lnd/netann"
-	"github.com/lightningnetwork/lnd/peernotifier"
-	"github.com/lightningnetwork/lnd/pool"
-	"github.com/lightningnetwork/lnd/routing"
-	"github.com/lightningnetwork/lnd/routing/localchans"
-	"github.com/lightningnetwork/lnd/routing/route"
-	"github.com/lightningnetwork/lnd/sweep"
-	"github.com/lightningnetwork/lnd/ticker"
-	"github.com/lightningnetwork/lnd/tor"
-	"github.com/lightningnetwork/lnd/walletunlocker"
-	"github.com/lightningnetwork/lnd/watchtower/wtclient"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
-	"github.com/lightningnetwork/lnd/watchtower/wtpolicy"
+	"github.com/qtumproject/lnd/autopilot"
+	"github.com/qtumproject/lnd/brontide"
+	"github.com/qtumproject/lnd/chanacceptor"
+	"github.com/qtumproject/lnd/chanbackup"
+	"github.com/qtumproject/lnd/chanfitness"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/channelnotifier"
+	"github.com/qtumproject/lnd/contractcourt"
+	"github.com/qtumproject/lnd/discovery"
+	"github.com/qtumproject/lnd/htlcswitch"
+	"github.com/qtumproject/lnd/htlcswitch/hop"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/invoices"
+	"github.com/qtumproject/lnd/lncfg"
+	"github.com/qtumproject/lnd/lnpeer"
+	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/lnd/lnrpc/routerrpc"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/nat"
+	"github.com/qtumproject/lnd/netann"
+	"github.com/qtumproject/lnd/peernotifier"
+	"github.com/qtumproject/lnd/pool"
+	"github.com/qtumproject/lnd/routing"
+	"github.com/qtumproject/lnd/routing/localchans"
+	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/lnd/sweep"
+	"github.com/qtumproject/lnd/ticker"
+	"github.com/qtumproject/lnd/tor"
+	"github.com/qtumproject/lnd/walletunlocker"
+	"github.com/qtumproject/lnd/watchtower/wtclient"
+	"github.com/qtumproject/lnd/watchtower/wtdb"
+	"github.com/qtumproject/lnd/watchtower/wtpolicy"
 )
 
 const (
@@ -972,7 +972,7 @@ func newServer(listenAddrs []net.Addr, chanDB *channeldb.DB,
 			return nil, fmt.Errorf("unable to find channel")
 		},
 		DefaultRoutingPolicy: cc.routingPolicy,
-		NumRequiredConfs: func(chanAmt btcutil.Amount,
+		NumRequiredConfs: func(chanAmt qtumsuite.Amount,
 			pushAmt lnwire.MilliSatoshi) uint16 {
 			// For large channels we increase the number
 			// of confirmations we require for the
@@ -1011,7 +1011,7 @@ func newServer(listenAddrs []net.Addr, chanDB *channeldb.DB,
 			}
 			return uint16(conf)
 		},
-		RequiredRemoteDelay: func(chanAmt btcutil.Amount) uint16 {
+		RequiredRemoteDelay: func(chanAmt qtumsuite.Amount) uint16 {
 			// We scale the remote CSV delay (the time the
 			// remote have to claim funds in case of a unilateral
 			// close) linearly from minRemoteDelay blocks
@@ -1028,7 +1028,7 @@ func newServer(listenAddrs []net.Addr, chanDB *channeldb.DB,
 			}
 
 			// If not we scale according to channel size.
-			delay := uint16(btcutil.Amount(maxRemoteDelay) *
+			delay := uint16(qtumsuite.Amount(maxRemoteDelay) *
 				chanAmt / MaxFundingAmount)
 			if delay < minRemoteDelay {
 				delay = minRemoteDelay
@@ -1063,7 +1063,7 @@ func newServer(listenAddrs []net.Addr, chanDB *channeldb.DB,
 			return s.htlcSwitch.UpdateShortChanID(cid)
 		},
 		RequiredRemoteChanReserve: func(chanAmt,
-			dustLimit btcutil.Amount) btcutil.Amount {
+			dustLimit qtumsuite.Amount) qtumsuite.Amount {
 
 			// By default, we'll require the remote peer to maintain
 			// at least 1% of the total channel capacity at all
@@ -1077,21 +1077,21 @@ func newServer(listenAddrs []net.Addr, chanDB *channeldb.DB,
 
 			return reserve
 		},
-		RequiredRemoteMaxValue: func(chanAmt btcutil.Amount) lnwire.MilliSatoshi {
+		RequiredRemoteMaxValue: func(chanAmt qtumsuite.Amount) lnwire.MilliSatoshi {
 			// By default, we'll allow the remote peer to fully
 			// utilize the full bandwidth of the channel, minus our
 			// required reserve.
 			reserve := lnwire.NewMSatFromSatoshis(chanAmt / 100)
 			return lnwire.NewMSatFromSatoshis(chanAmt) - reserve
 		},
-		RequiredRemoteMaxHTLCs: func(chanAmt btcutil.Amount) uint16 {
+		RequiredRemoteMaxHTLCs: func(chanAmt qtumsuite.Amount) uint16 {
 			// By default, we'll permit them to utilize the full
 			// channel bandwidth.
 			return uint16(input.MaxHTLCNumber / 2)
 		},
 		ZombieSweeperInterval:  1 * time.Minute,
 		ReservationTimeout:     10 * time.Minute,
-		MinChanSize:            btcutil.Amount(cfg.MinChanSize),
+		MinChanSize:            qtumsuite.Amount(cfg.MinChanSize),
 		MaxPendingChannels:     cfg.MaxPendingChannels,
 		RejectPush:             cfg.RejectPush,
 		NotifyOpenChannelEvent: s.channelNotifier.NotifyOpenChannelEvent,
@@ -3067,7 +3067,7 @@ type openChanReq struct {
 	chainHash chainhash.Hash
 
 	subtractFees    bool
-	localFundingAmt btcutil.Amount
+	localFundingAmt qtumsuite.Amount
 
 	pushAmt lnwire.MilliSatoshi
 

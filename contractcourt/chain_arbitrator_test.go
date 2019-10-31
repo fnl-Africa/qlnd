@@ -6,10 +6,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/lnwallet"
 )
 
 // TestChainArbitratorRepulishCommitment testst that the chain arbitrator will

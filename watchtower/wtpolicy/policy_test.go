@@ -3,8 +3,8 @@ package wtpolicy_test
 import (
 	"testing"
 
-	"github.com/lightningnetwork/lnd/watchtower/blob"
-	"github.com/lightningnetwork/lnd/watchtower/wtpolicy"
+	"github.com/qtumproject/lnd/watchtower/blob"
+	"github.com/qtumproject/lnd/watchtower/wtpolicy"
 )
 
 var validationTests = []struct {

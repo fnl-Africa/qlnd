@@ -5,7 +5,7 @@ package main
 import (
 	"context"
 
-	"github.com/lightningnetwork/lnd/lnrpc/routerrpc"
+	"github.com/qtumproject/lnd/lnrpc/routerrpc"
 
 	"github.com/urfave/cli"
 )

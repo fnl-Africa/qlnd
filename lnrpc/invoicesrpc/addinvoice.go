@@ -9,15 +9,15 @@ import (
 	"math"
 	"time"
 
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
 
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/lntypes"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/netann"
-	"github.com/lightningnetwork/lnd/zpay32"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/netann"
+	"github.com/qtumproject/lnd/zpay32"
 )
 
 // AddInvoiceConfig contains dependencies for invoice creation.
@@ -72,7 +72,7 @@ type AddInvoiceData struct {
 	Hash *lntypes.Hash
 
 	// The value of this invoice in satoshis.
-	Value btcutil.Amount
+	Value qtumsuite.Amount
 
 	// Hash (SHA-256) of a description of the payment. Used if the
 	// description of payment (memo) is too long to naturally fit within the
@@ -196,7 +196,7 @@ func AddInvoice(ctx context.Context, cfg *AddInvoiceConfig,
 
 	// If specified, add a fallback address to the payment request.
 	if len(invoice.FallbackAddr) > 0 {
-		addr, err := btcutil.DecodeAddress(invoice.FallbackAddr,
+		addr, err := qtumsuite.DecodeAddress(invoice.FallbackAddr,
 			cfg.ChainParams)
 		if err != nil {
 			return nil, nil, fmt.Errorf("invalid fallback address: %v",

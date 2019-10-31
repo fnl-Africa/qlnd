@@ -13,16 +13,16 @@ import (
 	"sync"
 	"time"
 
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/integration/rpctest"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/lightningnetwork/lnd"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lntest/wait"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/lnd/lntest/wait"
+	"github.com/qtumproject/lnd/lnwire"
 	"google.golang.org/grpc/grpclog"
 )
 
@@ -170,7 +170,7 @@ func (n *NetworkHarness) SetUp(lndArgs []string) error {
 			if err != nil {
 				return err
 			}
-			addr, err := btcutil.DecodeAddress(resp.Address, n.netParams)
+			addr, err := qtumsuite.DecodeAddress(resp.Address, n.netParams)
 			if err != nil {
 				return err
 			}
@@ -181,7 +181,7 @@ func (n *NetworkHarness) SetUp(lndArgs []string) error {
 
 			output := &wire.TxOut{
 				PkScript: addrScript,
-				Value:    btcutil.SatoshiPerBitcoin,
+				Value:    qtumsuite.SatoshiPerBitcoin,
 			}
 			_, err = n.Miner.SendOutputs([]*wire.TxOut{output}, 7500)
 			if err != nil {
@@ -202,7 +202,7 @@ func (n *NetworkHarness) SetUp(lndArgs []string) error {
 	}
 
 	// Now block until both wallets have fully synced up.
-	expectedBalance := int64(btcutil.SatoshiPerBitcoin * 10)
+	expectedBalance := int64(qtumsuite.SatoshiPerBitcoin * 10)
 	balReq := &lnrpc.WalletBalanceRequest{}
 	balanceTicker := time.Tick(time.Millisecond * 50)
 	balanceTimeout := time.After(time.Second * 30)
@@ -828,11 +828,11 @@ func (n *NetworkHarness) WaitForTxBroadcast(ctx context.Context, txid chainhash.
 // OpenChannelParams houses the params to specify when opening a new channel.
 type OpenChannelParams struct {
 	// Amt is the local amount being put into the channel.
-	Amt btcutil.Amount
+	Amt qtumsuite.Amount
 
 	// PushAmt is the amount that should be pushed to the remote when the
 	// channel is opened.
-	PushAmt btcutil.Amount
+	PushAmt qtumsuite.Amount
 
 	// Private is a boolan indicating whether the opened channel should be
 	// private.
@@ -923,8 +923,8 @@ func (n *NetworkHarness) OpenChannel(ctx context.Context,
 // if the timeout is reached before the channel pending notification is
 // received, an error is returned.
 func (n *NetworkHarness) OpenPendingChannel(ctx context.Context,
-	srcNode, destNode *HarnessNode, amt btcutil.Amount,
-	pushAmt btcutil.Amount) (*lnrpc.PendingUpdate, error) {
+	srcNode, destNode *HarnessNode, amt qtumsuite.Amount,
+	pushAmt qtumsuite.Amount) (*lnrpc.PendingUpdate, error) {
 
 	// Wait until srcNode and destNode have blockchain synced
 	if err := srcNode.WaitForBlockchainSync(ctx); err != nil {
@@ -1238,7 +1238,7 @@ func (n *NetworkHarness) DumpLogs(node *HarnessNode) (string, error) {
 // SendCoins attempts to send amt satoshis from the internal mining node to the
 // targeted lightning node using a P2WKH address. 6 blocks are mined after in
 // order to confirm the transaction.
-func (n *NetworkHarness) SendCoins(ctx context.Context, amt btcutil.Amount,
+func (n *NetworkHarness) SendCoins(ctx context.Context, amt qtumsuite.Amount,
 	target *HarnessNode) error {
 
 	return n.sendCoins(
@@ -1251,7 +1251,7 @@ func (n *NetworkHarness) SendCoins(ctx context.Context, amt btcutil.Amount,
 // lightning node using a P2WPKH address. No blocks are mined after, so the
 // transaction remains unconfirmed.
 func (n *NetworkHarness) SendCoinsUnconfirmed(ctx context.Context,
-	amt btcutil.Amount, target *HarnessNode) error {
+	amt qtumsuite.Amount, target *HarnessNode) error {
 
 	return n.sendCoins(
 		ctx, amt, target, lnrpc.AddressType_WITNESS_PUBKEY_HASH,
@@ -1262,7 +1262,7 @@ func (n *NetworkHarness) SendCoinsUnconfirmed(ctx context.Context,
 // SendCoinsNP2WKH attempts to send amt satoshis from the internal mining node
 // to the targeted lightning node using a NP2WKH address.
 func (n *NetworkHarness) SendCoinsNP2WKH(ctx context.Context,
-	amt btcutil.Amount, target *HarnessNode) error {
+	amt qtumsuite.Amount, target *HarnessNode) error {
 
 	return n.sendCoins(
 		ctx, amt, target, lnrpc.AddressType_NESTED_PUBKEY_HASH,
@@ -1273,7 +1273,7 @@ func (n *NetworkHarness) SendCoinsNP2WKH(ctx context.Context,
 // sendCoins attempts to send amt satoshis from the internal mining node to the
 // targeted lightning node. The confirmed boolean indicates whether the
 // transaction that pays to the target should confirm.
-func (n *NetworkHarness) sendCoins(ctx context.Context, amt btcutil.Amount,
+func (n *NetworkHarness) sendCoins(ctx context.Context, amt qtumsuite.Amount,
 	target *HarnessNode, addrType lnrpc.AddressType,
 	confirmed bool) error {
 
@@ -1293,7 +1293,7 @@ func (n *NetworkHarness) sendCoins(ctx context.Context, amt btcutil.Amount,
 	if err != nil {
 		return err
 	}
-	addr, err := btcutil.DecodeAddress(resp.Address, n.netParams)
+	addr, err := qtumsuite.DecodeAddress(resp.Address, n.netParams)
 	if err != nil {
 		return err
 	}
@@ -1358,7 +1358,7 @@ func (n *NetworkHarness) sendCoins(ctx context.Context, amt btcutil.Amount,
 	// the target node's unconfirmed balance reflects the expected balance
 	// and exit.
 	if !confirmed {
-		expectedBalance := btcutil.Amount(initialBalance.UnconfirmedBalance) + amt
+		expectedBalance := qtumsuite.Amount(initialBalance.UnconfirmedBalance) + amt
 		return target.WaitForBalance(expectedBalance, false)
 	}
 
@@ -1369,7 +1369,7 @@ func (n *NetworkHarness) sendCoins(ctx context.Context, amt btcutil.Amount,
 		return err
 	}
 
-	expectedBalance := btcutil.Amount(initialBalance.ConfirmedBalance) + amt
+	expectedBalance := qtumsuite.Amount(initialBalance.ConfirmedBalance) + amt
 	return target.WaitForBalance(expectedBalance, true)
 }
 

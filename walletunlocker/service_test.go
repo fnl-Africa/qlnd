@@ -9,13 +9,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/btcsuite/btcwallet/wallet"
-	"github.com/lightningnetwork/lnd/aezeed"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnwallet/btcwallet"
-	"github.com/lightningnetwork/lnd/walletunlocker"
+	"github.com/qtumproject/lnd/aezeed"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/lnd/lnwallet/btcwallet"
+	"github.com/qtumproject/lnd/walletunlocker"
 )
 
 var (

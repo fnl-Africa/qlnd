@@ -5,12 +5,12 @@ import (
 	"sync"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/lnwire"
 )
 
 // ChannelContribution is the primary constituent of the funding workflow
@@ -22,7 +22,7 @@ import (
 type ChannelContribution struct {
 	// FundingOutpoint is the amount of funds contributed to the funding
 	// transaction.
-	FundingAmount btcutil.Amount
+	FundingAmount qtumsuite.Amount
 
 	// Inputs to the funding transaction.
 	Inputs []*wire.TxIn
@@ -127,7 +127,7 @@ type ChannelReservation struct {
 // used only internally by lnwallet. In order to concurrent safety, the
 // creation of all channel reservations should be carried out via the
 // lnwallet.InitChannelReservation interface.
-func NewChannelReservation(capacity, localFundingAmt btcutil.Amount,
+func NewChannelReservation(capacity, localFundingAmt qtumsuite.Amount,
 	commitFeePerKw SatPerKWeight, wallet *LightningWallet,
 	id uint64, pushMSat lnwire.MilliSatoshi, chainHash *chainhash.Hash,
 	flags lnwire.FundingFlag,
@@ -245,13 +245,13 @@ func NewChannelReservation(capacity, localFundingAmt btcutil.Amount,
 			LocalCommitment: channeldb.ChannelCommitment{
 				LocalBalance:  ourBalance,
 				RemoteBalance: theirBalance,
-				FeePerKw:      btcutil.Amount(commitFeePerKw),
+				FeePerKw:      qtumsuite.Amount(commitFeePerKw),
 				CommitFee:     commitFee,
 			},
 			RemoteCommitment: channeldb.ChannelCommitment{
 				LocalBalance:  ourBalance,
 				RemoteBalance: theirBalance,
-				FeePerKw:      btcutil.Amount(commitFeePerKw),
+				FeePerKw:      qtumsuite.Amount(commitFeePerKw),
 				CommitFee:     commitFee,
 			},
 			Db: wallet.Cfg.Database,
@@ -521,7 +521,7 @@ func (r *ChannelReservation) FundingOutpoint() *wire.OutPoint {
 }
 
 // Capacity returns the channel capacity for this reservation.
-func (r *ChannelReservation) Capacity() btcutil.Amount {
+func (r *ChannelReservation) Capacity() qtumsuite.Amount {
 	r.RLock()
 	defer r.RUnlock()
 	return r.partialState.Capacity

@@ -16,19 +16,19 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/go-errors/errors"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/lnpeer"
-	"github.com/lightningnetwork/lnd/lntest/wait"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing"
-	"github.com/lightningnetwork/lnd/routing/route"
-	"github.com/lightningnetwork/lnd/ticker"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/lnpeer"
+	"github.com/qtumproject/lnd/lntest/wait"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/routing"
+	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/lnd/ticker"
 )
 
 var (
@@ -3709,7 +3709,7 @@ func TestProcessChannelAnnouncementOptionalMsgFields(t *testing.T) {
 	// assertOptionalMsgFields is a helper closure that ensures the optional
 	// message fields were set as intended.
 	assertOptionalMsgFields := func(chanID lnwire.ShortChannelID,
-		capacity btcutil.Amount, channelPoint wire.OutPoint) {
+		capacity qtumsuite.Amount, channelPoint wire.OutPoint) {
 
 		t.Helper()
 
@@ -3734,7 +3734,7 @@ func TestProcessChannelAnnouncementOptionalMsgFields(t *testing.T) {
 
 	// Providing the capacity and channel point as optional fields should
 	// propagate them all the way down to the router.
-	capacity := btcutil.Amount(1000)
+	capacity := qtumsuite.Amount(1000)
 	channelPoint := wire.OutPoint{Index: 1}
 	sendLocalMsg(
 		t, ctx, chanAnn2, localKey, ChannelCapacity(capacity),

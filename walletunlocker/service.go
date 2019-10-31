@@ -8,14 +8,14 @@ import (
 	"os"
 	"time"
 
-	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/btcsuite/btcwallet/wallet"
-	"github.com/lightningnetwork/lnd/aezeed"
-	"github.com/lightningnetwork/lnd/chanbackup"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwallet/btcwallet"
+	"github.com/qtumproject/lnd/aezeed"
+	"github.com/qtumproject/lnd/chanbackup"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwallet/btcwallet"
 )
 
 // ChannelsToRecover wraps any set of packed (serialized+encrypted) channel

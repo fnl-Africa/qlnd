@@ -5,12 +5,12 @@ import (
 	"testing"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/lnwire"
 )
 
 var (
@@ -276,7 +276,7 @@ func TestValidate(t *testing.T) {
 
 		if testCase.commitTx != nil {
 			ctx.CommitCtx = &CommitmentContext{
-				Value: btcutil.Amount(
+				Value: qtumsuite.Amount(
 					testCase.expectedValue,
 				),
 				FullySignedCommitTx: testCase.commitTx,

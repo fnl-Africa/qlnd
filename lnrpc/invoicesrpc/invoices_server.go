@@ -11,10 +11,10 @@ import (
 	"google.golang.org/grpc"
 	"gopkg.in/macaroon-bakery.v2/bakery"
 
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lntypes"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/lnd/lntypes"
 )
 
 const (
@@ -264,7 +264,7 @@ func (s *Server) AddHoldInvoice(ctx context.Context,
 	addInvoiceData := &AddInvoiceData{
 		Memo:            invoice.Memo,
 		Hash:            &hash,
-		Value:           btcutil.Amount(invoice.Value),
+		Value:           qtumsuite.Amount(invoice.Value),
 		DescriptionHash: invoice.DescriptionHash,
 		Expiry:          invoice.Expiry,
 		FallbackAddr:    invoice.FallbackAddr,

@@ -35,25 +35,25 @@ import (
 	"google.golang.org/grpc/credentials"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/btcsuite/btcwallet/wallet"
 	proxy "github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/lightninglabs/neutrino"
 
-	"github.com/lightningnetwork/lnd/autopilot"
-	"github.com/lightningnetwork/lnd/build"
-	"github.com/lightningnetwork/lnd/chanacceptor"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lncfg"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwallet/btcwallet"
-	"github.com/lightningnetwork/lnd/macaroons"
-	"github.com/lightningnetwork/lnd/signal"
-	"github.com/lightningnetwork/lnd/walletunlocker"
-	"github.com/lightningnetwork/lnd/watchtower"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
+	"github.com/qtumproject/lnd/autopilot"
+	"github.com/qtumproject/lnd/build"
+	"github.com/qtumproject/lnd/chanacceptor"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lncfg"
+	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwallet/btcwallet"
+	"github.com/qtumproject/lnd/macaroons"
+	"github.com/qtumproject/lnd/signal"
+	"github.com/qtumproject/lnd/walletunlocker"
+	"github.com/qtumproject/lnd/watchtower"
+	"github.com/qtumproject/lnd/watchtower/wtdb"
 )
 
 const (
@@ -466,7 +466,7 @@ func Main(lisCfg ListenerCfg) error {
 			DB:             towerDB,
 			EpochRegistrar: activeChainControl.chainNotifier,
 			Net:            cfg.net,
-			NewAddress: func() (btcutil.Address, error) {
+			NewAddress: func() (qtumsuite.Address, error) {
 				return activeChainControl.wallet.NewAddress(
 					lnwallet.WitnessPubKey, false,
 				)
@@ -746,7 +746,7 @@ func fileExists(name string) bool {
 // real PKI.
 //
 // This function is adapted from https://github.com/btcsuite/btcd and
-// https://github.com/btcsuite/btcutil
+// https://github.com/qtumproject/qtumsuite
 func genCertPair(certFile, keyFile string, tlsExtraIPs,
 	tlsExtraDomains []string) error {
 

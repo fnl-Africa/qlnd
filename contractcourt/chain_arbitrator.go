@@ -6,15 +6,15 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/sweep"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/sweep"
 )
 
 // ErrChainArbExiting signals that the chain arbitrator is shutting down.
@@ -104,7 +104,7 @@ type ChainArbitratorConfig struct {
 	// IsOurAddress is a function that returns true if the passed address
 	// is known to the underlying wallet. Otherwise, false should be
 	// returned.
-	IsOurAddress func(btcutil.Address) bool
+	IsOurAddress func(qtumsuite.Address) bool
 
 	// IncubateOutput sends either an incoming HTLC, an outgoing HTLC, or
 	// both to the utxo nursery. Once this function returns, the nursery

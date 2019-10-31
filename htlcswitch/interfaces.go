@@ -1,13 +1,13 @@
 package htlcswitch
 
 import (
-	"github.com/btcsuite/btcd/wire"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/invoices"
-	"github.com/lightningnetwork/lnd/lnpeer"
-	"github.com/lightningnetwork/lnd/lntypes"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/invoices"
+	"github.com/qtumproject/lnd/lnpeer"
+	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwire"
 )
 
 // InvoiceDatabase is an interface which represents the persistent subsystem

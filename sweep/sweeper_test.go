@@ -8,13 +8,13 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/build"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/build"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnwallet"
 )
 
 var (
@@ -338,7 +338,7 @@ func assertTxFeeRate(t *testing.T, tx *wire.MsgTx,
 	}
 	outputAmt := tx.TxOut[0].Value
 
-	fee := btcutil.Amount(inputAmt - outputAmt)
+	fee := qtumsuite.Amount(inputAmt - outputAmt)
 	_, txWeight := getWeightEstimate(inputs)
 
 	expectedFee := expectedFeeRate.FeeForWeight(txWeight)
@@ -1129,7 +1129,7 @@ func TestBumpFeeRBF(t *testing.T) {
 	// We'll then attempt to sweep an input, which we'll use to bump its fee
 	// later on.
 	input := createTestInput(
-		btcutil.SatoshiPerBitcoin, input.CommitmentTimeLock,
+		qtumsuite.SatoshiPerBitcoin, input.CommitmentTimeLock,
 	)
 	sweepResult, err := ctx.sweeper.SweepInput(&input, lowFeePref)
 	if err != nil {

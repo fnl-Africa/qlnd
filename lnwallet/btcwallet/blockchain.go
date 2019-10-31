@@ -5,14 +5,14 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 
 	"github.com/btcsuite/btcwallet/chain"
 	"github.com/lightninglabs/neutrino"
 	"github.com/lightninglabs/neutrino/headerfs"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwallet"
 )
 
 var (
@@ -87,7 +87,7 @@ func (b *BtcWallet) GetUtxo(op *wire.OutPoint, pkScript []byte,
 
 		// We'll ensure we properly convert the amount given in BTC to
 		// satoshis.
-		amt, err := btcutil.NewAmount(txout.Value)
+		amt, err := qtumsuite.NewAmount(txout.Value)
 		if err != nil {
 			return nil, err
 		}
@@ -112,7 +112,7 @@ func (b *BtcWallet) GetUtxo(op *wire.OutPoint, pkScript []byte,
 
 		// Sadly, gettxout returns the output value in BTC instead of
 		// satoshis.
-		amt, err := btcutil.NewAmount(txout.Value)
+		amt, err := qtumsuite.NewAmount(txout.Value)
 		if err != nil {
 			return nil, err
 		}

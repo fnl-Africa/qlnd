@@ -3,15 +3,15 @@ package wtclient
 import (
 	"github.com/btcsuite/btcd/blockchain"
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcutil/txsort"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/watchtower/blob"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/qtumsuite/txsort"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/watchtower/blob"
+	"github.com/qtumproject/lnd/watchtower/wtdb"
 )
 
 // backupTask is an internal struct for computing the justice transaction for a
@@ -41,7 +41,7 @@ type backupTask struct {
 
 	toLocalInput  input.Input
 	toRemoteInput input.Input
-	totalAmt      btcutil.Amount
+	totalAmt      qtumsuite.Amount
 	sweepPkScript []byte
 
 	// session-dependent variables
@@ -108,7 +108,7 @@ func newBackupTask(chanID *lnwire.ChannelID,
 		breachInfo:    breachInfo,
 		toLocalInput:  toLocalInput,
 		toRemoteInput: toRemoteInput,
-		totalAmt:      btcutil.Amount(totalAmt),
+		totalAmt:      qtumsuite.Amount(totalAmt),
 		sweepPkScript: sweepPkScript,
 	}
 }
@@ -226,7 +226,7 @@ func (t *backupTask) craftSessionPayload(
 
 	// Check that the justice transaction meets basic validity requirements
 	// before attempting to attach the witnesses.
-	btx := btcutil.NewTx(justiceTxn)
+	btx := qtumsuite.NewTx(justiceTxn)
 	if err := blockchain.CheckTransactionSanity(btx); err != nil {
 		return hint, nil, err
 	}

@@ -17,22 +17,22 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/chanacceptor"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/discovery"
-	"github.com/lightningnetwork/lnd/htlcswitch"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnpeer"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/chanacceptor"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/discovery"
+	"github.com/qtumproject/lnd/htlcswitch"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnpeer"
+	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwire"
 )
 
 const (
@@ -337,15 +337,15 @@ func createTestFundingManager(t *testing.T, privKey *btcec.PrivateKey,
 			FeeRate:       1000,
 			TimeLockDelta: 10,
 		},
-		NumRequiredConfs: func(chanAmt btcutil.Amount,
+		NumRequiredConfs: func(chanAmt qtumsuite.Amount,
 			pushAmt lnwire.MilliSatoshi) uint16 {
 			return 3
 		},
-		RequiredRemoteDelay: func(amt btcutil.Amount) uint16 {
+		RequiredRemoteDelay: func(amt qtumsuite.Amount) uint16 {
 			return 4
 		},
 		RequiredRemoteChanReserve: func(chanAmt,
-			dustLimit btcutil.Amount) btcutil.Amount {
+			dustLimit qtumsuite.Amount) qtumsuite.Amount {
 
 			reserve := chanAmt / 100
 			if reserve < dustLimit {
@@ -354,11 +354,11 @@ func createTestFundingManager(t *testing.T, privKey *btcec.PrivateKey,
 
 			return reserve
 		},
-		RequiredRemoteMaxValue: func(chanAmt btcutil.Amount) lnwire.MilliSatoshi {
+		RequiredRemoteMaxValue: func(chanAmt qtumsuite.Amount) lnwire.MilliSatoshi {
 			reserve := lnwire.NewMSatFromSatoshis(chanAmt / 100)
 			return lnwire.NewMSatFromSatoshis(chanAmt) - reserve
 		},
-		RequiredRemoteMaxHTLCs: func(chanAmt btcutil.Amount) uint16 {
+		RequiredRemoteMaxHTLCs: func(chanAmt qtumsuite.Amount) uint16 {
 			return uint16(input.MaxHTLCNumber / 2)
 		},
 		WatchNewChannel: func(*channeldb.OpenChannel, *btcec.PublicKey) error {
@@ -564,7 +564,7 @@ func tearDownFundingManagers(t *testing.T, a, b *testNode) {
 // openChannel takes the funding process to the point where the funding
 // transaction is confirmed on-chain. Returns the funding out point.
 func openChannel(t *testing.T, alice, bob *testNode, localFundingAmt,
-	pushAmt btcutil.Amount, numConfs uint32,
+	pushAmt qtumsuite.Amount, numConfs uint32,
 	updateChan chan *lnrpc.OpenStatusUpdate, announceChan bool) (
 	*wire.OutPoint, *wire.MsgTx) {
 
@@ -582,7 +582,7 @@ func openChannel(t *testing.T, alice, bob *testNode, localFundingAmt,
 // fundChannel takes the funding process to the point where the funding
 // transaction is confirmed on-chain. Returns the funding tx.
 func fundChannel(t *testing.T, alice, bob *testNode, localFundingAmt,
-	pushAmt btcutil.Amount, subtractFees bool, numConfs uint32,
+	pushAmt qtumsuite.Amount, subtractFees bool, numConfs uint32,
 	updateChan chan *lnrpc.OpenStatusUpdate, announceChan bool) *wire.MsgTx {
 
 	// Create a funding request and start the workflow.
@@ -888,7 +888,7 @@ func assertAddedToRouterGraph(t *testing.T, alice, bob *testNode,
 // advertised value will be checked against the other node's default min_htlc
 // value.
 func assertChannelAnnouncements(t *testing.T, alice, bob *testNode,
-	capacity btcutil.Amount, customMinHtlc ...lnwire.MilliSatoshi) {
+	capacity qtumsuite.Amount, customMinHtlc ...lnwire.MilliSatoshi) {
 	t.Helper()
 
 	// After the FundingLocked message is sent, Alice and Bob will each
@@ -1101,8 +1101,8 @@ func TestFundingManagerNormalWorkflow(t *testing.T) {
 
 	// Run through the process of opening the channel, up until the funding
 	// transaction is broadcasted.
-	localAmt := btcutil.Amount(500000)
-	pushAmt := btcutil.Amount(0)
+	localAmt := qtumsuite.Amount(500000)
+	pushAmt := qtumsuite.Amount(0)
 	capacity := localAmt + pushAmt
 	fundingOutPoint, fundingTx := openChannel(
 		t, alice, bob, localAmt, pushAmt, 1, updateChan, true,
@@ -1182,8 +1182,8 @@ func TestFundingManagerRestartBehavior(t *testing.T) {
 
 	// Run through the process of opening the channel, up until the funding
 	// transaction is broadcasted.
-	localAmt := btcutil.Amount(500000)
-	pushAmt := btcutil.Amount(0)
+	localAmt := qtumsuite.Amount(500000)
+	pushAmt := qtumsuite.Amount(0)
 	capacity := localAmt + pushAmt
 	updateChan := make(chan *lnrpc.OpenStatusUpdate)
 	fundingOutPoint, fundingTx := openChannel(
@@ -1331,8 +1331,8 @@ func TestFundingManagerOfflinePeer(t *testing.T) {
 
 	// Run through the process of opening the channel, up until the funding
 	// transaction is broadcasted.
-	localAmt := btcutil.Amount(500000)
-	pushAmt := btcutil.Amount(0)
+	localAmt := qtumsuite.Amount(500000)
+	pushAmt := qtumsuite.Amount(0)
 	capacity := localAmt + pushAmt
 	updateChan := make(chan *lnrpc.OpenStatusUpdate)
 	fundingOutPoint, fundingTx := openChannel(
@@ -1803,8 +1803,8 @@ func TestFundingManagerReceiveFundingLockedTwice(t *testing.T) {
 
 	// Run through the process of opening the channel, up until the funding
 	// transaction is broadcasted.
-	localAmt := btcutil.Amount(500000)
-	pushAmt := btcutil.Amount(0)
+	localAmt := qtumsuite.Amount(500000)
+	pushAmt := qtumsuite.Amount(0)
 	capacity := localAmt + pushAmt
 	fundingOutPoint, fundingTx := openChannel(
 		t, alice, bob, localAmt, pushAmt, 1, updateChan, true,
@@ -1906,8 +1906,8 @@ func TestFundingManagerRestartAfterChanAnn(t *testing.T) {
 
 	// Run through the process of opening the channel, up until the funding
 	// transaction is broadcasted.
-	localAmt := btcutil.Amount(500000)
-	pushAmt := btcutil.Amount(0)
+	localAmt := qtumsuite.Amount(500000)
+	pushAmt := qtumsuite.Amount(0)
 	capacity := localAmt + pushAmt
 	fundingOutPoint, fundingTx := openChannel(
 		t, alice, bob, localAmt, pushAmt, 1, updateChan, true,
@@ -1994,8 +1994,8 @@ func TestFundingManagerRestartAfterReceivingFundingLocked(t *testing.T) {
 
 	// Run through the process of opening the channel, up until the funding
 	// transaction is broadcasted.
-	localAmt := btcutil.Amount(500000)
-	pushAmt := btcutil.Amount(0)
+	localAmt := qtumsuite.Amount(500000)
+	pushAmt := qtumsuite.Amount(0)
 	capacity := localAmt + pushAmt
 	fundingOutPoint, fundingTx := openChannel(
 		t, alice, bob, localAmt, pushAmt, 1, updateChan, true,
@@ -2078,8 +2078,8 @@ func TestFundingManagerPrivateChannel(t *testing.T) {
 
 	// Run through the process of opening the channel, up until the funding
 	// transaction is broadcasted.
-	localAmt := btcutil.Amount(500000)
-	pushAmt := btcutil.Amount(0)
+	localAmt := qtumsuite.Amount(500000)
+	pushAmt := qtumsuite.Amount(0)
 	capacity := localAmt + pushAmt
 	fundingOutPoint, fundingTx := openChannel(
 		t, alice, bob, localAmt, pushAmt, 1, updateChan, false,
@@ -2191,8 +2191,8 @@ func TestFundingManagerPrivateRestart(t *testing.T) {
 
 	// Run through the process of opening the channel, up until the funding
 	// transaction is broadcasted.
-	localAmt := btcutil.Amount(500000)
-	pushAmt := btcutil.Amount(0)
+	localAmt := qtumsuite.Amount(500000)
+	pushAmt := qtumsuite.Amount(0)
 	capacity := localAmt + pushAmt
 	fundingOutPoint, fundingTx := openChannel(
 		t, alice, bob, localAmt, pushAmt, 1, updateChan, false,
@@ -2327,8 +2327,8 @@ func TestFundingManagerCustomChannelParameters(t *testing.T) {
 	// needed.
 	updateChan := make(chan *lnrpc.OpenStatusUpdate)
 
-	localAmt := btcutil.Amount(5000000)
-	pushAmt := btcutil.Amount(0)
+	localAmt := qtumsuite.Amount(5000000)
+	pushAmt := qtumsuite.Amount(0)
 	capacity := localAmt + pushAmt
 
 	// Create a funding request with the custom parameters and start the
@@ -2860,8 +2860,8 @@ func TestFundingManagerFundAll(t *testing.T) {
 	allCoins := []*lnwallet.Utxo{
 		{
 			AddressType: lnwallet.WitnessPubKey,
-			Value: btcutil.Amount(
-				0.05 * btcutil.SatoshiPerBitcoin,
+			Value: qtumsuite.Amount(
+				0.05 * qtumsuite.SatoshiPerBitcoin,
 			),
 			PkScript: make([]byte, 22),
 			OutPoint: wire.OutPoint{
@@ -2871,8 +2871,8 @@ func TestFundingManagerFundAll(t *testing.T) {
 		},
 		{
 			AddressType: lnwallet.WitnessPubKey,
-			Value: btcutil.Amount(
-				0.06 * btcutil.SatoshiPerBitcoin,
+			Value: qtumsuite.Amount(
+				0.06 * qtumsuite.SatoshiPerBitcoin,
 			),
 			PkScript: make([]byte, 22),
 			OutPoint: wire.OutPoint{
@@ -2883,22 +2883,22 @@ func TestFundingManagerFundAll(t *testing.T) {
 	}
 
 	tests := []struct {
-		spendAmt btcutil.Amount
+		spendAmt qtumsuite.Amount
 		change   bool
 	}{
 		{
 			// We will spend all the funds in the wallet, and
 			// expects no change output.
-			spendAmt: btcutil.Amount(
-				0.11 * btcutil.SatoshiPerBitcoin,
+			spendAmt: qtumsuite.Amount(
+				0.11 * qtumsuite.SatoshiPerBitcoin,
 			),
 			change: false,
 		},
 		{
 			// We spend a little less than the funds in the wallet,
 			// so a change output should be created.
-			spendAmt: btcutil.Amount(
-				0.10 * btcutil.SatoshiPerBitcoin,
+			spendAmt: qtumsuite.Amount(
+				0.10 * qtumsuite.SatoshiPerBitcoin,
 			),
 			change: true,
 		},
@@ -2915,7 +2915,7 @@ func TestFundingManagerFundAll(t *testing.T) {
 		updateChan := make(chan *lnrpc.OpenStatusUpdate)
 
 		// Initiate a fund channel, and inspect the funding tx.
-		pushAmt := btcutil.Amount(0)
+		pushAmt := qtumsuite.Amount(0)
 		fundingTx := fundChannel(
 			t, alice, bob, test.spendAmt, pushAmt, true, 1,
 			updateChan, true,

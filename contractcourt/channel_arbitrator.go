@@ -7,14 +7,14 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/lntypes"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwire"
 )
 
 var (
@@ -138,7 +138,7 @@ type ContractReport struct {
 	Incoming bool
 
 	// Amount is the final value that will be swept in back to the wallet.
-	Amount btcutil.Amount
+	Amount qtumsuite.Amount
 
 	// MaturityHeight is the absolute block height that this output will
 	// mature at.
@@ -152,11 +152,11 @@ type ContractReport struct {
 
 	// LimboBalance is the total number of frozen coins within this
 	// contract.
-	LimboBalance btcutil.Amount
+	LimboBalance qtumsuite.Amount
 
 	// RecoveredBalance is the total value that has been successfully swept
 	// back to the user's wallet.
-	RecoveredBalance btcutil.Amount
+	RecoveredBalance qtumsuite.Amount
 }
 
 // htlcSet represents the set of active HTLCs on a given commitment

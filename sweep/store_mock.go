@@ -1,8 +1,8 @@
 package sweep
 
 import (
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
 )
 
 // MockSweeperStore is a mock implementation of sweeper store. This type is

@@ -8,18 +8,18 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/coreos/bbolt"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/contractcourt"
-	"github.com/lightningnetwork/lnd/htlcswitch/hop"
-	"github.com/lightningnetwork/lnd/lntypes"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/ticker"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/contractcourt"
+	"github.com/qtumproject/lnd/htlcswitch/hop"
+	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/ticker"
 )
 
 const (
@@ -1458,8 +1458,8 @@ func (s *Switch) htlcForwarder() {
 	// TODO(roasbeef): cleared vs settled distinction
 	var (
 		totalNumUpdates uint64
-		totalSatSent    btcutil.Amount
-		totalSatRecv    btcutil.Amount
+		totalSatSent    qtumsuite.Amount
+		totalSatRecv    qtumsuite.Amount
 	)
 	s.cfg.LogEventTicker.Resume()
 	defer s.cfg.LogEventTicker.Stop()
@@ -1577,8 +1577,8 @@ out:
 
 			var (
 				newNumUpdates uint64
-				newSatSent    btcutil.Amount
-				newSatRecv    btcutil.Amount
+				newSatSent    qtumsuite.Amount
+				newSatRecv    qtumsuite.Amount
 			)
 
 			// Next, we'll run through all the registered links and
@@ -1596,8 +1596,8 @@ out:
 
 			var (
 				diffNumUpdates uint64
-				diffSatSent    btcutil.Amount
-				diffSatRecv    btcutil.Amount
+				diffSatSent    qtumsuite.Amount
+				diffSatRecv    qtumsuite.Amount
 			)
 
 			// If this is the first time we're computing these

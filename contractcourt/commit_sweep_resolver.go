@@ -4,10 +4,10 @@ import (
 	"encoding/binary"
 	"io"
 
-	"github.com/btcsuite/btcd/wire"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/sweep"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/sweep"
 )
 
 const (

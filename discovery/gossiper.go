@@ -10,19 +10,19 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/lnpeer"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/multimutex"
-	"github.com/lightningnetwork/lnd/routing"
-	"github.com/lightningnetwork/lnd/routing/route"
-	"github.com/lightningnetwork/lnd/ticker"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/lnpeer"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/multimutex"
+	"github.com/qtumproject/lnd/routing"
+	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/lnd/ticker"
 )
 
 var (
@@ -40,7 +40,7 @@ var (
 // can provide that serve useful when processing a specific network
 // announcement.
 type optionalMsgFields struct {
-	capacity     *btcutil.Amount
+	capacity     *qtumsuite.Amount
 	channelPoint *wire.OutPoint
 }
 
@@ -58,7 +58,7 @@ type OptionalMsgField func(*optionalMsgFields)
 
 // ChannelCapacity is an optional field that lets the gossiper know of the
 // capacity of a channel.
-func ChannelCapacity(capacity btcutil.Amount) OptionalMsgField {
+func ChannelCapacity(capacity qtumsuite.Amount) OptionalMsgField {
 	return func(f *optionalMsgFields) {
 		f.capacity = &capacity
 	}

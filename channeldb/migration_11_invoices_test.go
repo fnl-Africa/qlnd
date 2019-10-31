@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	bitcoinCfg "github.com/btcsuite/btcd/chaincfg"
+	bitcoinCfg "github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/coreos/bbolt"
-	"github.com/lightningnetwork/lnd/zpay32"
+	"github.com/qtumproject/lnd/zpay32"
 	litecoinCfg "github.com/ltcsuite/ltcd/chaincfg"
 )
 

@@ -6,17 +6,17 @@ import (
 	"sync/atomic"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/btcsuite/btcwallet/wallet/txauthor"
 
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnwallet"
 )
 
 // The block height returned by the mock BlockChainIO's GetBestBlock.
@@ -243,30 +243,30 @@ func (*mockWalletController) FetchInputInfo(
 	prevOut *wire.OutPoint) (*lnwallet.Utxo, error) {
 	utxo := &lnwallet.Utxo{
 		AddressType:   lnwallet.WitnessPubKey,
-		Value:         10 * btcutil.SatoshiPerBitcoin,
+		Value:         10 * qtumsuite.SatoshiPerBitcoin,
 		PkScript:      []byte("dummy"),
 		Confirmations: 1,
 		OutPoint:      *prevOut,
 	}
 	return utxo, nil
 }
-func (*mockWalletController) ConfirmedBalance(confs int32) (btcutil.Amount, error) {
+func (*mockWalletController) ConfirmedBalance(confs int32) (qtumsuite.Amount, error) {
 	return 0, nil
 }
 
 // NewAddress is called to get new addresses for delivery, change etc.
 func (m *mockWalletController) NewAddress(addrType lnwallet.AddressType,
-	change bool) (btcutil.Address, error) {
-	addr, _ := btcutil.NewAddressPubKey(
+	change bool) (qtumsuite.Address, error) {
+	addr, _ := qtumsuite.NewAddressPubKey(
 		m.rootKey.PubKey().SerializeCompressed(), &chaincfg.MainNetParams)
 	return addr, nil
 }
 func (*mockWalletController) LastUnusedAddress(addrType lnwallet.AddressType) (
-	btcutil.Address, error) {
+	qtumsuite.Address, error) {
 	return nil, nil
 }
 
-func (*mockWalletController) IsOurAddress(a btcutil.Address) bool {
+func (*mockWalletController) IsOurAddress(a qtumsuite.Address) bool {
 	return false
 }
 
@@ -295,7 +295,7 @@ func (m *mockWalletController) ListUnspentWitness(minconfirms,
 	// Otherwise create one to return.
 	utxo := &lnwallet.Utxo{
 		AddressType: lnwallet.WitnessPubKey,
-		Value:       btcutil.Amount(10 * btcutil.SatoshiPerBitcoin),
+		Value:       qtumsuite.Amount(10 * qtumsuite.SatoshiPerBitcoin),
 		PkScript:    make([]byte, 22),
 		OutPoint: wire.OutPoint{
 			Hash:  chainhash.Hash{},

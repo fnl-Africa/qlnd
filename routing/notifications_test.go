@@ -11,16 +11,16 @@ import (
 	prand "math/rand"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/go-errors/errors"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing/chainview"
-	"github.com/lightningnetwork/lnd/routing/route"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/routing/chainview"
+	"github.com/qtumproject/lnd/routing/route"
 )
 
 var (
@@ -86,7 +86,7 @@ func randEdgePolicy(chanID *lnwire.ShortChannelID,
 }
 
 func createChannelEdge(ctx *testCtx, bitcoinKey1, bitcoinKey2 []byte,
-	chanValue btcutil.Amount, fundingHeight uint32) (*wire.MsgTx, *wire.OutPoint,
+	chanValue qtumsuite.Amount, fundingHeight uint32) (*wire.MsgTx, *wire.OutPoint,
 	*lnwire.ShortChannelID, error) {
 
 	fundingTx := wire.NewMsgTx(2)

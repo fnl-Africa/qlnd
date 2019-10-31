@@ -13,17 +13,17 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
 
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/htlcswitch"
-	"github.com/lightningnetwork/lnd/lntypes"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing/route"
-	"github.com/lightningnetwork/lnd/zpay32"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/htlcswitch"
+	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/lnd/zpay32"
 )
 
 var uniquePaymentID uint64 = 1 // to be used atomically
@@ -334,7 +334,7 @@ func TestChannelUpdateValidation(t *testing.T) {
 	t.Parallel()
 
 	// Setup a three node network.
-	chanCapSat := btcutil.Amount(100000)
+	chanCapSat := qtumsuite.Amount(100000)
 	testChannels := []*testChannel{
 		symmetricTestChannel("a", "b", chanCapSat, &testChannelPolicy{
 			Expiry:  144,
@@ -2450,7 +2450,7 @@ func TestUnknownErrorSource(t *testing.T) {
 
 	// Setup a network. It contains two paths to c: a->b->c and an
 	// alternative a->d->c.
-	chanCapSat := btcutil.Amount(100000)
+	chanCapSat := qtumsuite.Amount(100000)
 	testChannels := []*testChannel{
 		symmetricTestChannel("a", "b", chanCapSat, &testChannelPolicy{
 			Expiry:  144,
@@ -2609,7 +2609,7 @@ func TestRouterPaymentStateMachine(t *testing.T) {
 
 	// Setup two simple channels such that we can mock sending along this
 	// route.
-	chanCapSat := btcutil.Amount(100000)
+	chanCapSat := qtumsuite.Amount(100000)
 	testChannels := []*testChannel{
 		symmetricTestChannel("a", "b", chanCapSat, &testChannelPolicy{
 			Expiry:  144,
@@ -3234,7 +3234,7 @@ func TestSendToRouteStructuredError(t *testing.T) {
 	t.Parallel()
 
 	// Setup a three node network.
-	chanCapSat := btcutil.Amount(100000)
+	chanCapSat := qtumsuite.Amount(100000)
 	testChannels := []*testChannel{
 		symmetricTestChannel("a", "b", chanCapSat, &testChannelPolicy{
 			Expiry:  144,
@@ -3342,7 +3342,7 @@ func TestSendToRouteStructuredError(t *testing.T) {
 // TestBuildRoute tests whether correct routes are built.
 func TestBuildRoute(t *testing.T) {
 	// Setup a three node network.
-	chanCapSat := btcutil.Amount(100000)
+	chanCapSat := qtumsuite.Amount(100000)
 	testChannels := []*testChannel{
 		// Create two local channels from a. The bandwidth is estimated
 		// in this test as the channel capacity. For building routes, we

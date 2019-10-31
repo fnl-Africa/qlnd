@@ -5,7 +5,7 @@ package routerrpc
 import (
 	"fmt"
 
-	"github.com/lightningnetwork/lnd/lnrpc"
+	"github.com/qtumproject/lnd/lnrpc"
 )
 
 // createNewSubServer is a helper method that will create the new router sub

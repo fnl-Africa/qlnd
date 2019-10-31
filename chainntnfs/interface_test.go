@@ -11,19 +11,19 @@ import (
 	"testing"
 	"time"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/integration/rpctest"
 	"github.com/btcsuite/btcd/rpcclient"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/btcsuite/btcwallet/chain"
 	_ "github.com/btcsuite/btcwallet/walletdb/bdb" // Required to auto-register the boltdb walletdb implementation.
 	"github.com/lightninglabs/neutrino"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/chainntnfs/bitcoindnotify"
-	"github.com/lightningnetwork/lnd/chainntnfs/btcdnotify"
-	"github.com/lightningnetwork/lnd/chainntnfs/neutrinonotify"
-	"github.com/lightningnetwork/lnd/channeldb"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/chainntnfs/bitcoindnotify"
+	"github.com/qtumproject/lnd/chainntnfs/btcdnotify"
+	"github.com/qtumproject/lnd/chainntnfs/neutrinonotify"
+	"github.com/qtumproject/lnd/channeldb"
 )
 
 func testSingleConfirmationNotification(miner *rpctest.Harness,
@@ -86,7 +86,7 @@ func testSingleConfirmationNotification(miner *rpctest.Harness,
 			t.Fatalf("unable to fetch block: %v", err)
 		}
 
-		block := btcutil.NewBlock(msgBlock)
+		block := qtumsuite.NewBlock(msgBlock)
 		specifiedTxHash, err := block.TxHash(int(confInfo.TxIndex))
 		if err != nil {
 			t.Fatalf("unable to index into block: %v", err)
@@ -583,7 +583,7 @@ func testTxConfirmedBeforeNtfnRegistration(miner *rpctest.Harness,
 		if err != nil {
 			t.Fatalf("unable to fetch block: %v", err)
 		}
-		block := btcutil.NewBlock(msgBlock)
+		block := qtumsuite.NewBlock(msgBlock)
 		specifiedTxHash, err := block.TxHash(int(confInfo.TxIndex))
 		if err != nil {
 			t.Fatalf("unable to index into block: %v", err)

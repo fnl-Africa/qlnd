@@ -3,14 +3,14 @@ package lnwallet
 import (
 	"testing"
 
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/input"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/input"
 )
 
 // fundingFee is a helper method that returns the fee estimate used for a tx
 // with the given number of inputs and the optional change output. This matches
 // the estimate done by the wallet.
-func fundingFee(feeRate SatPerKWeight, numInput int, change bool) btcutil.Amount {
+func fundingFee(feeRate SatPerKWeight, numInput int, change bool) qtumsuite.Amount {
 	var weightEstimate input.TxWeightEstimator
 
 	// All inputs.
@@ -40,15 +40,15 @@ func TestCoinSelect(t *testing.T) {
 	t.Parallel()
 
 	const feeRate = SatPerKWeight(100)
-	const dust = btcutil.Amount(100)
+	const dust = qtumsuite.Amount(100)
 
 	type testCase struct {
 		name        string
-		outputValue btcutil.Amount
+		outputValue qtumsuite.Amount
 		coins       []*Utxo
 
-		expectedInput  []btcutil.Amount
-		expectedChange btcutil.Amount
+		expectedInput  []qtumsuite.Amount
+		expectedChange qtumsuite.Amount
 		expectErr      bool
 	}
 
@@ -61,17 +61,17 @@ func TestCoinSelect(t *testing.T) {
 			coins: []*Utxo{
 				{
 					AddressType: WitnessPubKey,
-					Value:       1 * btcutil.SatoshiPerBitcoin,
+					Value:       1 * qtumsuite.SatoshiPerBitcoin,
 				},
 			},
-			outputValue: 0.5 * btcutil.SatoshiPerBitcoin,
+			outputValue: 0.5 * qtumsuite.SatoshiPerBitcoin,
 
 			// The one and only input will be selected.
-			expectedInput: []btcutil.Amount{
-				1 * btcutil.SatoshiPerBitcoin,
+			expectedInput: []qtumsuite.Amount{
+				1 * qtumsuite.SatoshiPerBitcoin,
 			},
 			// Change will be what's left minus the fee.
-			expectedChange: 0.5*btcutil.SatoshiPerBitcoin - fundingFee(feeRate, 1, true),
+			expectedChange: 0.5*qtumsuite.SatoshiPerBitcoin - fundingFee(feeRate, 1, true),
 		},
 		{
 			// We have 1 BTC available, and we want to send 1 BTC.
@@ -81,10 +81,10 @@ func TestCoinSelect(t *testing.T) {
 			coins: []*Utxo{
 				{
 					AddressType: WitnessPubKey,
-					Value:       1 * btcutil.SatoshiPerBitcoin,
+					Value:       1 * qtumsuite.SatoshiPerBitcoin,
 				},
 			},
-			outputValue: 1 * btcutil.SatoshiPerBitcoin,
+			outputValue: 1 * qtumsuite.SatoshiPerBitcoin,
 			expectErr:   true,
 		},
 		{
@@ -95,15 +95,15 @@ func TestCoinSelect(t *testing.T) {
 			coins: []*Utxo{
 				{
 					AddressType: WitnessPubKey,
-					Value:       1 * btcutil.SatoshiPerBitcoin,
+					Value:       1 * qtumsuite.SatoshiPerBitcoin,
 				},
 			},
 			// We tune the output value by subtracting the expected
 			// fee and a small dust amount.
-			outputValue: 1*btcutil.SatoshiPerBitcoin - fundingFee(feeRate, 1, true) - dust,
+			outputValue: 1*qtumsuite.SatoshiPerBitcoin - fundingFee(feeRate, 1, true) - dust,
 
-			expectedInput: []btcutil.Amount{
-				1 * btcutil.SatoshiPerBitcoin,
+			expectedInput: []qtumsuite.Amount{
+				1 * qtumsuite.SatoshiPerBitcoin,
 			},
 
 			// Change will the dust.
@@ -117,15 +117,15 @@ func TestCoinSelect(t *testing.T) {
 			coins: []*Utxo{
 				{
 					AddressType: WitnessPubKey,
-					Value:       1 * btcutil.SatoshiPerBitcoin,
+					Value:       1 * qtumsuite.SatoshiPerBitcoin,
 				},
 			},
 			// We tune the output value to be the maximum amount
 			// possible, leaving just enough for fees.
-			outputValue: 1*btcutil.SatoshiPerBitcoin - fundingFee(feeRate, 1, true),
+			outputValue: 1*qtumsuite.SatoshiPerBitcoin - fundingFee(feeRate, 1, true),
 
-			expectedInput: []btcutil.Amount{
-				1 * btcutil.SatoshiPerBitcoin,
+			expectedInput: []qtumsuite.Amount{
+				1 * qtumsuite.SatoshiPerBitcoin,
 			},
 			// We have just enough left to pay the fee, so there is
 			// nothing left for change.
@@ -186,17 +186,17 @@ func TestCoinSelectSubtractFees(t *testing.T) {
 	t.Parallel()
 
 	const feeRate = SatPerKWeight(100)
-	const dustLimit = btcutil.Amount(1000)
-	const dust = btcutil.Amount(100)
+	const dustLimit = qtumsuite.Amount(1000)
+	const dust = qtumsuite.Amount(100)
 
 	type testCase struct {
 		name       string
-		spendValue btcutil.Amount
+		spendValue qtumsuite.Amount
 		coins      []*Utxo
 
-		expectedInput      []btcutil.Amount
-		expectedFundingAmt btcutil.Amount
-		expectedChange     btcutil.Amount
+		expectedInput      []qtumsuite.Amount
+		expectedFundingAmt qtumsuite.Amount
+		expectedChange     qtumsuite.Amount
 		expectErr          bool
 	}
 
@@ -209,16 +209,16 @@ func TestCoinSelectSubtractFees(t *testing.T) {
 			coins: []*Utxo{
 				{
 					AddressType: WitnessPubKey,
-					Value:       1 * btcutil.SatoshiPerBitcoin,
+					Value:       1 * qtumsuite.SatoshiPerBitcoin,
 				},
 			},
-			spendValue: 1 * btcutil.SatoshiPerBitcoin,
+			spendValue: 1 * qtumsuite.SatoshiPerBitcoin,
 
 			// The one and only input will be selected.
-			expectedInput: []btcutil.Amount{
-				1 * btcutil.SatoshiPerBitcoin,
+			expectedInput: []qtumsuite.Amount{
+				1 * qtumsuite.SatoshiPerBitcoin,
 			},
-			expectedFundingAmt: 1*btcutil.SatoshiPerBitcoin - fundingFee(feeRate, 1, false),
+			expectedFundingAmt: 1*qtumsuite.SatoshiPerBitcoin - fundingFee(feeRate, 1, false),
 			expectedChange:     0,
 		},
 		{
@@ -243,15 +243,15 @@ func TestCoinSelectSubtractFees(t *testing.T) {
 			coins: []*Utxo{
 				{
 					AddressType: WitnessPubKey,
-					Value:       1 * btcutil.SatoshiPerBitcoin,
+					Value:       1 * qtumsuite.SatoshiPerBitcoin,
 				},
 			},
-			spendValue: 1*btcutil.SatoshiPerBitcoin - dust,
+			spendValue: 1*qtumsuite.SatoshiPerBitcoin - dust,
 
-			expectedInput: []btcutil.Amount{
-				1 * btcutil.SatoshiPerBitcoin,
+			expectedInput: []qtumsuite.Amount{
+				1 * qtumsuite.SatoshiPerBitcoin,
 			},
-			expectedFundingAmt: 1*btcutil.SatoshiPerBitcoin - fundingFee(feeRate, 1, false),
+			expectedFundingAmt: 1*qtumsuite.SatoshiPerBitcoin - fundingFee(feeRate, 1, false),
 			expectedChange:     0,
 		},
 		{
@@ -265,7 +265,7 @@ func TestCoinSelectSubtractFees(t *testing.T) {
 			},
 			spendValue: fundingFee(feeRate, 1, false) + dustLimit + 1,
 
-			expectedInput: []btcutil.Amount{
+			expectedInput: []qtumsuite.Amount{
 				fundingFee(feeRate, 1, false) + dustLimit + 1,
 			},
 			expectedFundingAmt: dustLimit + 1,
@@ -283,7 +283,7 @@ func TestCoinSelectSubtractFees(t *testing.T) {
 			},
 			spendValue: fundingFee(feeRate, 1, false) + dustLimit + 1,
 
-			expectedInput: []btcutil.Amount{
+			expectedInput: []qtumsuite.Amount{
 				fundingFee(feeRate, 1, false) + 2*(dustLimit+1),
 			},
 			expectedFundingAmt: 2 * (dustLimit + 1),

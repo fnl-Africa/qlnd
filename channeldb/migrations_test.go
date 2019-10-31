@@ -10,13 +10,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/coreos/bbolt"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/go-errors/errors"
-	"github.com/lightningnetwork/lnd/lntypes"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing/route"
+	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/routing/route"
 )
 
 // TestPaymentStatusesMigration checks that already completed payments will have
@@ -235,7 +235,7 @@ func TestMigrateOptionalChannelCloseSummaryFields(t *testing.T) {
 				CloseHeight:    100,
 				RemotePub:      chanState.IdentityPub,
 				Capacity:       chanState.Capacity,
-				SettledBalance: btcutil.Amount(50000),
+				SettledBalance: qtumsuite.Amount(50000),
 				CloseType:      RemoteForceClose,
 				IsPending:      true,
 
@@ -279,7 +279,7 @@ func TestMigrateOptionalChannelCloseSummaryFields(t *testing.T) {
 				CloseHeight:             100,
 				RemotePub:               chanState.IdentityPub,
 				Capacity:                chanState.Capacity,
-				SettledBalance:          btcutil.Amount(50000),
+				SettledBalance:          qtumsuite.Amount(50000),
 				CloseType:               RemoteForceClose,
 				IsPending:               true,
 				RemoteCurrentRevocation: chanState.RemoteCurrentRevocation,
@@ -332,7 +332,7 @@ func TestMigrateOptionalChannelCloseSummaryFields(t *testing.T) {
 				CloseHeight:             100,
 				RemotePub:               chanState.IdentityPub,
 				Capacity:                chanState.Capacity,
-				SettledBalance:          btcutil.Amount(50000),
+				SettledBalance:          qtumsuite.Amount(50000),
 				CloseType:               RemoteForceClose,
 				IsPending:               true,
 				RemoteCurrentRevocation: chanState.RemoteCurrentRevocation,

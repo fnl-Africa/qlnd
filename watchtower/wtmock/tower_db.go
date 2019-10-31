@@ -3,9 +3,9 @@ package wtmock
 import (
 	"sync"
 
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/watchtower/blob"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/watchtower/blob"
+	"github.com/qtumproject/lnd/watchtower/wtdb"
 )
 
 // TowerDB is a mock, in-memory implementation of a watchtower.DB.

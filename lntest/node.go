@@ -16,20 +16,20 @@ import (
 	"sync"
 	"time"
 
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/go-errors/errors"
-	"github.com/lightningnetwork/lnd/chanbackup"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnrpc/invoicesrpc"
-	"github.com/lightningnetwork/lnd/lnrpc/routerrpc"
-	"github.com/lightningnetwork/lnd/lnrpc/walletrpc"
-	"github.com/lightningnetwork/lnd/lnrpc/watchtowerrpc"
-	"github.com/lightningnetwork/lnd/lnrpc/wtclientrpc"
-	"github.com/lightningnetwork/lnd/lntest/wait"
-	"github.com/lightningnetwork/lnd/macaroons"
+	"github.com/qtumproject/lnd/chanbackup"
+	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/lnd/lnrpc/invoicesrpc"
+	"github.com/qtumproject/lnd/lnrpc/routerrpc"
+	"github.com/qtumproject/lnd/lnrpc/walletrpc"
+	"github.com/qtumproject/lnd/lnrpc/watchtowerrpc"
+	"github.com/qtumproject/lnd/lnrpc/wtclientrpc"
+	"github.com/qtumproject/lnd/lntest/wait"
+	"github.com/qtumproject/lnd/macaroons"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"gopkg.in/macaroon.v2"
@@ -1045,11 +1045,11 @@ func (hn *HarnessNode) WaitForBlockchainSync(ctx context.Context) error {
 
 // WaitForBalance waits until the node sees the expected confirmed/unconfirmed
 // balance within their wallet.
-func (hn *HarnessNode) WaitForBalance(expectedBalance btcutil.Amount, confirmed bool) error {
+func (hn *HarnessNode) WaitForBalance(expectedBalance qtumsuite.Amount, confirmed bool) error {
 	ctx := context.Background()
 	req := &lnrpc.WalletBalanceRequest{}
 
-	var lastBalance btcutil.Amount
+	var lastBalance qtumsuite.Amount
 	doesBalanceMatch := func() bool {
 		balance, err := hn.WalletBalance(ctx, req)
 		if err != nil {
@@ -1057,12 +1057,12 @@ func (hn *HarnessNode) WaitForBalance(expectedBalance btcutil.Amount, confirmed 
 		}
 
 		if confirmed {
-			lastBalance = btcutil.Amount(balance.ConfirmedBalance)
-			return btcutil.Amount(balance.ConfirmedBalance) == expectedBalance
+			lastBalance = qtumsuite.Amount(balance.ConfirmedBalance)
+			return qtumsuite.Amount(balance.ConfirmedBalance) == expectedBalance
 		}
 
-		lastBalance = btcutil.Amount(balance.UnconfirmedBalance)
-		return btcutil.Amount(balance.UnconfirmedBalance) == expectedBalance
+		lastBalance = qtumsuite.Amount(balance.UnconfirmedBalance)
+		return qtumsuite.Amount(balance.UnconfirmedBalance) == expectedBalance
 	}
 
 	err := wait.Predicate(doesBalanceMatch, 30*time.Second)

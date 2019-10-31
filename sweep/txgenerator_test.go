@@ -3,8 +3,8 @@ package sweep
 import (
 	"testing"
 
-	"github.com/btcsuite/btcd/wire"
-	"github.com/lightningnetwork/lnd/input"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/lnd/input"
 )
 
 var (

@@ -8,16 +8,16 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/chaincfg"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/shachain"
+	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/shachain"
 )
 
 const (
@@ -158,7 +158,7 @@ type chainWatcherConfig struct {
 
 	// isOurAddr is a function that returns true if the passed address is
 	// known to us.
-	isOurAddr func(btcutil.Address) bool
+	isOurAddr func(qtumsuite.Address) bool
 
 	// extractStateNumHint extracts the encoded state hint using the passed
 	// obfuscater. This is used by the chain watcher to identify which
@@ -661,8 +661,8 @@ func (c *chainWatcher) closeObserver(spendNtfn *chainntnfs.SpendEvent) {
 // to a script that the wallet controls. If no outputs pay to us, then we
 // return zero. This is possible as our output may have been trimmed due to
 // being dust.
-func (c *chainWatcher) toSelfAmount(tx *wire.MsgTx) btcutil.Amount {
-	var selfAmt btcutil.Amount
+func (c *chainWatcher) toSelfAmount(tx *wire.MsgTx) qtumsuite.Amount {
+	var selfAmt qtumsuite.Amount
 	for _, txOut := range tx.TxOut {
 		_, addrs, _, err := txscript.ExtractPkScriptAddrs(
 			// Doesn't matter what net we actually pass in.
@@ -674,7 +674,7 @@ func (c *chainWatcher) toSelfAmount(tx *wire.MsgTx) btcutil.Amount {
 
 		for _, addr := range addrs {
 			if c.cfg.isOurAddr(addr) {
-				selfAmt += btcutil.Amount(txOut.Value)
+				selfAmt += qtumsuite.Amount(txOut.Value)
 			}
 		}
 	}
@@ -789,7 +789,7 @@ func (c *chainWatcher) dispatchLocalForceClose(
 		closeSummary.TimeLockedBalance = chanSnapshot.LocalBalance.ToSatoshis()
 	}
 	for _, htlc := range forceClose.HtlcResolutions.OutgoingHTLCs {
-		htlcValue := btcutil.Amount(htlc.SweepSignDesc.Output.Value)
+		htlcValue := qtumsuite.Amount(htlc.SweepSignDesc.Output.Value)
 		closeSummary.TimeLockedBalance += htlcValue
 	}
 

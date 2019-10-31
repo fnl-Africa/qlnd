@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/lightningnetwork/lnd/routing/route"
+	"github.com/qtumproject/lnd/routing/route"
 )
 
 type eventType int

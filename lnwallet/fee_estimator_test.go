@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite"
 
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwallet"
 )
 
 type mockSparseConfFeeSource struct {
@@ -48,7 +48,7 @@ func TestFeeRateTypes(t *testing.T) {
 
 		// The resulting transaction fee should be the same when using
 		// both rates.
-		expectedFee := btcutil.Amount(feePerKw * weight / 1000)
+		expectedFee := qtumsuite.Amount(feePerKw * weight / 1000)
 		fee1 := feePerKw.FeeForWeight(weight)
 		if fee1 != expectedFee {
 			t.Fatalf("expected fee of %d sats, got %d sats",
@@ -72,7 +72,7 @@ func TestFeeRateTypes(t *testing.T) {
 
 		// The resulting transaction fee should be the same when using
 		// both rates.
-		expectedFee := btcutil.Amount(feePerKB * vsize / 1000)
+		expectedFee := qtumsuite.Amount(feePerKB * vsize / 1000)
 		fee1 := feePerKB.FeeForVSize(vsize)
 		if fee1 != expectedFee {
 			t.Fatalf("expected fee of %d sats, got %d sats",

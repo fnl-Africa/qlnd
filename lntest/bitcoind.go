@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/btcsuite/btcd/rpcclient"
 )
 

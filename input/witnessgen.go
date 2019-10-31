@@ -3,8 +3,8 @@ package input
 import (
 	"fmt"
 
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
 )
 
 // WitnessGenerator represents a function that is able to generate the final

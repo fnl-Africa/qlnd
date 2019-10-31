@@ -17,24 +17,24 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
 	"github.com/btcsuite/fastsha256"
 	"github.com/coreos/bbolt"
 	"github.com/go-errors/errors"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/contractcourt"
-	"github.com/lightningnetwork/lnd/htlcswitch/hop"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnpeer"
-	"github.com/lightningnetwork/lnd/lntest/wait"
-	"github.com/lightningnetwork/lnd/lntypes"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/shachain"
-	"github.com/lightningnetwork/lnd/ticker"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/contractcourt"
+	"github.com/qtumproject/lnd/htlcswitch/hop"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnpeer"
+	"github.com/qtumproject/lnd/lntest/wait"
+	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/shachain"
+	"github.com/qtumproject/lnd/ticker"
 )
 
 var (
@@ -155,7 +155,7 @@ type testLightningChannel struct {
 //
 // TODO(roasbeef): need to factor out, similar func re-used in many parts of codebase
 func createTestChannel(alicePrivKey, bobPrivKey []byte,
-	aliceAmount, bobAmount, aliceReserve, bobReserve btcutil.Amount,
+	aliceAmount, bobAmount, aliceReserve, bobReserve qtumsuite.Amount,
 	chanID lnwire.ShortChannelID) (*testLightningChannel,
 	*testLightningChannel, func(), error) {
 
@@ -167,7 +167,7 @@ func createTestChannel(alicePrivKey, bobPrivKey []byte,
 	csvTimeoutBob := uint32(4)
 
 	aliceConstraints := &channeldb.ChannelConstraints{
-		DustLimit: btcutil.Amount(200),
+		DustLimit: qtumsuite.Amount(200),
 		MaxPendingAmount: lnwire.NewMSatFromSatoshis(
 			channelCapacity),
 		ChanReserve:      aliceReserve,
@@ -177,7 +177,7 @@ func createTestChannel(alicePrivKey, bobPrivKey []byte,
 	}
 
 	bobConstraints := &channeldb.ChannelConstraints{
-		DustLimit: btcutil.Amount(800),
+		DustLimit: qtumsuite.Amount(800),
 		MaxPendingAmount: lnwire.NewMSatFromSatoshis(
 			channelCapacity),
 		ChanReserve:      bobReserve,
@@ -309,7 +309,7 @@ func createTestChannel(alicePrivKey, bobPrivKey []byte,
 		LocalBalance:  lnwire.NewMSatFromSatoshis(aliceAmount - commitFee),
 		RemoteBalance: lnwire.NewMSatFromSatoshis(bobAmount),
 		CommitFee:     commitFee,
-		FeePerKw:      btcutil.Amount(feePerKw),
+		FeePerKw:      qtumsuite.Amount(feePerKw),
 		CommitTx:      aliceCommitTx,
 		CommitSig:     bytes.Repeat([]byte{1}, 71),
 	}
@@ -318,7 +318,7 @@ func createTestChannel(alicePrivKey, bobPrivKey []byte,
 		LocalBalance:  lnwire.NewMSatFromSatoshis(bobAmount),
 		RemoteBalance: lnwire.NewMSatFromSatoshis(aliceAmount - commitFee),
 		CommitFee:     commitFee,
-		FeePerKw:      btcutil.Amount(feePerKw),
+		FeePerKw:      qtumsuite.Amount(feePerKw),
 		CommitTx:      bobCommitTx,
 		CommitSig:     bytes.Repeat([]byte{1}, 71),
 	}
@@ -880,7 +880,7 @@ type clusterChannels struct {
 
 // createClusterChannels creates lightning channels which are needed for
 // network cluster to be initialized.
-func createClusterChannels(aliceToBob, bobToCarol btcutil.Amount) (
+func createClusterChannels(aliceToBob, bobToCarol qtumsuite.Amount) (
 	*clusterChannels, func(), func() (*clusterChannels, error), error) {
 
 	_, _, firstChanID, secondChanID := genIDs()
@@ -1040,7 +1040,7 @@ func newThreeHopNetwork(t testing.TB, aliceChannel, firstBobChannel,
 
 // createTwoClusterChannels creates lightning channels which are needed for
 // a 2 hop network cluster to be initialized.
-func createTwoClusterChannels(aliceToBob, bobToCarol btcutil.Amount) (
+func createTwoClusterChannels(aliceToBob, bobToCarol qtumsuite.Amount) (
 	*testLightningChannel, *testLightningChannel,
 	func(), error) {
 

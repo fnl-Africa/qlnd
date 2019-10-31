@@ -10,7 +10,7 @@ import (
 
 	"github.com/coreos/bbolt"
 	sphinx "github.com/lightningnetwork/lightning-onion"
-	"github.com/lightningnetwork/lnd/chainntnfs"
+	"github.com/qtumproject/lnd/chainntnfs"
 )
 
 const (

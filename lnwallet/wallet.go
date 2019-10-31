@@ -12,18 +12,18 @@ import (
 
 	"github.com/btcsuite/btcd/blockchain"
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcutil/txsort"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/txscript"
+	"github.com/qtumproject/qtumsuite/wire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/qtumsuite/txsort"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwallet/chanvalidate"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/shachain"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/lnd/lnwallet/chanvalidate"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/shachain"
 )
 
 const (
@@ -36,8 +36,8 @@ const (
 // returned when coin selection for a new funding transaction fails to due
 // having an insufficient amount of confirmed funds.
 type ErrInsufficientFunds struct {
-	amountAvailable btcutil.Amount
-	amountSelected  btcutil.Amount
+	amountAvailable qtumsuite.Amount
+	amountSelected  qtumsuite.Amount
 }
 
 func (e *ErrInsufficientFunds) Error() string {
@@ -79,11 +79,11 @@ type InitFundingReserveMsg struct {
 
 	// LocalFundingAmt is the amount of funds requested from us for this
 	// channel.
-	LocalFundingAmt btcutil.Amount
+	LocalFundingAmt qtumsuite.Amount
 
 	// RemoteFundingAmnt is the amount of funds the remote will contribute
 	// to this channel.
-	RemoteFundingAmt btcutil.Amount
+	RemoteFundingAmt qtumsuite.Amount
 
 	// CommitFeePerKw is the starting accepted satoshis/Kw fee for the set
 	// of initial commitment transactions. In order to ensure timely
@@ -658,7 +658,7 @@ func (l *LightningWallet) handleFundingCancelRequest(req *fundingReserveCancelMs
 // initial funding workflow as both sides must generate a signature for the
 // remote party's commitment transaction, and verify the signature for their
 // version of the commitment transaction.
-func CreateCommitmentTxns(localBalance, remoteBalance btcutil.Amount,
+func CreateCommitmentTxns(localBalance, remoteBalance qtumsuite.Amount,
 	ourChanCfg, theirChanCfg *channeldb.ChannelConfig,
 	localCommitPoint, remoteCommitPoint *btcec.PublicKey,
 	fundingTxIn wire.TxIn,
@@ -680,7 +680,7 @@ func CreateCommitmentTxns(localBalance, remoteBalance btcutil.Amount,
 		return nil, nil, err
 	}
 
-	otxn := btcutil.NewTx(ourCommitTx)
+	otxn := qtumsuite.NewTx(ourCommitTx)
 	if err := blockchain.CheckTransactionSanity(otxn); err != nil {
 		return nil, nil, err
 	}
@@ -692,7 +692,7 @@ func CreateCommitmentTxns(localBalance, remoteBalance btcutil.Amount,
 		return nil, nil, err
 	}
 
-	ttxn := btcutil.NewTx(theirCommitTx)
+	ttxn := qtumsuite.NewTx(theirCommitTx)
 	if err := blockchain.CheckTransactionSanity(ttxn); err != nil {
 		return nil, nil, err
 	}
@@ -1312,7 +1312,7 @@ func (l *LightningWallet) WithCoinSelectLock(f func() error) error {
 type coinSelection struct {
 	coins       []*wire.TxIn
 	change      []*wire.TxOut
-	fundingAmt  btcutil.Amount
+	fundingAmt  qtumsuite.Amount
 	unlockCoins func()
 }
 
@@ -1324,7 +1324,7 @@ type coinSelection struct {
 // the selected outputs, and a function closure to unlock them in case of an
 // error is returned.
 func (l *LightningWallet) selectCoinsAndChange(feeRate SatPerKWeight,
-	amt btcutil.Amount, minConfs int32, subtractFees bool) (
+	amt qtumsuite.Amount, minConfs int32, subtractFees bool) (
 	*coinSelection, error) {
 
 	// We hold the coin select mutex while querying for outputs, and
@@ -1345,8 +1345,8 @@ func (l *LightningWallet) selectCoinsAndChange(feeRate SatPerKWeight,
 
 	var (
 		selectedCoins []*Utxo
-		fundingAmt    btcutil.Amount
-		changeAmt     btcutil.Amount
+		fundingAmt    qtumsuite.Amount
+		changeAmt     qtumsuite.Amount
 	)
 
 	// Perform coin selection over our available, unlocked unspent outputs
@@ -1470,8 +1470,8 @@ func initStateHints(commit1, commit2 *wire.MsgTx,
 // funds, a non-nil error is returned. Additionally, the total amount of the
 // selected coins are returned in order for the caller to properly handle
 // change+fees.
-func selectInputs(amt btcutil.Amount, coins []*Utxo) (btcutil.Amount, []*Utxo, error) {
-	satSelected := btcutil.Amount(0)
+func selectInputs(amt qtumsuite.Amount, coins []*Utxo) (qtumsuite.Amount, []*Utxo, error) {
+	satSelected := qtumsuite.Amount(0)
 	for i, coin := range coins {
 		satSelected += coin.Value
 		if satSelected >= amt {
@@ -1485,8 +1485,8 @@ func selectInputs(amt btcutil.Amount, coins []*Utxo) (btcutil.Amount, []*Utxo, e
 // change output to fund amt satoshis, adhering to the specified fee rate. The
 // specified fee rate should be expressed in sat/kw for coin selection to
 // function properly.
-func coinSelect(feeRate SatPerKWeight, amt btcutil.Amount,
-	coins []*Utxo) ([]*Utxo, btcutil.Amount, error) {
+func coinSelect(feeRate SatPerKWeight, amt qtumsuite.Amount,
+	coins []*Utxo) ([]*Utxo, qtumsuite.Amount, error) {
 
 	amtNeeded := amt
 	for {
@@ -1550,8 +1550,8 @@ func coinSelect(feeRate SatPerKWeight, amt btcutil.Amount,
 // amt in total after fees, adhering to the specified fee rate. The selected
 // coins, the final output and change values are returned.
 func coinSelectSubtractFees(feeRate SatPerKWeight, amt,
-	dustLimit btcutil.Amount, coins []*Utxo) ([]*Utxo, btcutil.Amount,
-	btcutil.Amount, error) {
+	dustLimit qtumsuite.Amount, coins []*Utxo) ([]*Utxo, qtumsuite.Amount,
+	qtumsuite.Amount, error) {
 
 	// First perform an initial round of coin selection to estimate
 	// the required fee.
@@ -1588,7 +1588,7 @@ func coinSelectSubtractFees(feeRate SatPerKWeight, amt,
 	// For a transaction without a change output, we'll let everything go
 	// to our multi-sig output after subtracting fees.
 	outputAmt := totalSat - requiredFee
-	changeAmt := btcutil.Amount(0)
+	changeAmt := qtumsuite.Amount(0)
 
 	// If the the output is too small after subtracting the fee, the coin
 	// selection cannot be performed with an amount this small.

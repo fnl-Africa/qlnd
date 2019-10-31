@@ -9,12 +9,12 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/connmgr"
-	"github.com/btcsuite/btcutil"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
-	"github.com/lightningnetwork/lnd/watchtower/wtwire"
+	"github.com/qtumproject/qtumsuite"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/watchtower/wtdb"
+	"github.com/qtumproject/lnd/watchtower/wtwire"
 )
 
 var (
@@ -51,7 +51,7 @@ type Config struct {
 
 	// NewAddress is used to generate reward addresses, where a cut of
 	// successfully sent funds can be received.
-	NewAddress func() (btcutil.Address, error)
+	NewAddress func() (qtumsuite.Address, error)
 
 	// ChainHash identifies the network that the server is watching.
 	ChainHash chainhash.Hash

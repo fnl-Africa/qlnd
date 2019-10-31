@@ -6,12 +6,12 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/channelnotifier"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/peernotifier"
-	"github.com/lightningnetwork/lnd/routing/route"
-	"github.com/lightningnetwork/lnd/subscribe"
+	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/lnd/channelnotifier"
+	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/lnd/peernotifier"
+	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/lnd/subscribe"
 )
 
 // TestStartStoreError tests the starting of the store in cases where the setup

@@ -3,7 +3,7 @@ package lnwire
 import (
 	"fmt"
 
-	"github.com/btcsuite/btcutil"
+	"github.com/qtumproject/qtumsuite"
 )
 
 const (
@@ -26,7 +26,7 @@ type MilliSatoshi uint64
 
 // NewMSatFromSatoshis creates a new MilliSatoshi instance from a target amount
 // of satoshis.
-func NewMSatFromSatoshis(sat btcutil.Amount) MilliSatoshi {
+func NewMSatFromSatoshis(sat qtumsuite.Amount) MilliSatoshi {
 	return MilliSatoshi(uint64(sat) * mSatScale)
 }
 
@@ -39,8 +39,8 @@ func (m MilliSatoshi) ToBTC() float64 {
 
 // ToSatoshis converts the target MilliSatoshi amount to satoshis. Simply, this
 // sheds a factor of 1000 from the mSAT amount in order to convert it to SAT.
-func (m MilliSatoshi) ToSatoshis() btcutil.Amount {
-	return btcutil.Amount(uint64(m) / mSatScale)
+func (m MilliSatoshi) ToSatoshis() qtumsuite.Amount {
+	return qtumsuite.Amount(uint64(m) / mSatScale)
 }
 
 // String returns the string representation of the mSAT amount.
