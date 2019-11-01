@@ -9,11 +9,11 @@ import (
 
 	"github.com/qtumproject/qtumsuite/txscript"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/lnrpc"
-	"github.com/qtumproject/lnd/lnrpc/walletrpc"
-	"github.com/qtumproject/lnd/lntest"
-	"github.com/qtumproject/lnd/lntest/wait"
-	"github.com/qtumproject/lnd/sweep"
+	"github.com/qtumproject/qlnd/lnrpc"
+	"github.com/qtumproject/qlnd/lnrpc/walletrpc"
+	"github.com/qtumproject/qlnd/lntest"
+	"github.com/qtumproject/qlnd/lntest/wait"
+	"github.com/qtumproject/qlnd/sweep"
 )
 
 // testCPFP ensures that the daemon can bump an unconfirmed  transaction's fee

@@ -1,8 +1,8 @@
 package wtserver
 
 import (
-	"github.com/qtumproject/lnd/watchtower/wtdb"
-	"github.com/qtumproject/lnd/watchtower/wtwire"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/watchtower/wtwire"
 )
 
 // handleDeleteSession processes a DeleteSession request for a client with given

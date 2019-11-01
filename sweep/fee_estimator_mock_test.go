@@ -3,7 +3,7 @@ package sweep
 import (
 	"sync"
 
-	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwallet"
 )
 
 // mockFeeEstimator implements a mock fee estimator. It closely resembles

@@ -4,9 +4,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 
-	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/qlnd/routing/route"
 )
 
 var (

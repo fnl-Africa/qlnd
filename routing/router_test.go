@@ -18,12 +18,12 @@ import (
 	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
 
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/htlcswitch"
-	"github.com/qtumproject/lnd/lntypes"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/routing/route"
-	"github.com/qtumproject/lnd/zpay32"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/htlcswitch"
+	"github.com/qtumproject/qlnd/lntypes"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/routing/route"
+	"github.com/qtumproject/qlnd/zpay32"
 )
 
 var uniquePaymentID uint64 = 1 // to be used atomically

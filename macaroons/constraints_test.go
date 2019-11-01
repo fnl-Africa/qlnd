@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/qtumproject/lnd/macaroons"
+	"github.com/qtumproject/qlnd/macaroons"
 	macaroon "gopkg.in/macaroon.v2"
 )
 

@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/qlnd/input"
 )
 
 var (

@@ -4,7 +4,7 @@ import (
 	"crypto/sha256"
 	"testing"
 
-	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/qlnd/lntypes"
 )
 
 // TestWitnessCacheSha256Retrieval tests that we're able to add and lookup new

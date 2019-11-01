@@ -20,9 +20,9 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
 	"github.com/lightningnetwork/lnd"
-	"github.com/qtumproject/lnd/lnrpc"
-	"github.com/qtumproject/lnd/lntest/wait"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnrpc"
+	"github.com/qtumproject/qlnd/lntest/wait"
+	"github.com/qtumproject/qlnd/lnwire"
 	"google.golang.org/grpc/grpclog"
 )
 

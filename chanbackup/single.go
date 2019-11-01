@@ -10,9 +10,9 @@ import (
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // SingleBackupVersion denotes the version of the single static channel backup.

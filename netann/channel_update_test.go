@@ -6,10 +6,10 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/netann"
-	"github.com/qtumproject/lnd/routing"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/netann"
+	"github.com/qtumproject/qlnd/routing"
 )
 
 type mockSigner struct {

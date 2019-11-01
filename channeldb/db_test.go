@@ -15,9 +15,9 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/shachain"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/shachain"
 )
 
 func TestOpenWithCreate(t *testing.T) {

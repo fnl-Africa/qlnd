@@ -8,9 +8,9 @@ import (
 	"sync"
 
 	"github.com/coreos/bbolt"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/multimutex"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/multimutex"
 )
 
 var (

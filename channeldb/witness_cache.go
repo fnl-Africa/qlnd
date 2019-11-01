@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/coreos/bbolt"
-	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/qlnd/lntypes"
 )
 
 var (

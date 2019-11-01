@@ -9,9 +9,9 @@ import (
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/coreos/bbolt"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/lnwallet"
 )
 
 // ContractResolutions is a wrapper struct around the two forms of resolutions

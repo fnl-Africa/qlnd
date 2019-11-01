@@ -5,7 +5,7 @@ import (
 	"errors"
 
 	bolt "github.com/coreos/bbolt"
-	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/qlnd/channeldb"
 )
 
 var (

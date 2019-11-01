@@ -33,14 +33,14 @@ import (
 	"github.com/coreos/bbolt"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/lightninglabs/neutrino"
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/chainntnfs/btcdnotify"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/lnwallet/btcwallet"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/chainntnfs/btcdnotify"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwallet/btcwallet"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 var (

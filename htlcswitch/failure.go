@@ -5,8 +5,8 @@ import (
 	"fmt"
 
 	sphinx "github.com/lightningnetwork/lightning-onion"
-	"github.com/qtumproject/lnd/htlcswitch/hop"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/htlcswitch/hop"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // ForwardingError wraps an lnwire.FailureMessage in a struct that also

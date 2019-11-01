@@ -1,3 +1,3 @@
-module github.com/qtumproject/lnd/ticker
+module github.com/qtumproject/qlnd/ticker
 
 go 1.12

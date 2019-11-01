@@ -12,8 +12,8 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite/txscript"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 const (

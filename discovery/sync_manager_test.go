@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/lntest/wait"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/ticker"
+	"github.com/qtumproject/qlnd/lntest/wait"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/ticker"
 )
 
 // randPeer creates a random peer.

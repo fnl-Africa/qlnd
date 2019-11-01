@@ -12,9 +12,9 @@ import (
 	"gopkg.in/macaroon-bakery.v2/bakery"
 
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/lnrpc"
-	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/lnrpc"
+	"github.com/qtumproject/qlnd/lntypes"
 )
 
 const (

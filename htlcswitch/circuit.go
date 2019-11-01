@@ -4,9 +4,9 @@ import (
 	"encoding/binary"
 	"io"
 
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/htlcswitch/hop"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/htlcswitch/hop"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // EmptyCircuitKey is a default value for an outgoing circuit key returned when

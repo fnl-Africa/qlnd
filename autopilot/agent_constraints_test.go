@@ -7,7 +7,7 @@ import (
 	prand "math/rand"
 
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 func TestConstraintsChannelBudget(t *testing.T) {

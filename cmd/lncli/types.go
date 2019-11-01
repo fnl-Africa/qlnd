@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
-	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/qlnd/lnrpc"
 )
 
 // OutPoint displays an outpoint string in the form "<txid>:<output-index>".

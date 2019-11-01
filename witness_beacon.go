@@ -3,9 +3,9 @@ package lnd
 import (
 	"sync"
 
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/contractcourt"
-	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/contractcourt"
+	"github.com/qtumproject/qlnd/lntypes"
 )
 
 // preimageSubscriber reprints an active subscription to be notified once the

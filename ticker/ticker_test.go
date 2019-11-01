@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/qtumproject/lnd/ticker"
+	"github.com/qtumproject/qlnd/ticker"
 )
 
 const interval = 50 * time.Millisecond

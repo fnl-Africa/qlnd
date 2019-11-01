@@ -12,10 +12,10 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/routing/route"
 
-	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/qlnd/lntypes"
 )
 
 var (

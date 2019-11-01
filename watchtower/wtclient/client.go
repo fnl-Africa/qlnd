@@ -10,13 +10,13 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/watchtower/wtdb"
-	"github.com/qtumproject/lnd/watchtower/wtpolicy"
-	"github.com/qtumproject/lnd/watchtower/wtserver"
-	"github.com/qtumproject/lnd/watchtower/wtwire"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/watchtower/wtpolicy"
+	"github.com/qtumproject/qlnd/watchtower/wtserver"
+	"github.com/qtumproject/qlnd/watchtower/wtwire"
 )
 
 const (

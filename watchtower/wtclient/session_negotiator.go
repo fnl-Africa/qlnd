@@ -7,12 +7,12 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/watchtower/blob"
-	"github.com/qtumproject/lnd/watchtower/wtdb"
-	"github.com/qtumproject/lnd/watchtower/wtpolicy"
-	"github.com/qtumproject/lnd/watchtower/wtserver"
-	"github.com/qtumproject/lnd/watchtower/wtwire"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/watchtower/blob"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/watchtower/wtpolicy"
+	"github.com/qtumproject/qlnd/watchtower/wtserver"
+	"github.com/qtumproject/qlnd/watchtower/wtwire"
 )
 
 // SessionNegotiator is an interface for asynchronously requesting new sessions.

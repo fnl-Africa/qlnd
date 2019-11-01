@@ -1,6 +1,6 @@
 package hop
 
-import "github.com/qtumproject/lnd/lnwire"
+import "github.com/qtumproject/qlnd/lnwire"
 
 var (
 	// Exit is a special "hop" denoting that an incoming HTLC is meant to

@@ -4,9 +4,9 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/lntypes"
-	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/lntypes"
+	"github.com/qtumproject/qlnd/routing/route"
 )
 
 // ControlTower tracks all outgoing payments made, whose primary purpose is to

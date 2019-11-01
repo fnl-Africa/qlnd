@@ -5,7 +5,7 @@ package main
 import (
 	"context"
 
-	"github.com/qtumproject/lnd/lnrpc/autopilotrpc"
+	"github.com/qtumproject/qlnd/lnrpc/autopilotrpc"
 	"github.com/urfave/cli"
 )
 

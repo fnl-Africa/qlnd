@@ -7,7 +7,7 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/qlnd/channeldb"
 )
 
 type mockChannelSource struct {

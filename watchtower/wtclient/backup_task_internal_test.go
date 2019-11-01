@@ -13,14 +13,14 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/watchtower/blob"
-	"github.com/qtumproject/lnd/watchtower/wtdb"
-	"github.com/qtumproject/lnd/watchtower/wtmock"
-	"github.com/qtumproject/lnd/watchtower/wtpolicy"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/watchtower/blob"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/watchtower/wtmock"
+	"github.com/qtumproject/qlnd/watchtower/wtpolicy"
 )
 
 const csvDelay uint32 = 144

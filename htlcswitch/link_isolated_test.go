@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/qtumproject/lnd/lntypes"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lntypes"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 type linkTestContext struct {

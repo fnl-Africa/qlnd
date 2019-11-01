@@ -8,9 +8,9 @@ import (
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // ChannelContribution is the primary constituent of the funding workflow

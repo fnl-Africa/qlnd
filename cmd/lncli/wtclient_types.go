@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/hex"
 
-	"github.com/qtumproject/lnd/lnrpc/wtclientrpc"
+	"github.com/qtumproject/qlnd/lnrpc/wtclientrpc"
 )
 
 // TowerSession encompasses information about a tower session.

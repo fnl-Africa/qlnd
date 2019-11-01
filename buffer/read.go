@@ -1,7 +1,7 @@
 package buffer
 
 import (
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // ReadSize represents the size of the maximum message that can be read off the

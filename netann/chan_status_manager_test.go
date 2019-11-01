@@ -13,9 +13,9 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/netann"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/netann"
 )
 
 // randOutpoint creates a random wire.Outpoint.

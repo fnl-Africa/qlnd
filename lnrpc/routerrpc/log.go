@@ -2,7 +2,7 @@ package routerrpc
 
 import (
 	"github.com/btcsuite/btclog"
-	"github.com/qtumproject/lnd/build"
+	"github.com/qtumproject/qlnd/build"
 )
 
 // log is a logger that is initialized with no output filters.  This

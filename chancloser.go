@@ -7,9 +7,9 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/htlcswitch"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/htlcswitch"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 var (

@@ -7,7 +7,7 @@ import (
 
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/qlnd/channeldb"
 )
 
 func initHintCache(t *testing.T) *HeightHintCache {

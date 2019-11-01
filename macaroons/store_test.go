@@ -10,7 +10,7 @@ import (
 
 	"github.com/coreos/bbolt"
 
-	"github.com/qtumproject/lnd/macaroons"
+	"github.com/qtumproject/qlnd/macaroons"
 
 	"github.com/btcsuite/btcwallet/snacl"
 )

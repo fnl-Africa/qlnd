@@ -4,9 +4,9 @@ import (
 	"time"
 
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/routing/route"
 )
 
 // ChannelGraphTimeSeries is an interface that provides time and block based

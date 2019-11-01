@@ -17,17 +17,17 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/davecgh/go-spew/spew"
 
-	"github.com/qtumproject/lnd/brontide"
-	"github.com/qtumproject/lnd/buffer"
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/contractcourt"
-	"github.com/qtumproject/lnd/htlcswitch"
-	"github.com/qtumproject/lnd/lnpeer"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/pool"
-	"github.com/qtumproject/lnd/ticker"
+	"github.com/qtumproject/qlnd/brontide"
+	"github.com/qtumproject/qlnd/buffer"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/contractcourt"
+	"github.com/qtumproject/qlnd/htlcswitch"
+	"github.com/qtumproject/qlnd/lnpeer"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/pool"
+	"github.com/qtumproject/qlnd/ticker"
 )
 
 const (

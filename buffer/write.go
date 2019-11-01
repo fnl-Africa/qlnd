@@ -1,7 +1,7 @@
 package buffer
 
 import (
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // WriteSize represents the size of the maximum plaintext message than can be

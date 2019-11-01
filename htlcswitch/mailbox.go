@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // ErrMailBoxShuttingDown is returned when the mailbox is interrupted by a

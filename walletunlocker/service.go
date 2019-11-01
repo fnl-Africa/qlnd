@@ -10,12 +10,12 @@ import (
 
 	"github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/btcsuite/btcwallet/wallet"
-	"github.com/qtumproject/lnd/aezeed"
-	"github.com/qtumproject/lnd/chanbackup"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnrpc"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/lnwallet/btcwallet"
+	"github.com/qtumproject/qlnd/aezeed"
+	"github.com/qtumproject/qlnd/chanbackup"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnrpc"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwallet/btcwallet"
 )
 
 // ChannelsToRecover wraps any set of packed (serialized+encrypted) channel

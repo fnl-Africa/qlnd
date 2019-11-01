@@ -6,7 +6,7 @@ import (
 	"context"
 	"encoding/hex"
 
-	"github.com/qtumproject/lnd/lnrpc/watchtowerrpc"
+	"github.com/qtumproject/qlnd/lnrpc/watchtowerrpc"
 	"github.com/urfave/cli"
 )
 

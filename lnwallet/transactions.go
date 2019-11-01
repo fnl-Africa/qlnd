@@ -7,7 +7,7 @@ import (
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/qlnd/input"
 )
 
 const (

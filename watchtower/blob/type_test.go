@@ -3,7 +3,7 @@ package blob_test
 import (
 	"testing"
 
-	"github.com/qtumproject/lnd/watchtower/blob"
+	"github.com/qtumproject/qlnd/watchtower/blob"
 )
 
 var unknownFlag = blob.Flag(16)

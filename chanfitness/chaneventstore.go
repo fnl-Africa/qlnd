@@ -16,11 +16,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/channelnotifier"
-	"github.com/qtumproject/lnd/peernotifier"
-	"github.com/qtumproject/lnd/routing/route"
-	"github.com/qtumproject/lnd/subscribe"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/channelnotifier"
+	"github.com/qtumproject/qlnd/peernotifier"
+	"github.com/qtumproject/qlnd/routing/route"
+	"github.com/qtumproject/qlnd/subscribe"
 )
 
 // errShuttingDown is returned when the store cannot respond to a query because

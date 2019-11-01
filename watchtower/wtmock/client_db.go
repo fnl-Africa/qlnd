@@ -6,8 +6,8 @@ import (
 	"sync/atomic"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
 )
 
 type towerPK [33]byte

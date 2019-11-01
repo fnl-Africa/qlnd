@@ -3,7 +3,7 @@ package pool
 import (
 	"time"
 
-	"github.com/qtumproject/lnd/buffer"
+	"github.com/qtumproject/qlnd/buffer"
 )
 
 const (

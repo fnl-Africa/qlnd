@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwallet"
 )
 
 type commitSortTest struct {

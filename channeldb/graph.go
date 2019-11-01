@@ -19,7 +19,7 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
 	"github.com/coreos/bbolt"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 var (

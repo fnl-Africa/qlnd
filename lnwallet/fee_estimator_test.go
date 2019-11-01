@@ -10,7 +10,7 @@ import (
 
 	"github.com/qtumproject/qtumsuite"
 
-	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwallet"
 )
 
 type mockSparseConfFeeSource struct {

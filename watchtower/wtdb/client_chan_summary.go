@@ -3,7 +3,7 @@ package wtdb
 import (
 	"io"
 
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // ChannelSummaries is a map for a given channel id to it's ClientChanSummary.

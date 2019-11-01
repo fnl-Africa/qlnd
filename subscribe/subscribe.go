@@ -5,7 +5,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/qtumproject/lnd/queue"
+	"github.com/qtumproject/qlnd/queue"
 )
 
 // ErrServerShuttingDown is an error returned in case the server is in the

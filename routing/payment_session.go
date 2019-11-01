@@ -3,9 +3,9 @@ package routing
 import (
 	"fmt"
 
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/routing/route"
 )
 
 // BlockPadding is used to increment the finalCltvDelta value for the last hop

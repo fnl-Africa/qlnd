@@ -11,7 +11,7 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/qlnd/channeldb"
 )
 
 type genGraphFunc func() (testGraph, func(), error)

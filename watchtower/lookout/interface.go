@@ -3,9 +3,9 @@ package lookout
 import (
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/watchtower/blob"
-	"github.com/qtumproject/lnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/watchtower/blob"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
 )
 
 // Service abstracts the lookout functionality, supporting the ability to start

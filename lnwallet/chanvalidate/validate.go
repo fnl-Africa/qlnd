@@ -7,7 +7,7 @@ import (
 	"github.com/qtumproject/qtumsuite/txscript"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 var (

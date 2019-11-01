@@ -7,9 +7,9 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/lnpeer"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/lnpeer"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // mockPeer implements the lnpeer.Peer interface and is used to test the

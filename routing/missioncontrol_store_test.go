@@ -8,10 +8,10 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 
 	"github.com/coreos/bbolt"
-	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/qlnd/routing/route"
 )
 
 const testMaxRecords = 2

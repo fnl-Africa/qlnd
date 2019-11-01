@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"time"
 
-	"github.com/qtumproject/lnd/buffer"
+	"github.com/qtumproject/qlnd/buffer"
 )
 
 // Write is a worker pool specifically designed for sharing access to

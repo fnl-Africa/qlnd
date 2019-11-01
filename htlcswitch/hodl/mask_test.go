@@ -3,8 +3,8 @@ package hodl_test
 import (
 	"testing"
 
-	"github.com/qtumproject/lnd/build"
-	"github.com/qtumproject/lnd/htlcswitch/hodl"
+	"github.com/qtumproject/qlnd/build"
+	"github.com/qtumproject/qlnd/htlcswitch/hodl"
 )
 
 var hodlMaskTests = []struct {

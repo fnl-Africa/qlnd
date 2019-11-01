@@ -5,11 +5,11 @@ import (
 	"errors"
 	"io"
 
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/invoices"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/invoices"
 
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/qlnd/lntypes"
 )
 
 // htlcIncomingContestResolver is a ContractResolver that's able to resolve an

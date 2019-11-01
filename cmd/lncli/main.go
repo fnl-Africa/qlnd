@@ -15,10 +15,10 @@ import (
 	macaroon "gopkg.in/macaroon.v2"
 
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/build"
-	"github.com/qtumproject/lnd/lncfg"
-	"github.com/qtumproject/lnd/lnrpc"
-	"github.com/qtumproject/lnd/macaroons"
+	"github.com/qtumproject/qlnd/build"
+	"github.com/qtumproject/qlnd/lncfg"
+	"github.com/qtumproject/qlnd/lnrpc"
+	"github.com/qtumproject/qlnd/macaroons"
 	"github.com/urfave/cli"
 
 	"google.golang.org/grpc"

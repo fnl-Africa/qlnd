@@ -17,8 +17,8 @@ import (
 	"github.com/qtumproject/qtumsuite/gcs/builder"
 	"github.com/lightninglabs/neutrino"
 	"github.com/lightninglabs/neutrino/headerfs"
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/queue"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/queue"
 )
 
 const (

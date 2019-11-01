@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/qtumproject/lnd/tlv"
+	"github.com/qtumproject/qlnd/tlv"
 )
 
 // TestParsedTypes asserts that a Stream will properly return the set of types

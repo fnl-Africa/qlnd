@@ -8,7 +8,7 @@ import (
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite/txscript"
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/qlnd/keychain"
 )
 
 func TestSignDescriptorSerialization(t *testing.T) {

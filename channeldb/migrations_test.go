@@ -14,9 +14,9 @@ import (
 	"github.com/coreos/bbolt"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/go-errors/errors"
-	"github.com/qtumproject/lnd/lntypes"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/qlnd/lntypes"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/routing/route"
 )
 
 // TestPaymentStatusesMigration checks that already completed payments will have

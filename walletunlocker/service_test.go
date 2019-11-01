@@ -11,11 +11,11 @@ import (
 
 	"github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/btcsuite/btcwallet/wallet"
-	"github.com/qtumproject/lnd/aezeed"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnrpc"
-	"github.com/qtumproject/lnd/lnwallet/btcwallet"
-	"github.com/qtumproject/lnd/walletunlocker"
+	"github.com/qtumproject/qlnd/aezeed"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnrpc"
+	"github.com/qtumproject/qlnd/lnwallet/btcwallet"
+	"github.com/qtumproject/qlnd/walletunlocker"
 )
 
 var (

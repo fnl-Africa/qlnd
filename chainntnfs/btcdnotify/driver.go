@@ -6,7 +6,7 @@ import (
 
 	"github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/btcsuite/btcd/rpcclient"
-	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/qlnd/chainntnfs"
 )
 
 // createNewNotifier creates a new instance of the ChainNotifier interface

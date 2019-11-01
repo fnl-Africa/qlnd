@@ -5,7 +5,7 @@ import (
 	"io"
 
 	"github.com/coreos/bbolt"
-	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/qlnd/routing/route"
 )
 
 // migrateRouteSerialization migrates the way we serialize routes across the

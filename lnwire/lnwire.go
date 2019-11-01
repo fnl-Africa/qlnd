@@ -15,7 +15,7 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
 	"github.com/go-errors/errors"
-	"github.com/qtumproject/lnd/tor"
+	"github.com/qtumproject/qlnd/tor"
 )
 
 // MaxSliceLength is the maximum allowed length for any opaque byte slices in

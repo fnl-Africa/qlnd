@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // TestWaitingQueueThreadSafety test the thread safety properties of the

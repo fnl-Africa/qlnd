@@ -9,7 +9,7 @@ import (
 	"github.com/qtumproject/qtumsuite/txscript"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwallet"
 )
 
 // TestDetermineFeePerKw tests that given a fee preference, the

@@ -1,7 +1,7 @@
 package hop
 
 import (
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // ForwardingInfo contains all the information that is necessary to forward and

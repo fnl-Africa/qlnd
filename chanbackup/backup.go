@@ -6,7 +6,7 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/qlnd/channeldb"
 )
 
 // LiveChannelSource is an interface that allows us to query for the set of

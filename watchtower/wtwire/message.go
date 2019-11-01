@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // MaxMessagePayload is the maximum bytes a message can be regardless of other

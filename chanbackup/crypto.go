@@ -8,7 +8,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/qlnd/keychain"
 	"golang.org/x/crypto/chacha20poly1305"
 )
 

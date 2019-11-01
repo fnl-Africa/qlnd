@@ -8,7 +8,7 @@ import (
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/qlnd/chainntnfs"
 )
 
 var (

@@ -3,7 +3,7 @@ package peernotifier
 import (
 	"sync"
 
-	"github.com/qtumproject/lnd/subscribe"
+	"github.com/qtumproject/qlnd/subscribe"
 )
 
 // PeerNotifier is a subsystem which observes peer offline and online events.

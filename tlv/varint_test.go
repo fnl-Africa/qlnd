@@ -6,7 +6,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/qtumproject/lnd/tlv"
+	"github.com/qtumproject/qlnd/tlv"
 )
 
 type varIntTest struct {

@@ -11,12 +11,12 @@ import (
 	"time"
 
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/watchtower/blob"
-	"github.com/qtumproject/lnd/watchtower/lookout"
-	"github.com/qtumproject/lnd/watchtower/wtdb"
-	"github.com/qtumproject/lnd/watchtower/wtmock"
-	"github.com/qtumproject/lnd/watchtower/wtpolicy"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/watchtower/blob"
+	"github.com/qtumproject/qlnd/watchtower/lookout"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/watchtower/wtmock"
+	"github.com/qtumproject/qlnd/watchtower/wtpolicy"
 )
 
 type mockPunisher struct {

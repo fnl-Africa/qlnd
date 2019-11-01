@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/qtumproject/lnd/tlv"
+	"github.com/qtumproject/qlnd/tlv"
 )
 
 type nodeAmts struct {

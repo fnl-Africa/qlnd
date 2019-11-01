@@ -8,8 +8,8 @@ import (
 	"net"
 	"strings"
 
-	"github.com/qtumproject/lnd/lnrpc"
-	"github.com/qtumproject/lnd/macaroons"
+	"github.com/qtumproject/qlnd/lnrpc"
+	"github.com/qtumproject/qlnd/macaroons"
 	"github.com/urfave/cli"
 	"gopkg.in/macaroon.v2"
 )

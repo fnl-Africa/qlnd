@@ -9,8 +9,8 @@ import (
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/tor"
-	"github.com/qtumproject/lnd/watchtower/lookout"
+	"github.com/qtumproject/qlnd/tor"
+	"github.com/qtumproject/qlnd/watchtower/lookout"
 )
 
 const (

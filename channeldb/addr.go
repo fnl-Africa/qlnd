@@ -7,7 +7,7 @@ import (
 	"io"
 	"net"
 
-	"github.com/qtumproject/lnd/tor"
+	"github.com/qtumproject/qlnd/tor"
 )
 
 // addressType specifies the network protocol and version that should be used

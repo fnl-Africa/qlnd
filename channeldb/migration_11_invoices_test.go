@@ -9,7 +9,7 @@ import (
 	"github.com/btcsuite/btcd/btcec"
 	bitcoinCfg "github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/coreos/bbolt"
-	"github.com/qtumproject/lnd/zpay32"
+	"github.com/qtumproject/qlnd/zpay32"
 	litecoinCfg "github.com/ltcsuite/ltcd/chaincfg"
 )
 

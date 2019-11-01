@@ -2,7 +2,7 @@ package chanacceptor
 
 import (
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // ChannelAcceptRequest is a struct containing the requesting node's public key

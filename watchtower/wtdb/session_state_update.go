@@ -3,7 +3,7 @@ package wtdb
 import (
 	"io"
 
-	"github.com/qtumproject/lnd/watchtower/blob"
+	"github.com/qtumproject/qlnd/watchtower/blob"
 )
 
 // SessionStateUpdate holds a state update sent by a client along with its

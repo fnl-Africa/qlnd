@@ -10,8 +10,8 @@ import (
 
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/watchtower/wtwire"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/watchtower/wtwire"
 )
 
 func randRawFeatureVector(r *rand.Rand) *lnwire.RawFeatureVector {

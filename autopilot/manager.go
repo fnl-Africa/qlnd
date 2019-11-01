@@ -5,9 +5,9 @@ import (
 	"sync"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/routing"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/routing"
 )
 
 // ManagerCfg houses a set of values and methods that is passed to the Manager

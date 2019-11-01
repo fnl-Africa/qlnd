@@ -5,7 +5,7 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/qlnd/keychain"
 )
 
 // ChannelRestorer is an interface that allows the Recover method to map the

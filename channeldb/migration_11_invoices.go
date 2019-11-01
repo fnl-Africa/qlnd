@@ -9,8 +9,8 @@ import (
 	bitcoinCfg "github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/coreos/bbolt"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/zpay32"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/zpay32"
 	litecoinCfg "github.com/ltcsuite/ltcd/chaincfg"
 )
 

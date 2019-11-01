@@ -4,8 +4,8 @@ import (
 	"errors"
 	"io"
 
-	"github.com/qtumproject/lnd/watchtower/blob"
-	"github.com/qtumproject/lnd/watchtower/wtpolicy"
+	"github.com/qtumproject/qlnd/watchtower/blob"
+	"github.com/qtumproject/qlnd/watchtower/wtpolicy"
 )
 
 var (

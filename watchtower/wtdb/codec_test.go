@@ -11,8 +11,8 @@ import (
 	"testing/quick"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/qtumproject/lnd/tor"
-	"github.com/qtumproject/lnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/tor"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
 )
 
 func randPubKey() (*btcec.PublicKey, error) {

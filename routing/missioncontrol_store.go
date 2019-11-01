@@ -8,8 +8,8 @@ import (
 
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/coreos/bbolt"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 var (

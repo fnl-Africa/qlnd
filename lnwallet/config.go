@@ -2,10 +2,10 @@ package lnwallet
 
 import (
 	"github.com/qtumproject/qtumsuite/chaincfg"
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/keychain"
 )
 
 // Config is a struct which houses configuration parameters which modify the

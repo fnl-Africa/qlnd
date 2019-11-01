@@ -1,10 +1,10 @@
 package contractcourt
 
 import (
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/invoices"
-	"github.com/qtumproject/lnd/lntypes"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/invoices"
+	"github.com/qtumproject/qlnd/lntypes"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // Registry is an interface which represents the invoice registry.

@@ -41,8 +41,8 @@ require (
 	github.com/onsi/ginkgo v1.10.3 // indirect
 	github.com/onsi/gomega v1.7.1 // indirect
 	github.com/prometheus/client_golang v0.9.3
-	github.com/qtumproject/lnd/queue v1.0.1
-	github.com/qtumproject/lnd/ticker v1.0.0
+	github.com/qtumproject/qlnd/queue v1.0.1
+	github.com/qtumproject/qlnd/ticker v1.0.0
 	github.com/rogpeppe/fastuuid v1.2.0 // indirect
 	github.com/tv42/zbase32 v0.0.0-20160707012821-501572607d02
 	github.com/urfave/cli v1.18.0
@@ -63,9 +63,9 @@ require (
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22 // indirect
 )
 
-replace github.com/qtumproject/lnd/ticker => ./ticker
+replace github.com/qtumproject/qlnd/ticker => ./ticker
 
-replace github.com/qtumproject/lnd/queue => ./queue
+replace github.com/qtumproject/qlnd/queue => ./queue
 
 replace git.schwanenlied.me/yawning/bsaes.git => github.com/Yawning/bsaes v0.0.0-20180720073208-c0276d75487e
 

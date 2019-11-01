@@ -7,7 +7,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/qlnd/routing/route"
 )
 
 // TestHeapOrdering ensures that the items inserted into the heap are properly

@@ -8,11 +8,11 @@ import (
 	"strconv"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/qtumproject/lnd/lncfg"
-	"github.com/qtumproject/lnd/lnrpc"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/watchtower"
-	"github.com/qtumproject/lnd/watchtower/wtclient"
+	"github.com/qtumproject/qlnd/lncfg"
+	"github.com/qtumproject/qlnd/lnrpc"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/watchtower"
+	"github.com/qtumproject/qlnd/watchtower/wtclient"
 	"google.golang.org/grpc"
 	"gopkg.in/macaroon-bakery.v2/bakery"
 )

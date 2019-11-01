@@ -12,11 +12,11 @@ import (
 	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
 
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/sweep"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/sweep"
 )
 
 //                          SUMMARY OF OUTPUT STATES

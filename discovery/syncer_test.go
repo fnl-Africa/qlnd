@@ -12,7 +12,7 @@ import (
 	"github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 const (

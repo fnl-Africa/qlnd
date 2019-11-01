@@ -2,7 +2,7 @@ package netann
 
 import (
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/qlnd/channeldb"
 )
 
 // DB abstracts the required database functionality needed by the

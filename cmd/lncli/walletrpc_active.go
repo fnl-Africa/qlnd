@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/qtumproject/lnd/lnrpc/walletrpc"
+	"github.com/qtumproject/qlnd/lnrpc/walletrpc"
 	"github.com/urfave/cli"
 )
 

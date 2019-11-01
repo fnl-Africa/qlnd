@@ -9,7 +9,7 @@ import (
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/rpcclient"
 	"github.com/lightninglabs/neutrino"
-	"github.com/qtumproject/lnd/chainntnfs"
+	"github.com/qtumproject/qlnd/chainntnfs"
 )
 
 // UnsafeStart starts the notifier with a specified best height and optional

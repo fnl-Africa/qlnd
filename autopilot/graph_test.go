@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/autopilot"
+	"github.com/qtumproject/qlnd/autopilot"
 )
 
 // TestMedian tests the Median method.

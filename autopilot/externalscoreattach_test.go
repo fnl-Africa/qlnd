@@ -5,7 +5,7 @@ import (
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/autopilot"
+	"github.com/qtumproject/qlnd/autopilot"
 )
 
 // randKey returns a random public key.

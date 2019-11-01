@@ -9,12 +9,12 @@ import (
 	"testing"
 
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/watchtower"
-	"github.com/qtumproject/lnd/watchtower/blob"
-	"github.com/qtumproject/lnd/watchtower/wtdb"
-	"github.com/qtumproject/lnd/watchtower/wtmock"
-	"github.com/qtumproject/lnd/watchtower/wtpolicy"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/watchtower"
+	"github.com/qtumproject/qlnd/watchtower/blob"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/watchtower/wtmock"
+	"github.com/qtumproject/qlnd/watchtower/wtpolicy"
 )
 
 var (

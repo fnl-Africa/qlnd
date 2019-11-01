@@ -3,8 +3,8 @@ package wtserver
 import (
 	"fmt"
 
-	"github.com/qtumproject/lnd/watchtower/wtdb"
-	"github.com/qtumproject/lnd/watchtower/wtwire"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/watchtower/wtwire"
 )
 
 // handleStateUpdates processes a stream of StateUpdate requests from the

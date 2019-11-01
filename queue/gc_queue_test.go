@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/qtumproject/lnd/queue"
+	"github.com/qtumproject/qlnd/queue"
 )
 
 // testItem is an item type we'll be using to test the GCQueue.

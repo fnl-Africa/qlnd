@@ -10,7 +10,7 @@ import (
 
 	"github.com/coreos/bbolt"
 	"github.com/go-errors/errors"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 var (

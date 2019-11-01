@@ -11,7 +11,7 @@ import (
 	"testing/iotest"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 type maybeNetConn struct {

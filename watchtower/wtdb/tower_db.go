@@ -6,8 +6,8 @@ import (
 
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/coreos/bbolt"
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/watchtower/blob"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/watchtower/blob"
 )
 
 const (

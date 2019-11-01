@@ -5,8 +5,8 @@ import (
 	"sync/atomic"
 
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/watchtower/blob"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/watchtower/blob"
 )
 
 // Config houses the Lookout's required resources to properly fulfill it's duty,

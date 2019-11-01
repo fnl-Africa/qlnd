@@ -4,8 +4,8 @@ import (
 	"math"
 	"time"
 
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/routing/route"
 )
 
 // probabilityEstimator returns node and pair probabilities based on historical

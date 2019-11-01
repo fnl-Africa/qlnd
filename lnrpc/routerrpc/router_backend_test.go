@@ -7,12 +7,12 @@ import (
 	"testing"
 
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/routing"
-	"github.com/qtumproject/lnd/routing/route"
-	"github.com/qtumproject/lnd/tlv"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/routing"
+	"github.com/qtumproject/qlnd/routing/route"
+	"github.com/qtumproject/qlnd/tlv"
 
-	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/qlnd/lnrpc"
 )
 
 const (

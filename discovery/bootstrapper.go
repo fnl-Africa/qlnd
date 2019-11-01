@@ -15,9 +15,9 @@ import (
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite/bech32"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/autopilot"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/tor"
+	"github.com/qtumproject/qlnd/autopilot"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/tor"
 	"github.com/miekg/dns"
 )
 

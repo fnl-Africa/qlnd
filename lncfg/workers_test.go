@@ -3,7 +3,7 @@ package lncfg_test
 import (
 	"testing"
 
-	"github.com/qtumproject/lnd/lncfg"
+	"github.com/qtumproject/qlnd/lncfg"
 )
 
 const (

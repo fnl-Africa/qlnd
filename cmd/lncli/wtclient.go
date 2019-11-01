@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/qtumproject/lnd/lnrpc/wtclientrpc"
+	"github.com/qtumproject/qlnd/lnrpc/wtclientrpc"
 	"github.com/urfave/cli"
 )
 

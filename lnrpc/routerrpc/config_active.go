@@ -3,8 +3,8 @@
 package routerrpc
 
 import (
-	"github.com/qtumproject/lnd/macaroons"
-	"github.com/qtumproject/lnd/routing"
+	"github.com/qtumproject/qlnd/macaroons"
+	"github.com/qtumproject/qlnd/routing"
 )
 
 // Config is the main configuration file for the router RPC server. It contains

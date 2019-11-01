@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/qlnd/input"
 )
 
 // fundingFee is a helper method that returns the fee estimate used for a tx

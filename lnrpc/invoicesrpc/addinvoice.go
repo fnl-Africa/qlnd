@@ -13,11 +13,11 @@ import (
 	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
 
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/lntypes"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/netann"
-	"github.com/qtumproject/lnd/zpay32"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/lntypes"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/netann"
+	"github.com/qtumproject/qlnd/zpay32"
 )
 
 // AddInvoiceConfig contains dependencies for invoice creation.

@@ -3,8 +3,8 @@ package watchtower
 import (
 	"net"
 
-	"github.com/qtumproject/lnd/watchtower/lookout"
-	"github.com/qtumproject/lnd/watchtower/wtserver"
+	"github.com/qtumproject/qlnd/watchtower/lookout"
+	"github.com/qtumproject/qlnd/watchtower/wtserver"
 )
 
 // DB abstracts the persistent functionality required to run the watchtower

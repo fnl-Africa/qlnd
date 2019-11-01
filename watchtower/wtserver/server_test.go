@@ -10,12 +10,12 @@ import (
 	"github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/qtumproject/qtumsuite/txscript"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/watchtower/blob"
-	"github.com/qtumproject/lnd/watchtower/wtdb"
-	"github.com/qtumproject/lnd/watchtower/wtmock"
-	"github.com/qtumproject/lnd/watchtower/wtserver"
-	"github.com/qtumproject/lnd/watchtower/wtwire"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/watchtower/blob"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/watchtower/wtmock"
+	"github.com/qtumproject/qlnd/watchtower/wtserver"
+	"github.com/qtumproject/qlnd/watchtower/wtwire"
 )
 
 var (

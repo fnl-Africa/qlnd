@@ -13,8 +13,8 @@ import (
 	"github.com/btcsuite/fastsha256"
 	"github.com/coreos/bbolt"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/lntypes"
-	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/qlnd/lntypes"
+	"github.com/qtumproject/qlnd/routing/route"
 )
 
 func initDB() (*DB, error) {

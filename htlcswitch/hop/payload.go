@@ -6,9 +6,9 @@ import (
 	"io"
 
 	"github.com/lightningnetwork/lightning-onion"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/record"
-	"github.com/qtumproject/lnd/tlv"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/record"
+	"github.com/qtumproject/qlnd/tlv"
 )
 
 // ErrInvalidPayload is an error returned when a parsed onion payload either

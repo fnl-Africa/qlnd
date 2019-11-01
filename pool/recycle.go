@@ -3,7 +3,7 @@ package pool
 import (
 	"time"
 
-	"github.com/qtumproject/lnd/queue"
+	"github.com/qtumproject/qlnd/queue"
 )
 
 // Recycler is an interface that allows an object to be reclaimed without

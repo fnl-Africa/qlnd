@@ -4,7 +4,7 @@ import (
 	"sync"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/qlnd/keychain"
 )
 
 // SecretKeyRing is a mock, in-memory implementation for deriving private keys.

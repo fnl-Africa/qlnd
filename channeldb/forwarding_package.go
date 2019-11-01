@@ -8,7 +8,7 @@ import (
 	"io"
 
 	"github.com/coreos/bbolt"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // ErrCorruptedFwdPkg signals that the on-disk structure of the forwarding

@@ -12,10 +12,10 @@ import (
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/shachain"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/shachain"
 )
 
 var (

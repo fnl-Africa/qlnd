@@ -11,7 +11,7 @@ import (
 	"github.com/qtumproject/qtumsuite"
 	"github.com/qtumproject/qtumsuite/gcs/builder"
 	"github.com/lightninglabs/neutrino"
-	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/qlnd/channeldb"
 )
 
 // CfFilteredChainView is an implementation of the FilteredChainView interface

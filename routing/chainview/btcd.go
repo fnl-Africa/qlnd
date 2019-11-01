@@ -12,7 +12,7 @@ import (
 	"github.com/btcsuite/btcd/rpcclient"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/qlnd/channeldb"
 )
 
 // BtcdFilteredChainView is an implementation of the FilteredChainView

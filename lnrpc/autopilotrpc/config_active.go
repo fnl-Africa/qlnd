@@ -3,7 +3,7 @@
 package autopilotrpc
 
 import (
-	"github.com/qtumproject/lnd/autopilot"
+	"github.com/qtumproject/qlnd/autopilot"
 )
 
 // Config is the primary configuration struct for the autopilot RPC server. It

@@ -12,7 +12,7 @@ import (
 	"github.com/qtumproject/qtumsuite/txscript"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/qlnd/keychain"
 )
 
 // TestRevocationKeyDerivation tests that given a public key, and a revocation

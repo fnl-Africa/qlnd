@@ -4,8 +4,8 @@ import (
 	"sync"
 
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/subscribe"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/subscribe"
 )
 
 // ChannelNotifier is a subsystem which all active, inactive, and closed channel

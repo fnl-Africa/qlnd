@@ -5,7 +5,7 @@ import (
 
 	"github.com/coreos/bbolt"
 	"github.com/go-errors/errors"
-	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/qlnd/channeldb"
 )
 
 // defaultSequenceBatchSize specifies the window of sequence numbers that are

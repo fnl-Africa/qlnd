@@ -19,8 +19,8 @@ import (
 	"github.com/btcsuite/btcwallet/wallet/txauthor"
 	"github.com/btcsuite/btcwallet/wallet/txrules"
 	"github.com/btcsuite/btcwallet/walletdb"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnwallet"
 )
 
 const (

@@ -9,7 +9,7 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
 
-	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/qlnd/input"
 )
 
 // TestTxWeightEstimator tests that transaction weight estimates are calculated

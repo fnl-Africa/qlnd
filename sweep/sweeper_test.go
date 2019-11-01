@@ -11,10 +11,10 @@ import (
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/build"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/qlnd/build"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnwallet"
 )
 
 var (

@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/qtumproject/lnd/ticker"
+	"github.com/qtumproject/qlnd/ticker"
 )
 
 // GCQueue is garbage collecting queue, which dynamically grows and contracts

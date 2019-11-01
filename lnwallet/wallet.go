@@ -18,12 +18,12 @@ import (
 	"github.com/qtumproject/qtumsuite"
 	"github.com/qtumproject/qtumsuite/txsort"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnwallet/chanvalidate"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/shachain"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnwallet/chanvalidate"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/shachain"
 )
 
 const (

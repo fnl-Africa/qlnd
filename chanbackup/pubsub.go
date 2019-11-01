@@ -7,8 +7,8 @@ import (
 	"sync"
 
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/keychain"
 )
 
 // Swapper is an interface that allows the chanbackup.SubSwapper to update the

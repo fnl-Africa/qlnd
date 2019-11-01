@@ -13,9 +13,9 @@ import (
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite/txscript"
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnrpc"
 
 	"google.golang.org/grpc"
 	"gopkg.in/macaroon-bakery.v2/bakery"

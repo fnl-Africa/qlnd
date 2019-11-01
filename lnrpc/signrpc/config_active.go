@@ -3,8 +3,8 @@
 package signrpc
 
 import (
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/macaroons"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/macaroons"
 )
 
 // Config is the primary configuration struct for the signer RPC server. It

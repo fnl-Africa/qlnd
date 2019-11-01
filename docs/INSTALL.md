@@ -384,7 +384,7 @@ keep in a safe place.
 `lnd`'s authentication system is called **macaroons**, which are decentralized
 bearer credentials allowing for delegation, attenuation, and other cool
 features. You can learn more about them in Alex Akselrod's [writeup on
-Github](https://github.com/qtumproject/lnd/issues/20).
+Github](https://github.com/qtumproject/qlnd/issues/20).
 
 Running `lnd` for the first time will by default generate the `admin.macaroon`,
 `read_only.macaroon`, and `macaroons.db` files that are used to authenticate
@@ -452,7 +452,7 @@ Notice the `[Bitcoin]` section. This section houses the parameters for the
 Bitcoin chain. `lnd` also supports Litecoin testnet4 (but not both BTC and LTC
 at the same time), so when working with Litecoin be sure to set to parameters
 for Litecoin accordingly. See a more detailed sample config file available
-[here](https://github.com/qtumproject/lnd/blob/master/sample-lnd.conf)
+[here](https://github.com/qtumproject/qlnd/blob/master/sample-lnd.conf)
 and explore the other sections for node configuration, including `[Btcd]`,
 `[Bitcoind]`, `[Neutrino]`, `[Ltcd]`, and `[Litecoind]` depending on which
 chain and node type you're using.

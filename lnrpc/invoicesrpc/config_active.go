@@ -4,11 +4,11 @@ package invoicesrpc
 
 import (
 	"github.com/qtumproject/qtumsuite/chaincfg"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/invoices"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/macaroons"
-	"github.com/qtumproject/lnd/netann"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/invoices"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/macaroons"
+	"github.com/qtumproject/qlnd/netann"
 )
 
 // Config is the primary configuration struct for the invoices RPC server. It

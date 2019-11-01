@@ -6,11 +6,11 @@ import (
 
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/lntypes"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/sweep"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/lntypes"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/sweep"
 )
 
 // htlcSuccessResolver is a resolver that's capable of sweeping an incoming

@@ -5,8 +5,8 @@ import (
 
 	"github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/watchtower/wtwire"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/watchtower/wtwire"
 )
 
 var (

@@ -10,10 +10,10 @@ import (
 	bitcoinCfg "github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/qtumproject/qtumsuite"
 	sphinx "github.com/lightningnetwork/lightning-onion"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/htlcswitch"
-	"github.com/qtumproject/lnd/htlcswitch/hop"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/htlcswitch"
+	"github.com/qtumproject/qlnd/htlcswitch/hop"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 var (

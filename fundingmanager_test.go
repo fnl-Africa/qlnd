@@ -22,17 +22,17 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
 
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/chanacceptor"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/discovery"
-	"github.com/qtumproject/lnd/htlcswitch"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnpeer"
-	"github.com/qtumproject/lnd/lnrpc"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/chanacceptor"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/discovery"
+	"github.com/qtumproject/qlnd/htlcswitch"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnpeer"
+	"github.com/qtumproject/qlnd/lnrpc"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 const (

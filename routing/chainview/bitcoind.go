@@ -12,7 +12,7 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/btcsuite/btcwallet/chain"
 	"github.com/btcsuite/btcwallet/wtxmgr"
-	"github.com/qtumproject/lnd/channeldb"
+	"github.com/qtumproject/qlnd/channeldb"
 )
 
 // BitcoindFilteredChainView is an implementation of the FilteredChainView

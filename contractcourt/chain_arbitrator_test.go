@@ -8,8 +8,8 @@ import (
 
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/lnwallet"
 )
 
 // TestChainArbitratorRepulishCommitment testst that the chain arbitrator will

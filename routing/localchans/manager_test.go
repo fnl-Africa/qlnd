@@ -3,16 +3,16 @@ package localchans
 import (
 	"testing"
 
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/qtumproject/qtumsuite"
 
 	"github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/discovery"
-	"github.com/qtumproject/lnd/htlcswitch"
-	"github.com/qtumproject/lnd/routing"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/discovery"
+	"github.com/qtumproject/qlnd/htlcswitch"
+	"github.com/qtumproject/qlnd/routing"
 )
 
 // TestManager tests that the local channel manager properly propagates fee

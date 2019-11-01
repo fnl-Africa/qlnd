@@ -1,7 +1,7 @@
 package record
 
 import (
-	"github.com/qtumproject/lnd/tlv"
+	"github.com/qtumproject/qlnd/tlv"
 )
 
 const (

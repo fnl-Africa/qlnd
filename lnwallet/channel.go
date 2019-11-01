@@ -18,11 +18,11 @@ import (
 	"github.com/qtumproject/qtumsuite"
 	"github.com/qtumproject/qtumsuite/txsort"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/build"
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/build"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 var zeroHash chainhash.Hash

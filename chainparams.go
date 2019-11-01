@@ -5,7 +5,7 @@ import (
 	bitcoinCfg "github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	bitcoinWire "github.com/qtumproject/qtumsuite/wire"
-	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/qlnd/keychain"
 	litecoinCfg "github.com/ltcsuite/ltcd/chaincfg"
 	litecoinWire "github.com/ltcsuite/ltcd/wire"
 )

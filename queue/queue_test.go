@@ -3,7 +3,7 @@ package queue_test
 import (
 	"testing"
 
-	"github.com/qtumproject/lnd/queue"
+	"github.com/qtumproject/qlnd/queue"
 )
 
 func testQueueAddDrain(t *testing.T, size, numStart, numStop, numAdd, numDrain int) {

@@ -6,7 +6,7 @@ import (
 	"reflect"
 
 	"github.com/go-errors/errors"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // TestWaitingProofStore tests add/get/remove functions of the waiting proof

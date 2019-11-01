@@ -1,8 +1,8 @@
 package wtclientrpc
 
 import (
-	"github.com/qtumproject/lnd/lncfg"
-	"github.com/qtumproject/lnd/watchtower/wtclient"
+	"github.com/qtumproject/qlnd/lncfg"
+	"github.com/qtumproject/qlnd/watchtower/wtclient"
 )
 
 // Config is the primary configuration struct for the watchtower RPC server. It

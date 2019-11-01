@@ -2,10 +2,10 @@ package wtserver
 
 import (
 	"github.com/qtumproject/qtumsuite/txscript"
-	"github.com/qtumproject/lnd/watchtower/blob"
-	"github.com/qtumproject/lnd/watchtower/wtdb"
-	"github.com/qtumproject/lnd/watchtower/wtpolicy"
-	"github.com/qtumproject/lnd/watchtower/wtwire"
+	"github.com/qtumproject/qlnd/watchtower/blob"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/watchtower/wtpolicy"
+	"github.com/qtumproject/qlnd/watchtower/wtwire"
 )
 
 // handleCreateSession processes a CreateSession message from the peer, and returns

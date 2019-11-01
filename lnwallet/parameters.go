@@ -3,7 +3,7 @@ package lnwallet
 import (
 	"github.com/qtumproject/qtumsuite"
 	"github.com/btcsuite/btcwallet/wallet/txrules"
-	"github.com/qtumproject/lnd/input"
+	"github.com/qtumproject/qlnd/input"
 )
 
 // DefaultDustLimit is used to calculate the dust HTLC amount which will be

@@ -8,9 +8,9 @@ import (
 	"github.com/coreos/bbolt"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/go-errors/errors"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/htlcswitch/hop"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/htlcswitch/hop"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 var (

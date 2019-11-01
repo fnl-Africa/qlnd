@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/routing"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/routing"
 )
 
 // TestValidationBarrierSemaphore checks basic properties of the validation

@@ -4,11 +4,11 @@ import (
 	"net"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/qtumproject/lnd/brontide"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/watchtower/wtdb"
-	"github.com/qtumproject/lnd/watchtower/wtserver"
+	"github.com/qtumproject/qlnd/brontide"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/watchtower/wtserver"
 )
 
 // DB abstracts the required database operations required by the watchtower

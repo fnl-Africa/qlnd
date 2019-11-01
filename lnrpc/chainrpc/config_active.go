@@ -3,8 +3,8 @@
 package chainrpc
 
 import (
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/macaroons"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/macaroons"
 )
 
 // Config is the primary configuration struct for the chain notifier RPC server.

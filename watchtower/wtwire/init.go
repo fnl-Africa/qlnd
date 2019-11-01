@@ -5,7 +5,7 @@ import (
 	"io"
 
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // Init is the first message sent over the watchtower wire protocol, and

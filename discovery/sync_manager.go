@@ -7,10 +7,10 @@ import (
 	"time"
 
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
-	"github.com/qtumproject/lnd/lnpeer"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/routing/route"
-	"github.com/qtumproject/lnd/ticker"
+	"github.com/qtumproject/qlnd/lnpeer"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/routing/route"
+	"github.com/qtumproject/qlnd/ticker"
 )
 
 const (

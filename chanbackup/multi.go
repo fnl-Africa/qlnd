@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // MultiBackupVersion denotes the version of the multi channel static channel

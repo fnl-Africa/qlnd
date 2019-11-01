@@ -10,8 +10,8 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
 	"github.com/btcsuite/btcwallet/wallet/txrules"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/lnwallet"
 )
 
 var (

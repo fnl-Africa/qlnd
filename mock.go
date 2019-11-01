@@ -13,10 +13,10 @@ import (
 	"github.com/qtumproject/qtumsuite"
 	"github.com/btcsuite/btcwallet/wallet/txauthor"
 
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/input"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnwallet"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/input"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnwallet"
 )
 
 // The block height returned by the mock BlockChainIO's GetBestBlock.

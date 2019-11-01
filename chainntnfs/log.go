@@ -2,7 +2,7 @@ package chainntnfs
 
 import (
 	"github.com/btcsuite/btclog"
-	"github.com/qtumproject/lnd/build"
+	"github.com/qtumproject/qlnd/build"
 )
 
 // Log is a logger that is initialized with no output filters.  This

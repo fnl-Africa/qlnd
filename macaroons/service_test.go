@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	"github.com/coreos/bbolt"
-	"github.com/qtumproject/lnd/macaroons"
+	"github.com/qtumproject/qlnd/macaroons"
 	"google.golang.org/grpc/metadata"
 	"gopkg.in/macaroon-bakery.v2/bakery"
 	"gopkg.in/macaroon-bakery.v2/bakery/checkers"

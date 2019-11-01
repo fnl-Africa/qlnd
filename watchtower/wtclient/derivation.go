@@ -2,7 +2,7 @@ package wtclient
 
 import (
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/qtumproject/lnd/keychain"
+	"github.com/qtumproject/qlnd/keychain"
 )
 
 // DeriveSessionKey accepts an session key index for an existing session and

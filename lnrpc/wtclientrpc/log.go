@@ -2,7 +2,7 @@ package wtclientrpc
 
 import (
 	"github.com/btcsuite/btclog"
-	"github.com/qtumproject/lnd/build"
+	"github.com/qtumproject/qlnd/build"
 )
 
 // Subsystem defines the logging code for this subsystem.

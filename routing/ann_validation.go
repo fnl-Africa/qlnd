@@ -9,7 +9,7 @@ import (
 	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/go-errors/errors"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // ValidateChannelAnn validates the channel announcement message and checks

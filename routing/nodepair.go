@@ -3,7 +3,7 @@ package routing
 import (
 	"fmt"
 
-	"github.com/qtumproject/lnd/routing/route"
+	"github.com/qtumproject/qlnd/routing/route"
 )
 
 // DirectedNodePair stores a directed pair of nodes.

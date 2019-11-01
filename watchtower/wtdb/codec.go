@@ -3,10 +3,10 @@ package wtdb
 import (
 	"io"
 
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/watchtower/blob"
-	"github.com/qtumproject/lnd/watchtower/wtpolicy"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/watchtower/blob"
+	"github.com/qtumproject/qlnd/watchtower/wtpolicy"
 )
 
 // UnknownElementType is an alias for channeldb.UnknownElementType.

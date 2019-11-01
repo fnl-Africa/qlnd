@@ -3,7 +3,7 @@ package route
 import (
 	"testing"
 
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // TestRouteTotalFees checks that a route reports the expected total fee.

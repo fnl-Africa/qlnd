@@ -8,9 +8,9 @@ import (
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/autopilot"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/tor"
+	"github.com/qtumproject/qlnd/autopilot"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/tor"
 )
 
 // validateAtplConfig is a helper method that makes sure the passed

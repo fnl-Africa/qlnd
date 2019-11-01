@@ -7,7 +7,7 @@ import (
 	"errors"
 	fmt "fmt"
 
-	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/qlnd/lnrpc"
 	"google.golang.org/grpc"
 	"gopkg.in/macaroon-bakery.v2/bakery"
 )

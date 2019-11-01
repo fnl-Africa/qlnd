@@ -11,7 +11,7 @@ import (
 	"github.com/qtumproject/qtumsuite/chaincfg"
 	"github.com/qtumproject/qtumsuite"
 	"github.com/qtumproject/qtumsuite/bech32"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // TestDecodeAmount ensures that the amount string in the hrp of the Invoice

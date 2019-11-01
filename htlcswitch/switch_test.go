@@ -12,10 +12,10 @@ import (
 	"github.com/qtumproject/qtumsuite"
 	"github.com/btcsuite/fastsha256"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/lntypes"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/ticker"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/lntypes"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/ticker"
 )
 
 func genPreimage() ([32]byte, error) {

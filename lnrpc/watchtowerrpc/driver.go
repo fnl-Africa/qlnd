@@ -5,7 +5,7 @@ package watchtowerrpc
 import (
 	"fmt"
 
-	"github.com/qtumproject/lnd/lnrpc"
+	"github.com/qtumproject/qlnd/lnrpc"
 )
 
 // createNewSubServer is a helper method that will create the new sub server

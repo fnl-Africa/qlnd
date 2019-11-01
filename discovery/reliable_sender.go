@@ -3,8 +3,8 @@ package discovery
 import (
 	"sync"
 
-	"github.com/qtumproject/lnd/lnpeer"
-	"github.com/qtumproject/lnd/lnwire"
+	"github.com/qtumproject/qlnd/lnpeer"
+	"github.com/qtumproject/qlnd/lnwire"
 )
 
 // reliableSenderCfg contains all of necessary items for the reliableSender to

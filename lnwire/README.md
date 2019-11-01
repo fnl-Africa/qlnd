@@ -2,8 +2,8 @@ lnwire
 ======
 
 [![Build Status](http://img.shields.io/travis/lightningnetwork/lnd.svg)](https://travis-ci.org/lightningnetwork/lnd) 
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/qtumproject/lnd/blob/master/LICENSE)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/qtumproject/lnd/lnwire)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/qtumproject/qlnd/blob/master/LICENSE)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/qtumproject/qlnd/lnwire)
 
 The lnwire package implements the Lightning Network wire protocol.
 
@@ -14,5 +14,5 @@ protocol level.
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/qtumproject/lnd/lnwire
+$ go get -u github.com/qtumproject/qlnd/lnwire
 ```

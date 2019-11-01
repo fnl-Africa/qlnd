@@ -10,11 +10,11 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/lightningnetwork/lnd"
-	"github.com/qtumproject/lnd/lnrpc"
-	"github.com/qtumproject/lnd/lnrpc/invoicesrpc"
-	"github.com/qtumproject/lnd/lntest"
-	"github.com/qtumproject/lnd/lntest/wait"
-	"github.com/qtumproject/lnd/lntypes"
+	"github.com/qtumproject/qlnd/lnrpc"
+	"github.com/qtumproject/qlnd/lnrpc/invoicesrpc"
+	"github.com/qtumproject/qlnd/lntest"
+	"github.com/qtumproject/qlnd/lntest/wait"
+	"github.com/qtumproject/qlnd/lntypes"
 )
 
 // testMultiHopHtlcRemoteChainClaim tests that in the multi-hop HTLC scenario,

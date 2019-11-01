@@ -7,9 +7,9 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 	sphinx "github.com/lightningnetwork/lightning-onion"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/record"
-	"github.com/qtumproject/lnd/tlv"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/record"
+	"github.com/qtumproject/qlnd/tlv"
 )
 
 // TestSphinxHopIteratorForwardingInstructions tests that we're able to

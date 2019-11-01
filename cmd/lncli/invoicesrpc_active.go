@@ -9,7 +9,7 @@ import (
 
 	"strconv"
 
-	"github.com/qtumproject/lnd/lnrpc/invoicesrpc"
+	"github.com/qtumproject/qlnd/lnrpc/invoicesrpc"
 	"github.com/urfave/cli"
 )
 

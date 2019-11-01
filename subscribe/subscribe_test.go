@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/qtumproject/lnd/subscribe"
+	"github.com/qtumproject/qlnd/subscribe"
 )
 
 // TestSubscribe tests that the subscription clients receive the updates sent

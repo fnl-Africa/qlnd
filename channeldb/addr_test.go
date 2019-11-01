@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/qtumproject/lnd/tor"
+	"github.com/qtumproject/qlnd/tor"
 )
 
 type unknownAddrType struct{}

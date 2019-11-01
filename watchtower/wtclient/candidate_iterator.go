@@ -5,7 +5,7 @@ import (
 	"net"
 	"sync"
 
-	"github.com/qtumproject/lnd/watchtower/wtdb"
+	"github.com/qtumproject/qlnd/watchtower/wtdb"
 )
 
 // TowerCandidateIterator provides an abstraction for iterating through possible

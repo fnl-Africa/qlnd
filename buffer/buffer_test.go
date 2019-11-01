@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/qtumproject/lnd/buffer"
+	"github.com/qtumproject/qlnd/buffer"
 )
 
 // TestRecycleSlice asserts that RecycleSlice always zeros a byte slice.

@@ -3,10 +3,10 @@
 package walletrpc
 
 import (
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnwallet"
-	"github.com/qtumproject/lnd/macaroons"
-	"github.com/qtumproject/lnd/sweep"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnwallet"
+	"github.com/qtumproject/qlnd/macaroons"
+	"github.com/qtumproject/qlnd/sweep"
 )
 
 // Config is the primary configuration struct for the WalletKit RPC server. It

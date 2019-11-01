@@ -5,9 +5,9 @@ import (
 	"fmt"
 
 	"github.com/qtumproject/qtumsuite/chaincfg"
-	"github.com/qtumproject/lnd/channeldb"
-	"github.com/qtumproject/lnd/lnrpc"
-	"github.com/qtumproject/lnd/zpay32"
+	"github.com/qtumproject/qlnd/channeldb"
+	"github.com/qtumproject/qlnd/lnrpc"
+	"github.com/qtumproject/qlnd/zpay32"
 )
 
 // CreateRPCInvoice creates an *lnrpc.Invoice from the *channeldb.Invoice.

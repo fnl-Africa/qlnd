@@ -10,9 +10,9 @@ import (
 	"github.com/qtumproject/qtumsuite/chaincfg/chainhash"
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
-	"github.com/qtumproject/lnd/keychain"
-	"github.com/qtumproject/lnd/lnwire"
-	"github.com/qtumproject/lnd/shachain"
+	"github.com/qtumproject/qlnd/keychain"
+	"github.com/qtumproject/qlnd/lnwire"
+	"github.com/qtumproject/qlnd/shachain"
 )
 
 // writeOutpoint writes an outpoint to the passed writer using the minimal

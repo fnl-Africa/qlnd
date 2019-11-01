@@ -19,7 +19,7 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/qtumproject/lnd/tor"
+	"github.com/qtumproject/qlnd/tor"
 )
 
 var (

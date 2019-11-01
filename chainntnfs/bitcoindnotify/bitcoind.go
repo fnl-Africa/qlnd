@@ -13,8 +13,8 @@ import (
 	"github.com/qtumproject/qtumsuite/wire"
 	"github.com/qtumproject/qtumsuite"
 	"github.com/btcsuite/btcwallet/chain"
-	"github.com/qtumproject/lnd/chainntnfs"
-	"github.com/qtumproject/lnd/queue"
+	"github.com/qtumproject/qlnd/chainntnfs"
+	"github.com/qtumproject/qlnd/queue"
 )
 
 const (

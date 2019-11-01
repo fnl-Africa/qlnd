@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/qtumproject/lnd/htlcswitch/hop"
-	"github.com/qtumproject/lnd/record"
+	"github.com/qtumproject/qlnd/htlcswitch/hop"
+	"github.com/qtumproject/qlnd/record"
 )
 
 type decodePayloadTest struct {
